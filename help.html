@@ -9,9 +9,9 @@
 </ol>
 <p>“这段合适 / 需要调整”是在评价译文，选好再点“确认反馈”；“纠正译法”才是明确保存某个词怎么翻。评价不会自动重译。</p>
 <h2>从连接开始</h2>
-<p>点击工具栏的知我图标，再点齿轮进入设置。选择厂商，填写模型 ID、服务地址和对应 Key。支持 OpenAI、Google、Anthropic、Moonshot、Zhipu、ByteDance、DeepSeek、Alibaba Cloud、xAI 和公司兼容网关；模型预设可编辑，不代表你的账号一定拥有访问权限。公司网关须支持 OpenAI Chat Completions。不要把 Jev 填进翻译模型框。</p>
+<p>点击工具栏的知我图标，再点齿轮进入设置。选择厂商，填写模型 ID、服务地址和对应 Key。支持 OpenAI、Google、Anthropic、Moonshot、Zhipu、ByteDance、DeepSeek、Alibaba Cloud、xAI 和公司兼容网关；模型预设可编辑，不代表你的账号一定拥有访问权限。公司网关须支持 OpenAI Chat Completions。</p>
 <p>点击“保存并测试连接”可保存配置，并发送一次固定的 Hello 翻译请求。最多等待 20 秒，可停止；不发送原文历史、个人术语或自定义提示，不增加翻译记忆或学习记录。成功只说明当前请求得到完整文本回复，不认证翻译质量。模型服务可能收费。普通“保存设置”和回车保存不会自动测试。</p>
-<p>切换厂商或服务地址需使用相应 Key，不带出旧服务的 Key。连接与记忆在当前浏览器加密保存，无开发者账号。首次设置本机口令；浏览器重启或扩展更新后解锁一次。请记住这个口令，忘记后无法恢复加密记忆。升级时沿用原安装目录，重新加载扩展后刷新已打开的阅读网页。</p>
+<p>切换厂商或服务地址需使用相应 Key，不带出旧服务的 Key。Key、设置和记忆普通保存在本机浏览器的扩展存储，不同步到 Google 账号，不发给开发者。首次使用选择厂商、填写模型与 Key，点击“保存并测试连接”即可；重启后直接使用。升级时沿用原安装目录，重新加载扩展后刷新已打开的阅读网页。</p>
 <h2>划词、快捷键与窗口</h2>
 <ul>
 <li>网页选中文字，点击小“译”按钮；设置可改为直接翻译、双击或按住修饰键触发。</li>
@@ -55,15 +55,16 @@
 <p>手动记忆是默认方式。需要试用核对时，先保存连接与翻译设置，点“检查当前模型 · 2 次请求”；通过后选择有限学习并保存。检查只验证两条合成文本中的术语、数字、代码，不认证完整语义质量，不要求特定模型规模或工具能力。</p>
 <p>每次最多附加 2 条术语、其中最多 1 条试用，共享 512 字节偏好上限。最多 3 条并行试用，每条最多 5 个不同后续原文；3 次通过保留，连续 2 次失败或预算耗尽则暂停。缓存、重复段落和原始纠正样本不计证据。这些核对在本机完成，不增加翻译调用。</p>
 <p>模型检查每条最多 4,096 输入字节、请求 1,024 输出 token、15 秒超时；每 24 小时最多三轮，至少间隔一分钟。检查有效 30 天，相关配置变化后失效。通过不自动启用学习；手动模式不应用试用项。</p>
-<h2>关联阅读与可选 Jev</h2>
+<h2>Markdown 智能转录</h2>
+<p>“阅读习惯”中默认开启，译文按 Markdown 渲染。关闭后，标记、换行、缩进、链接地址、代码块和行内代码由本机原样保留，仅把其间的文字片段交给模型翻译；结果按等宽源码显示，复制保留标记。纯代码无需调用模型。两种模式独立缓存，历史记录保留生成时的显示模式。</p>
+<p>源码模式仍只发一次翻译请求，使用有序片段返回格式；可能比整段翻译多一些结构字段。会逐步展示完成的片段，模型未遵守结构时提示失败，不自动重试、不把错误结果写入缓存。残缺 Markdown 保守保留，不补齐原文结构。</p>
+<h2>关联阅读</h2>
 <p>共同术语、代码、文献标识，或明确领域内的共同短语，可以形成历史关联。只有有内容时显示入口；展开后是“当前译文 → 关联依据 → 历史片段”，最多三条。单个模糊词不构成联系。点击阅读不请求模型，“不相关”可隐藏这对联系。它不是因果关系，也不会自动把历史译文加入当前提示。</p>
-<p>Jev 核对默认关闭，需独立 GLINK Key 与 generic 地址（默认 matrixcube.alipay.com/v1/genericCall）。固定模型 jev-1-13、方法 /decisions，不复用翻译 Key。主动点击才核对一条待确认建议，或另行启用译文后关联核对、一次最多三项。总输入最多 8 KiB、3 秒、每 24 小时共三次，失败或停止也计数，无自动重试；相同关联结论复用 24 小时。</p>
-<p>Jev 只返回支持、不匹配或依据不足，不改变译文、偏好或关联，支持也需你确认。现有评测不足以证明普遍提高翻译质量，因此保持实验性可选功能，不加入普通翻译的等待流程。</p>
 <h2>常见问题</h2>
 <p>快捷键无响应：查看实际浏览器快捷键及其他扩展冲突，检查启用划词、网站权限和页面刷新。界面与后台版本不一致时按提示重新加载。</p>
 <p>HTTP 429：按服务返回信息区分频率限制与额度不足；有 Retry-After 时显示等待。仅凭状态码不能判断具体原因。等待结束只恢复手动操作，不自动发送。</p>
 <p>翻译慢：界面显示服务已经返回的文字，网络等待与模型生成需分别判断。普通翻译最多 90 秒，可主动停止。不要把一次网络测试视为网关整体速度结论。</p>
-<p>界面默认中文，可在设置改为 English 或跟随浏览器；不改变原文、模型输出或个人术语。KnowMe 是独立项目，非 Saladict 或 Google 官方产品。应用代码独立实现，依赖许可随扩展提供。</p>
+<p>界面默认中文，可在设置改为 English 或跟随浏览器；不改变原文、模型输出或个人术语。KnowMe 是独立项目，并非模型厂商官方产品。应用代码独立实现，依赖许可随扩展提供。</p>
 <hr>
 <h1 id="english" lang="en">KnowMe AI Translate · 2.4</h1>
 <p>A personal translation reader for Chrome 116+, using your own model key or an authorized company gateway.</p>
@@ -71,7 +72,7 @@
 <p>First install offers a skippable guide: translate, explicitly save one term, then inspect its actual use in a new passage. Reopen it from Settings. This uses your configured model and provider quota. A rating saves your evaluation only; a correction saves specific wording for later use.</p>
 <h2>Connect and read</h2>
 <p>Open the toolbar icon, then Settings. Choose OpenAI, Google, Anthropic, Moonshot, Zhipu, ByteDance, DeepSeek, Alibaba Cloud, xAI or an OpenAI-compatible company gateway. Presets are editable; availability depends on your account. A new provider or endpoint requires its own key.</p>
-<p>Set a local passphrase to encrypt saved keys and translation memory. It is separate from your Google password and is never sent to a service. Unlock once after restarting the browser or updating the extension. A webpage panel opens an extension window for unlock; it never asks for the passphrase inside the webpage. Forgotten passphrases cannot recover encrypted memory. Existing local installations should keep the same extension directory and ID when reloading.</p>
+<p>Choose a provider, enter its model and API key, then click Save and test connection. Keys, settings and memory stay in ordinary local extension storage without Google-account sync or transmission to the developer. Browser restarts need no extra step. Keep the same extension directory and ID when updating an existing installation.</p>
 <p>Save &amp; test connection saves your settings and sends one fixed Hello translation, with a 20-second timeout and a Stop button. It sends no history, personal terms or custom instructions and creates no memory or learning record. A pass means a complete text response, not translation-quality certification. Ordinary Save and Enter do not run a test. Provider charges may apply.</p>
 <p>Select text and use the small translate button, configured page shortcut or context menu. Cmd+D / Ctrl+D translates a page selection; with no selection it is left to the browser's bookmark command. With Alt+D or Cmd+Shift+Y as the page shortcut, no selection opens the reader and reads the clipboard once only if permission already exists. Use Paste &amp; translate for the first permission request. Inside the reader, the current draft has priority. There is no background clipboard monitoring.</p>
 <p>Edit the visible source and press Translate or Cmd+Enter / Ctrl+Enter; typing alone sends nothing. Native browser shortcuts are shown in Settings. Assign Open reader, not Activate extension, and resolve competing extension shortcuts in Chrome. Refresh reading pages after an extension reload. Password fields and code editors retain their page shortcuts.</p>
@@ -91,12 +92,14 @@
 <p>After three distinct feedback passages in the same language, style and domain, including two positive or corrected examples, Find suggestions makes one model request. It may propose short term pairs or preset style choices with at least two supporting excerpts. Review and confirm before later translations use it. An empty result is valid.</p>
 <p>Automatic suggestions are off by default. Manual and automatic runs share one attempt per connection per 24 hours: at most six excerpts, 8 KiB input, 1,024 requested output tokens and 20 seconds, without retries. Failed, stopped or empty runs count and may be billed. New translations cancel suggestion work. Feedback is limited to 60 passages / 90 days. Deleting it removes dependent proposals and evidence; confirmed terms remain separately manageable. Changing account or service disables automatic suggestions.</p>
 <p>This adapts bounded preferences, not model weights, code, keys or permissions. It does not guarantee better translation quality.</p>
+<h2>Smart Markdown formatting</h2>
+<p>Enabled by default in Reading habits. Turn it off to retain source markers, line breaks, indentation, link destinations, fenced code and inline code locally. Only prose fragments are translated. Results display and copy as monospaced source. Code-only input requires no model request. Each mode has a separate cache; saved results retain their original display mode.</p>
+<p>Source mode uses one translation request with an ordered-fragment response, adding some structural tokens. Completed fragments appear progressively. Invalid structure produces an error without retrying or caching the invalid response. Incomplete markup is retained conservatively.</p>
 <h2>Optional checks and related reading</h2>
 <p>Advanced term trials require an explicit two-request model check and separate opt-in. Each check uses synthetic text, at most 4,096 input bytes and 1,024 requested output tokens per request, with a 15-second timeout; at most three checks per 24 hours, one minute apart. A pass lasts 30 days unless relevant settings change. It checks terms, numbers and code, not complete semantic quality.</p>
 <p>At most three trials run, five distinct later passages per trial. Three local passes retain a term; two consecutive failures or exhaustion pause it. Each translation includes at most two terms, at most one trial, within the shared 512-byte budget. Original correction examples, duplicates and cache hits do not count. These local checks add no generation requests.</p>
 <p>Related reading uses shared terms, code, citations or domain-supported phrases. Expand up to three links through their actual evidence. Reading links makes no model calls and does not inject history into translation prompts. Dismiss unrelated pairs or turn it off.</p>
-<p>Jev is experimental, off by default, and needs its own GLINK generic key and endpoint. It uses jev-1-13 with /decisions, not Chat Completions. Click to review one pending suggestion, or opt into post-translation checks of up to three connections. Combined limits: 8 KiB input, three seconds, three attempts per 24 hours including failures, no retries. Identical connection checks reuse a 24-hour result. Findings never rewrite output or accept memory automatically. Existing evaluation does not establish a general translation-quality benefit; Jev is not added to ordinary translation latency.</p>
 <h2>Problems and control</h2>
 <p>HTTP 429 may mean a rate limit or exhausted quota; use the service's error details and Retry-After. Expiry of a wait enables a manual retry only. Ordinary translation times out after 90 seconds. Network delay and generation speed are separate measurements.</p>
-<p>The UI defaults to Chinese with English and browser-language options. Themes follow the system unless specified. KnowMe is independent from Google and Saladict; third-party licenses ship with the extension.</p>
-</main><footer>知我AI翻译 2.4.1 · 发布者 ZhuoCs</footer></body></html>
+<p>The UI defaults to Chinese with English and browser-language options. Themes follow the system unless specified. KnowMe is independent from model providers; third-party licenses ship with the extension.</p>
+</main><footer>知我AI翻译 2.4.2 · 发布者 ZhuoCs</footer></body></html>
