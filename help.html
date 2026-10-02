@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>知我AI翻译 · 使用说明</title><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="site.css"></head><body><header><a href="index.html">知我AI翻译</a><a href="help.html">使用说明</a><a href="privacy.html">隐私说明</a><a href="#english" lang="en">English</a></header><main><h1>知我AI翻译 · 2.4</h1>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>知我AI翻译 · 使用说明</title><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="site.css"></head><body><header><a href="index.html">知我AI翻译</a><a href="help.html">使用说明</a><a href="privacy.html">隐私说明</a><a href="#english" lang="en">English</a></header><main><h1>知我AI翻译 · 2.5.0</h1>
 <p>记住你的专业译法，让下一段更合你的习惯。需要 Chrome 116 或更新版本，使用你自己的模型 Key 或获准使用的公司服务。</p>
 <h2>三步快速入门</h2>
 <p>首次安装可选“开始真实体验”，也可“直接使用”跳过。以后在设置底部点“快速入门”重开。</p>
@@ -9,9 +9,9 @@
 </ol>
 <p>“这段合适 / 需要调整”是在评价译文，选好再点“确认反馈”；“纠正译法”才是明确保存某个词怎么翻。评价不会自动重译。</p>
 <h2>从连接开始</h2>
-<p>点击工具栏的知我图标，再点齿轮进入设置。选择厂商，填写模型 ID、服务地址和对应 Key。支持 OpenAI、Google、Anthropic、Moonshot、Zhipu、ByteDance、DeepSeek、Alibaba Cloud、xAI 和公司兼容网关；模型预设可编辑，不代表你的账号一定拥有访问权限。公司网关须支持 OpenAI Chat Completions。</p>
+<p>点击工具栏的知我图标，再点齿轮进入设置。选择厂商，粘贴对应 API Key；官方地址和推荐模型已预置，自定义网关等可在“连接选项”中调整。支持 OpenAI、Google、Anthropic、Moonshot、Zhipu、ByteDance、DeepSeek、Alibaba Cloud、xAI 和公司兼容网关；模型预设可编辑，不代表你的账号一定拥有访问权限。公司网关须支持 OpenAI Chat Completions。</p>
 <p>点击“保存并测试连接”可保存配置，并发送一次固定的 Hello 翻译请求。最多等待 20 秒，可停止；不发送原文历史、个人术语或自定义提示，不增加翻译记忆或学习记录。成功只说明当前请求得到完整文本回复，不认证翻译质量。模型服务可能收费。普通“保存设置”和回车保存不会自动测试。</p>
-<p>切换厂商或服务地址需使用相应 Key，不带出旧服务的 Key。Key、设置和记忆普通保存在本机浏览器的扩展存储，不同步到 Google 账号，不发给开发者。首次使用选择厂商、填写模型与 Key，点击“保存并测试连接”即可；重启后直接使用。升级时沿用原安装目录，重新加载扩展后刷新已打开的阅读网页。</p>
+<p>切换厂商或服务地址需使用相应 Key，不带出旧服务的 Key。Key、设置和记忆普通保存在本机浏览器的扩展存储，不同步到 Google 账号，不发给开发者。首次使用选择厂商、粘贴 Key，点击“保存并测试连接”即可；重启后直接使用。升级时沿用原安装目录，重新加载扩展后刷新已打开的阅读网页。</p>
 <h2>划词、快捷键与窗口</h2>
 <ul>
 <li>网页选中文字，点击小“译”按钮；设置可改为直接翻译、双击或按住修饰键触发。</li>
@@ -66,13 +66,13 @@
 <p>翻译慢：界面显示服务已经返回的文字，网络等待与模型生成需分别判断。普通翻译最多 90 秒，可主动停止。不要把一次网络测试视为网关整体速度结论。</p>
 <p>界面默认中文，可在设置改为 English 或跟随浏览器；不改变原文、模型输出或个人术语。KnowMe 是独立项目，并非模型厂商官方产品。应用代码独立实现，依赖许可随扩展提供。</p>
 <hr>
-<h1 id="english" lang="en">KnowMe AI Translate · 2.4</h1>
+<h1 id="english" lang="en">KnowMe AI Translate · 2.5.0</h1>
 <p>A personal translation reader for Chrome 116+, using your own model key or an authorized company gateway.</p>
 <h2>Optional quick start</h2>
 <p>First install offers a skippable guide: translate, explicitly save one term, then inspect its actual use in a new passage. Reopen it from Settings. This uses your configured model and provider quota. A rating saves your evaluation only; a correction saves specific wording for later use.</p>
 <h2>Connect and read</h2>
 <p>Open the toolbar icon, then Settings. Choose OpenAI, Google, Anthropic, Moonshot, Zhipu, ByteDance, DeepSeek, Alibaba Cloud, xAI or an OpenAI-compatible company gateway. Presets are editable; availability depends on your account. A new provider or endpoint requires its own key.</p>
-<p>Choose a provider, enter its model and API key, then click Save and test connection. Keys, settings and memory stay in ordinary local extension storage without Google-account sync or transmission to the developer. Browser restarts need no extra step. Keep the same extension directory and ID when updating an existing installation.</p>
+<p>Choose a provider and paste its API key, then click Save and test connection. The official endpoint and recommended model are prefilled; use Connection options for overrides. Keys, settings and memory stay in ordinary local extension storage without Google-account sync or transmission to the developer. Browser restarts need no extra step. Keep the same extension directory and ID when updating an existing installation.</p>
 <p>Save &amp; test connection saves your settings and sends one fixed Hello translation, with a 20-second timeout and a Stop button. It sends no history, personal terms or custom instructions and creates no memory or learning record. A pass means a complete text response, not translation-quality certification. Ordinary Save and Enter do not run a test. Provider charges may apply.</p>
 <p>Select text and use the small translate button, configured page shortcut or context menu. Cmd+D / Ctrl+D translates a page selection; with no selection it is left to the browser's bookmark command. With Alt+D or Cmd+Shift+Y as the page shortcut, no selection opens the reader and reads the clipboard once only if permission already exists. Use Paste &amp; translate for the first permission request. Inside the reader, the current draft has priority. There is no background clipboard monitoring.</p>
 <p>Edit the visible source and press Translate or Cmd+Enter / Ctrl+Enter; typing alone sends nothing. Native browser shortcuts are shown in Settings. Assign Open reader, not Activate extension, and resolve competing extension shortcuts in Chrome. Refresh reading pages after an extension reload. Password fields and code editors retain their page shortcuts.</p>
