@@ -64,7 +64,7 @@
 <p>快捷键无响应：查看实际浏览器快捷键及其他扩展冲突，检查启用划词、网站权限和页面刷新。界面与后台版本不一致时按提示重新加载。</p>
 <p>HTTP 429：按服务返回信息区分频率限制与额度不足；有 Retry-After 时显示等待。仅凭状态码不能判断具体原因。等待结束只恢复手动操作，不自动发送。</p>
 <p>翻译慢：界面显示服务已经返回的文字，网络等待与模型生成需分别判断。普通翻译最多 90 秒，可主动停止。不要把一次网络测试视为网关整体速度结论。</p>
-<p>界面默认中文，可在设置改为 English 或跟随浏览器；不改变原文、模型输出或个人术语。KnowMe 是独立项目，并非模型厂商官方产品。应用代码独立实现，依赖许可随扩展提供。</p>
+<p>界面语言默认跟随浏览器（中文环境显示中文，其他显示 English），也可在设置中固定为中文或 English；不改变原文、模型输出或个人术语。KnowMe 是独立项目，并非模型厂商官方产品。应用代码独立实现，依赖许可随扩展提供。</p>
 <hr>
 <h1 id="english" lang="en">KnowMe AI Translate · 1.0</h1>
 <p>A personal translation reader for Chrome 116+, using your own model key or an authorized company gateway.</p>
@@ -101,7 +101,7 @@
 <p>Related reading uses shared terms, code, citations or domain-supported phrases. Expand up to three links through their actual evidence. Reading links makes no model calls and does not inject history into translation prompts. Dismiss unrelated pairs or turn it off.</p>
 <h2>Problems and control</h2>
 <p>HTTP 429 may mean a rate limit or exhausted quota; use the service's error details and Retry-After. Expiry of a wait enables a manual retry only. Ordinary translation times out after 90 seconds. Network delay and generation speed are separate measurements.</p>
-<p>The UI defaults to Chinese with English and browser-language options. Themes follow the system unless specified. KnowMe is independent from model providers; third-party licenses ship with the extension.</p>
+<p>The interface follows the browser language by default (Chinese in Chinese browsers, otherwise English) and can be fixed to either in Settings. Themes follow the system unless specified. KnowMe is independent from model providers; third-party licenses ship with the extension.</p>
 <h2>更少配置，清楚的记忆反馈</h2>
 <p>选择厂商、粘贴 API Key 后，点击“保存并测试连接”。官方地址与推荐模型已填好；自定义网关、其他模型和地域地址仍可在“连接选项”修改。推荐不代表账号必有权限。默认自动中英互译。</p>
 <p>译文顶部“本次沿用 N 条译法”只统计请求带入且实际出现在正文中的个人词语；悬停下划线查看来源、保存时间和领域。模型自行给出相同译法不算记忆沿用。</p>
