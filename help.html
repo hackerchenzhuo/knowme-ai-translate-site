@@ -1,17 +1,28 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>知我AI翻译 · 使用说明</title><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="site.css"></head><body><header><a href="index.html">知我AI翻译</a><a href="help.html">使用说明</a><a href="privacy.html">隐私说明</a><a href="#english" lang="en">English</a></header><main><h1>知我AI翻译 · 1.0</h1>
-<p>记住你的专业译法，让下一段更合你的习惯。需要 Chrome 116 或更新版本，使用你自己的模型 Key 或获准使用的公司服务。</p>
-<h2>三步快速入门</h2>
-<p>首次安装可选“开始真实体验”，也可“直接使用”跳过。以后在设置底部点“快速入门”重开。</p>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>知我AI翻译 · 使用说明</title><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="site.css"></head><body><header><a href="index.html">知我AI翻译</a><a href="help.html">使用说明</a><a href="privacy.html">隐私说明</a><a href="#english" lang="en">English</a></header><main><h1>知我AI翻译 · 1.0.2</h1>
+<p>记住你的专业译法，让下一段更合你的习惯。需要 Chrome 116 或更新版本，使用你自己的模型 Key 或获准使用的兼容服务。</p>
+<h2>首次配置与快速入门</h2>
+<p>首次安装会自动打开快速设置。先点「一键开启常用功能」，在浏览器的一次请求中确认网页访问和剪贴板读取；随后自动启用划词“译”按钮、Markdown 排版，并在已有翻译窗口继续阅读。授权这一步不读取剪贴板，也不发起翻译。</p>
+<p>已经完整授权的用户更新时不会再弹引导。缺少权限的旧用户会收到一次集中提醒；拒绝或跳过后不自动重试。仍可展开「查看状态或分别设置」手动调整。</p>
+<p>模型需要自己的 API Key：有连接模板时，进入设置并导入模板，核对服务地址后填写 Key、保存；无需逐项输入地址和型号。模板不含 Key，导入不会自动保存或发请求。已有连接仍可用下拉栏复用。</p>
+<p>也可以从窗口顶部或设置底部重新进入快速入门。展开「查看状态或分别设置」可检查四项真实状态，并按需单独调整：</p>
 <ol>
-<li>翻译示例：使用你配置的模型，消耗正常额度。</li>
-<li>纠正一个词：确认原词、偏好译法和领域，点击“仅记住”。</li>
-<li>翻译下一句：实际沿用时，点带下划线的词查看来源；再用不同语境检查适用范围。</li>
+<li>模型连接：选择服务、填写自己的 Key，保存并测试。界面的“已配置”表示连接已保存，实际可用性仍需测试。</li>
+<li>浏览器快捷键：显示“打开知我翻译窗口”的实际绑定；点击“设置快捷键”进入浏览器管理页。默认 Mac ⌘⇧Y / Windows Alt+Shift+Y，可自行修改。扩展不会自动替你绑定 ⌘D 或修改其他快捷键。</li>
+<li>剪贴板：一键设置后已开启，也可单独点“允许读取剪贴板”。此按钮只申请权限，不读取内容或调用模型。以后复制文字再按快捷键，即可读取一次并翻译。</li>
+<li>网页划词：一键设置后已开启，也可单独调整。普通网页会尝试立即接入；旧网页如还没有“译”按钮，刷新一次即可。浏览器内部页面和网上应用店不支持注入，需改用复制翻译。</li>
 </ol>
-<p>“这段合适 / 需要调整”是在评价译文，选好再点“确认反馈”；“纠正译法”才是明确保存某个词怎么翻。评价不会自动重译。</p>
+<p>之后可选“开始真实体验”：翻译示例 → 显式保存一个领域译法 → 在下一段核对实际沿用与来源。教程使用自己的模型额度，可以随时跳过。“这段合适 / 需要调整”是评价；“纠正译法”才会明确保存词语。复制不等于认可。</p>
 <h2>从连接开始</h2>
-<p>点击工具栏的知我图标，再点齿轮进入设置。选择厂商，粘贴对应 API Key；官方地址和推荐模型已预置，自定义网关等可在“连接选项”中调整。支持 OpenAI、Google、Anthropic、Moonshot、Zhipu、ByteDance、DeepSeek、Alibaba Cloud、xAI 和公司兼容网关；模型预设可编辑，不代表你的账号一定拥有访问权限。公司网关须支持 OpenAI Chat Completions。</p>
+<p>点击工具栏的知我图标，再点齿轮进入设置。选择厂商，粘贴对应 API Key；官方地址和推荐模型已预置，自定义网关等可在“连接选项”中调整。支持 OpenAI、Google、Anthropic、Moonshot、Zhipu、ByteDance、DeepSeek、Alibaba Cloud、xAI 和自定义兼容网关；模型预设可编辑，不代表你的账号一定拥有访问权限。兼容网关须支持 OpenAI Chat Completions。</p>
 <p>点击“保存并测试连接”可保存配置，并发送一次固定的 Hello 翻译请求。最多等待 20 秒，可停止；不发送原文历史、个人术语或自定义提示，不增加翻译记忆或学习记录。成功只说明当前请求得到完整文本回复，不认证翻译质量。模型服务可能收费。普通“保存设置”和回车保存不会自动测试。</p>
 <p>切换厂商或服务地址需使用相应 Key，不带出旧服务的 Key。Key、设置和记忆普通保存在本机浏览器的扩展存储，不同步到 Google 账号，不发给开发者。首次使用选择厂商、粘贴 Key，点击“保存并测试连接”即可；重启后直接使用。升级时沿用原安装目录，重新加载扩展后刷新已打开的阅读网页。</p>
+<p>设置顶部的“已保存连接”下拉栏可以复用之前的接口、地址、模型和对应 Key。可填写一个便于区分的连接名称；选择后只填入连接字段，阅读习惯不变，点击“保存设置”才切换生效。Key 不回填明文，留空复用所选连接的 Key。保存新的地址或模型会保留旧连接；相同接口、地址和模型再次保存会更新原条目。更换服务地址或接口后，需要填写相应 Key。可删除不再使用的保存项，译文缓存和个人译法保留。</p>
+<h2>模型候选与来源</h2>
+<p>兼容网关的「连接选项」中可填写模型目录页面，地址和连接名称仅保存在本机。先登录目录并保存连接；打开设置或选择这条已保存连接时会自动读取候选，也可点击「获取模型列表」刷新。只使用已保存的 Key，未保存的新 Key 不发起请求。</p>
+<p>配置目录后，候选包含全部非试运行的文本型号和支持文本对话的多模态型号，不再按轻量名称限制。图片生成、语音、视频、向量、重排等与当前文本请求不兼容的专用类型仍排除。列表按名称和数值版本降序排列，例如同系列的 5.10、5.3、5.2 依次相邻。接口中出现的型号标记「接口已列出」，其余目录型号保留并标记「待验证」；接口未列出不能证明没有调用权限，接口已列出也不等于实际请求一定成功。连接测试用于确认所选型号当前能否调用。</p>
+<p>目录没有加载完整或登录失效时会说明情况。未配置目录时，仍推荐 Flash、Luna、Mini、Nano、Lite、Haiku 等轻量文本系列；模型接口本身可能不提供试运行标记。目录列表在本机缓存最多 1 小时，主动刷新可立即重新读取。</p>
+<p>刷新候选不会替换当前模型。选择候选后保存生效，也可以继续手动填写。部分厂商没有预置轻量型号，保留手动填写入口。目录样式变化可能影响自动读取。</p>
+<p>译文上方显示本次使用的服务、连接名称或域名前缀，以及完整模型 ID。历史译文使用当时记录的模型；旧记录缺少该信息时显示「模型未记录」。</p>
 <h2>划词、快捷键与窗口</h2>
 <ul>
 <li>网页选中文字，点击小“译”按钮；设置可改为直接翻译、双击或按住修饰键触发。</li>
@@ -23,7 +34,7 @@
 <li>可设置连按三次 Cmd / Ctrl，以及将新选区送入已打开的独立窗口。</li>
 </ul>
 <p>网页浮窗可拖标题栏、固定、拖四边或四角缩放；位置与尺寸在松手后保存。Esc 先收起打开的操作菜单，再关闭未固定的浮窗。独立窗口使用浏览器原生拖动与缩放。工具栏弹窗由 Chrome 定位，需要自由移动时点 ↗。</p>
-<p>网页快捷键需要启用划词、网站权限和刷新后的页面。Chrome 内部页、内置 PDF 阅读器等受限页面不能注入浮窗，可复制到独立窗口。系统桌面和全屏策略可能影响独立窗口出现的位置。</p>
+<p>网页快捷键需要启用划词、网站权限和刷新后的页面。Chrome 网上应用店、浏览器内部页和本地文件存在划词限制，工具栏弹窗或独立窗口会显示原因并提示复制翻译。内置 PDF 阅读器也可能无法取词，可复制到独立窗口。系统桌面和全屏策略可能影响独立窗口出现的位置。</p>
 <h2>语言、风格与排版</h2>
 <p>源语言和目标语言可手动选择。自动模式在首选语言与备用语言之间转换；判断不准时直接指定。交换语言会把完成的译文放回输入区，点击翻译再提交。</p>
 <p>“原文语气 / 商务表达 / 清晰易读 / 学术严谨”是表达风格，不是专业领域。更换语言或风格后，非空原文会按新选择翻译；精确缓存存在时直接复用。原意、否定、不确定性、数字和引用始终应保留。</p>
@@ -66,17 +77,29 @@
 <p>翻译慢：界面显示服务已经返回的文字，网络等待与模型生成需分别判断。普通翻译最多 90 秒，可主动停止。不要把一次网络测试视为网关整体速度结论。</p>
 <p>界面语言默认跟随浏览器（中文环境显示中文，其他显示 English），也可在设置中固定为中文或 English；不改变原文、模型输出或个人术语。KnowMe 是独立项目，并非模型厂商官方产品。应用代码独立实现，依赖许可随扩展提供。</p>
 <hr>
-<h1 id="english" lang="en">KnowMe AI Translate · 1.0</h1>
-<p>A personal translation reader for Chrome 116+, using your own model key or an authorized company gateway.</p>
-<h2>Optional quick start</h2>
-<p>First install offers a skippable guide: translate, explicitly save one term, then inspect its actual use in a new passage. Reopen it from Settings. This uses your configured model and provider quota. A rating saves your evaluation only; a correction saves specific wording for later use.</p>
+<h1 id="english" lang="en">KnowMe AI Translate · 1.0.2</h1>
+<p>A personal translation reader for Chrome 116+, using your own model key or an authorized compatible gateway.</p>
+<h2>First-use setup and optional walkthrough</h2>
+<p>First installation opens Quick start. Click Enable essentials and confirm webpage access and clipboard reading together. This enables the selection button, Markdown formatting and reuse of an existing reader. Granting access does not read the clipboard or translate anything.</p>
+<p>Fully authorized users are not interrupted on update. An existing user missing access receives one setup reminder; rejection or dismissal is not retried automatically. Individual controls remain under Check status or configure separately.</p>
+<p>Your model still needs your own API key. In Settings, import a connection template if one is available, check its service URL, enter your key and save. Templates contain no key, history or reading preferences. Importing fills the form without saving it or making requests.</p>
+<p>Quick start shows four independent states: saved model connection, the actual browser command, clipboard access and webpage selection. Open it from the reader header or Settings. A saved connection is not a successful network test: save and test your provider separately.</p>
+<p>Use Set shortcut to open the browser settings for Open the KnowMe reader. The default is ⌘⇧Y on Mac and Alt+Shift+Y on Windows. The extension does not automatically assign ⌘D or change other shortcuts.</p>
+<p>The essentials button covers both clipboard and selection access; separate controls remain available. Permission buttons do not read clipboard text or send a model request. Existing ordinary webpages are connected when possible; refresh a page if its selection button has not appeared. Browser-internal pages and the Web Store require copying instead. Denied permissions remain optional, and status is checked again when you return.</p>
+<p>Then optionally translate an example, explicitly save a term, and inspect its actual use in a new passage. This uses your configured model and quota. A rating saves an evaluation; a correction saves specific wording.</p>
 <h2>Connect and read</h2>
-<p>Open the toolbar icon, then Settings. Choose OpenAI, Google, Anthropic, Moonshot, Zhipu, ByteDance, DeepSeek, Alibaba Cloud, xAI or an OpenAI-compatible company gateway. Presets are editable; availability depends on your account. A new provider or endpoint requires its own key.</p>
+<p>Open the toolbar icon, then Settings. Choose OpenAI, Google, Anthropic, Moonshot, Zhipu, ByteDance, DeepSeek, Alibaba Cloud, xAI or an OpenAI-compatible gateway. Presets are editable; availability depends on your account. A new provider or endpoint requires its own key.</p>
 <p>Choose a provider and paste its API key, then click Save and test connection. The official endpoint and recommended model are prefilled; use Connection options for overrides. Keys, settings and memory stay in ordinary local extension storage without Google-account sync or transmission to the developer. Browser restarts need no extra step. Keep the same extension directory and ID when updating an existing installation.</p>
+<p>Use Saved connections at the top of Settings to restore a provider, endpoint, model and its saved key. You can name each connection. Selecting fills only connection fields; click Save settings to apply it. Saved keys are not displayed in the form: leave the key blank to reuse the selected connection's key. Saving a new endpoint or model keeps previous entries; saving the same provider, endpoint and model updates that entry. A different provider or endpoint needs its own key. Deleting an unused saved entry preserves translation history and personal wording.</p>
 <p>Save &amp; test connection saves your settings and sends one fixed Hello translation, with a 20-second timeout and a Stop button. It sends no history, personal terms or custom instructions and creates no memory or learning record. A pass means a complete text response, not translation-quality certification. Ordinary Save and Enter do not run a test. Provider charges may apply.</p>
-<p>Select text and use the small translate button, configured page shortcut or context menu. Cmd+D / Ctrl+D translates a page selection; with no selection it is left to the browser's bookmark command. With Alt+D or Cmd+Shift+Y as the page shortcut, no selection opens the reader and reads the clipboard once only if permission already exists. Use Paste &amp; translate for the first permission request. Inside the reader, the current draft has priority. There is no background clipboard monitoring.</p>
+<p>Select text and use the small translate button, configured page shortcut or context menu. Cmd+D / Ctrl+D translates a page selection; with no selection it is left to the browser's bookmark command. With Alt+D or Cmd+Shift+Y as the page shortcut, no selection opens the reader and reads the clipboard once only if permission already exists. Use Allow clipboard access in Quick start, or Paste &amp; translate in the reader, for the first permission request. Inside the reader, the current draft has priority. There is no background clipboard monitoring.</p>
 <p>Edit the visible source and press Translate or Cmd+Enter / Ctrl+Enter; typing alone sends nothing. Native browser shortcuts are shown in Settings. Assign Open reader, not Activate extension, and resolve competing extension shortcuts in Chrome. Refresh reading pages after an extension reload. Password fields and code editors retain their page shortcuts.</p>
 <p>Drag the webpage panel by its title bar and resize any edge or corner. Position and size save on release. Escape closes a menu before the unpinned panel. The separate reader uses native window controls. Open in window transfers a completed result without generating it again. Browser-internal and built-in PDF pages cannot host the panel; paste their text into the reader.</p>
+<h2>Model suggestions and translation source</h2>
+<p>Compatible gateways can have a local model-directory URL under Connection options. Sign in to the directory, then save the connection. Settings automatically refresh suggestions for saved connections with a directory; the refresh button can fetch a new list. Unsaved keys are never used for discovery.</p>
+<p>A configured directory supplies all non-trial text models, including multimodal models that support text conversations. These are not restricted to lightweight model names. Image-generation, audio, video, embedding, reranking and other incompatible specialty models remain excluded. Names and numeric versions sort descending, so versions such as 5.10, 5.3 and 5.2 stay together. Each option is marked API-listed or Unverified; directory models missing from the API list remain selectable. Neither membership nor omission proves actual inference access. Test the selected connection to check it.</p>
+<p>Without a directory, suggestions still favor lightweight Flash, Luna, Mini, Nano, Lite and Haiku families. Incomplete directory reads and sign-in problems are reported. Lists are cached locally for up to one hour; manual refresh reads them again. Directory layout changes can affect discovery.</p>
+<p>Refreshing never replaces your current model. Select and save to apply a change, or keep a manually entered model. The translation header shows the service, local connection name or hostname prefix, and actual model ID. Historical translations retain their recorded model; older records without one say “Model not recorded.”</p>
 <h2>Language, style and format</h2>
 <p>Choose languages explicitly when automatic detection is wrong. Original tone, Business wording, Clear wording and Academic precision are style presets, not domains. Changing language or style translates nonempty input using that selection; an exact cache hit is reused.</p>
 <p>Markdown headings, lists, tables, strikethrough and code render directly. Clear repeated records may become tables; incomplete records use compact cards. Missing information is never invented by the local formatter. Structure settles after streaming. Wide tables scroll inside their own frame. Local number checks flag unmatched values without silently changing or retrying text; legitimate formatting changes can also trigger a flag.</p>
@@ -110,4 +133,4 @@
 <h3>Memory feedback and local evolution</h3>
 <p>Choose a provider and paste your API key; an official endpoint and suggested model are prefilled. Custom gateways, aliases and regional endpoints remain editable. Availability depends on your account.</p>
 <p>Applied-term underlines identify saved wording that was both included in the request and found in translated prose. Cache receipts show zero new requests and the local lookup time. Settings → Evolution history shows existing feedback, proposals, adoption or withdrawal, and retained later translations. Open a node for evidence or a reversible action. This view makes no model request and does not claim causality for style references.</p>
-</main><footer>知我AI翻译 1.0 · 发布者 ZhuoCs</footer></body></html>
+</main><footer>知我AI翻译 1.0.2 · 发布者 ZhuoCs</footer></body></html>

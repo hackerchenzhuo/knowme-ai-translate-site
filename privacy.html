@@ -1,18 +1,24 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>知我AI翻译 · 隐私说明</title><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="site.css"></head><body><header><a href="index.html">知我AI翻译</a><a href="help.html">使用说明</a><a href="privacy.html">隐私说明</a><a href="#english" lang="en">English</a></header><main><h1>知我AI翻译隐私说明</h1>
-<p>版本：1.0；更新日期：2026-10-08。开发者发布名：ZhuoCs。</p>
+<p>版本：1.0.2；更新日期：2026-10-15。开发者发布名：ZhuoCs。</p>
 <p>知我AI翻译（KnowMe AI Translate）使用你提供的 所选 AI 厂商的 API Key 或你获准使用的兼容服务。没有开发者运营的翻译代理、账号系统、广告、统计或分析服务，不将数据发送给扩展开发者。</p>
 <p>本扩展按 Chrome Web Store 用户数据政策的 Limited Use 用途限制处理信息：只用于这里说明的翻译、阅读、缓存和用户控制的偏好功能，不出售数据，不用于广告、征信或无关用途；开发者没有读取你的译文或个人记忆的后台。向你选择的服务传输，仅为完成你启用的相应功能。</p>
 <h2>翻译请求</h2>
 <p>扩展将你划选、粘贴、输入或主动打开的 TXT / Markdown 文字，以及翻译提示、语言、阅读场景和实际匹配的少量个人偏好，经 HTTPS 发给设置中的服务。默认划词先显示按钮；启用直接翻译时，划选即触发请求。所选内容中的代码、引用和表格可能随文字发送。每次最多 20,000 字符，个人偏好附加提示总计最多 512 UTF-8 字节。</p>
-<p>API Key 仅用于向该服务认证。Google 原生模式使用 generativelanguage.googleapis.com；其他厂商或兼容网关使用设置中所示的 HTTPS 地址。服务提供方依据自身条款处理和保留数据，并可能收费；公司服务须取得相应授权。扩展不读取账号密码或浏览历史，不为翻译读取未选中的整页正文。</p>
+<p>API Key 仅用于向该服务认证。Google 原生模式使用 generativelanguage.googleapis.com；其他厂商或兼容网关使用设置中所示的 HTTPS 地址。服务提供方依据自身条款处理和保留数据，并可能收费；使用须取得相应授权。扩展不读取账号密码或浏览历史，不为翻译读取未选中的整页正文。</p>
 <h2>可选快速入门</h2>
-<p>首次安装打开快速入门页，更新不打断阅读。可以跳过，也可从设置重新打开。教程仅在你点击翻译时把公开示例文本发送到已配置服务，可能消耗模型额度；纠正需你显式保存。教程复用正常翻译、缓存和个人译法功能，不伪造结果，不新增分析追踪或上传教程进度。</p>
+<p>首次安装打开快速入门页。更新时，已完整授权的用户不弹出；缺少网页访问或剪贴板权限的用户仅收到一次设置提醒，本机保存是否已提醒的标记，拒绝后不自动重试。可以跳过，也可从设置重新打开。</p>
+<p>「一键开启常用功能」只在你点击后，一次申请网页访问与 clipboardRead 权限；浏览器确认后启用网页划词按钮、Markdown 排版和已有窗口接续。权限已授予的项目不重复弹出。授权动作本身不读取剪贴板，不发送翻译，不更换模型或 Key，也不修改历史保留设置。自定义/全局快捷键仍在浏览器设置中确认。</p>
+<p>教程仅在你点击翻译时把公开示例文本发送到已配置服务，可能消耗模型额度；纠正需你显式保存。教程复用正常翻译、缓存和个人译法功能，不伪造结果，不新增分析追踪或上传教程进度。</p>
 <h2>主动连接测试</h2>
 <p>“保存并测试连接”仅在主动点击后向当前保存的服务发送一次固定 Hello 翻译请求与固定指令，使用当前模型和 Key；不发送你的自定义提示、历史、原文或个人术语。请求输出上限 1,024 token，本机回复上限 256 字符，20 秒超时，可停止且不自动重试。服务可能收费。界面暂时显示耗时及成败，不保存回复正文，不创建翻译、反馈或学习记录。普通保存不发起测试。</p>
+<h2>可选模型目录</h2>
+<p>在兼容网关连接中保存模型目录页面后，打开设置或选择该保存项会读取模型候选；也可主动刷新。扩展用该连接已保存的 Key 向原服务的 <code>/models</code> 发起一次列表请求，不发送待译文字或历史。它会临时打开你填写的目录页面，使用浏览器已有登录状态，仅提取模型 ID、类型、试运行标记和目录数量；不读取或导出 Cookie，不把推理 Key 发送到目录页面。目录需要单独的网站访问权限，未授权不自动申请。</p>
+<p>候选、接口是否列出的标记、读取时间及服务账号的摘要在本机最多缓存 1 小时、保留最近 10 组连接；过期不再复用，后续读取时清理。候选显示不发送模型推理请求，目录中未出现在接口列表的型号保留为待验证。重置插件会删除目录缓存。清空目录地址并保存后停止自动读取。目录地址、私有候选和连接名称不写入公开安装包，不发送给开发者。译文历史会保存本次服务名称、域名和模型 ID，供来源显示。</p>
 <h2>可选剪贴板读取</h2>
-<p>“粘贴并翻译”需你主动允许 clipboardRead 权限。翻译快捷键优先使用网页选区，无选区时仅在已获授权后读取一次剪贴板并发送到你配置的翻译服务；未授权则提示点击按钮授权。没有剪贴板轮询、后台收集或自动发送监听。可在 Chrome 扩展权限中撤销读取权限，仍可手动粘贴。</p>
+<p>快速入门中的“允许读取剪贴板”或窗口中的“粘贴并翻译”会在你主动点击时申请 clipboardRead 权限。快速入门的授权按钮不读取剪贴板，也不发送模型请求。翻译快捷键优先使用网页选区，无选区时仅在已获授权后读取一次剪贴板并发送到你配置的翻译服务；未授权则提示点击按钮授权。没有剪贴板轮询、后台收集或自动发送监听。可在 Chrome 扩展权限中撤销读取权限，仍可手动粘贴。</p>
 <h2>本机连接、缓存与记忆</h2>
 <p>API Key、连接配置、个人译法、缓存、反馈直接保存在本机浏览器的扩展存储（chrome.storage.local）中，不使用 storage.sync，不同步到 Google 账号，不发送给开发者。Key 只用于你配置服务的请求认证：翻译、主动连接测试及你另行启用的可选 AI 功能。浏览器重启后可直接使用，无需本机口令。临时工作状态与撤回记录使用受信任扩展的会话存储。</p>
+<p>保存模型连接时，也会在本机保留此前仍保存的连接及其 Key，供设置页下拉复用。连接名称、接口、地址、模型和 Key 不进入安装包或跨设备同步。选择保存项只填入表单，普通保存不发送模型请求；Key 不回填到设置表单。可删除不再使用的保存项，删除不影响当前连接和翻译记忆；重置插件会清除全部保存连接。</p>
 <p>早期未公开测试版（内部编号 2.3 及更早）的普通保存数据直接沿用。内部测试版 2.4.0/2.4.1 的旧数据如使用过口令，首次打开时输入原口令完成一次性转换；口令仅在本机处理，不保存或发送。先写入并逐项读回核对普通存储，成功后删除旧密文及派生密钥；失败保留原数据。如有迁移中断留下的不同普通数据，保存在本机恢复备份中，不静默丢弃。选择“放弃旧数据，重新开始”需再次确认，确认后删除旧连接和记忆。普通保存不防止能访问你浏览器配置的其他本机软件读取内容。</p>
 <p>译文缓存新安装默认开启、保留 30 天，可设置 1–365 天，最多 500 条 / 约 6 MiB；已有用户沿用已有设置。包含成功的原文、译文、语言、生成时间和当时的偏好来源。按生成时间过期，命中不续期；过期记录不复用，后续写入时清理。</p>
 <p>个人记忆由你明确保存的修正、表达选择或确认的 AI 建议建立。最多 100 个术语版本、40 个表达习惯版本、200 条变更记录、12 个自定义领域。每项保留适用范围、最多 12 个上下文词和最多 30 个使用摘要；按服务账号、语言、场景及领域匹配。领域判断、匹配、数字核对在本机完成，不调用分类或评审模型。个人译法不随缓存过期。</p>
@@ -27,6 +33,7 @@
 <p>“术语试用核对（高级）”沿用单独的能力检查：用户主动发送两条固定合成文本和当前翻译指令，不发送历史或个人术语。每条输入最多 4,096 字节、输出请求上限 1,024 token、15 秒超时；24 小时最多三轮检查，相隔至少一分钟。检查次数、配置摘要及通过状态保存在本机，不保存回复正文或隐藏推理。有效期 30 天，连接或相关翻译设置变化后失效。通过后仍需单独开启有限学习。</p>
 <p>术语试用仅核对已明确保存的术语：最多三条并行试用、每次一条、每条最多五个不同后续原文；三次局部核对通过保留，连续两次失败或用尽试用预算可撤回。核对不增加模型请求，不认证整体翻译质量。</p>
 <h2>个人译法备份</h2>
+<p>设置中的「连接模板」另行导出接口、地址、模型、可选目录地址和连接名称，不包含 Key、原文历史或个人偏好。导入在本机校验并填入表单；核对地址、填写自己的 Key 并保存前不发请求。模板中的服务地址可能属于非公开信息，由你选择分享对象；插件不将模板发送给开发者。</p>
 <p>主动导出会在你选择的下载位置保存明文 JSON，包含当前连接下的术语、领域及关键词、目标语言、风格和表达偏好；不含 Key、连接地址、完整原文历史、反馈片段、学习证据、使用次数或原有内部 ID。文件中的专业词语仍是个人数据，由你决定如何保管或分享。</p>
 <p>导入在本机校验并预览，确认后才写入当前已配置的连接；不上传文件、不调用模型。重复项跳过、冲突保留现有值；条目以手动或暂停状态导入，不恢复旧学习证据。最近一次导入的新增 ID 与连接摘要暂存在浏览器会话存储，供 10 分钟内撤回；不复制备份正文。后续相关操作发现过期时或浏览器会话结束时清除。一次最多 128 KB，100 个术语和 40 个表达偏好，不接受无效文件的部分写入。</p>
 <h2>控制与删除</h2>
@@ -38,7 +45,7 @@
 <p>隐私问题请通过 Chrome 网上应用店中 ZhuoCs 的联系入口提出。新增数据用途前会更新本说明并提供相应控制。</p>
 <hr>
 <h1 id="english" lang="en">KnowMe AI Translate — Privacy</h1>
-<p>Version 1.0, updated October 8, 2026. Publisher: ZhuoCs.</p>
+<p>Version 1.0.2, updated October 15, 2026. Publisher: ZhuoCs.</p>
 <p>KnowMe uses your selected AI provider’s key or an authorized compatible service. There is no developer translation proxy, account service, advertising or analytics. Data is not sent to the extension developer.</p>
 <p>KnowMe's use of information follows the Limited Use restrictions of the Chrome Web Store User Data Policy: only the disclosed translation, reading, caching and user-controlled preference features use it. Data is not sold or used for advertising, credit decisions or unrelated purposes. The developer has no backend for reading translations or personal memory. Transfers to your chosen services serve only the corresponding features you enable.</p>
 <p>Selected, pasted, typed or explicitly opened text, translation instructions, language/profile choices and matching personal preferences are sent by HTTPS to your configured provider. The default selection mode shows a button first; direct mode sends on selection. Requests allow up to 20,000 source characters and a shared 512-byte personalization addition. The provider receives your key for authentication and may retain requests or charge under its own terms. KnowMe does not collect browsing history, account passwords or unselected full-page content for translation.</p>
@@ -47,8 +54,13 @@
 <p>The cache defaults to 30 days on new installs, adjustable from 1–365 days; upgrades retain the previous setting. It holds up to 500 entries / about 6 MiB, including source, translation, language, creation time and original preference receipts. Cache hits do not renew age. Expired data is not reused and is cleaned on subsequent writes.</p>
 <p>Personal preferences come from corrections, preset style choices or AI suggestions you explicitly confirm. Limits: 100 term versions, 40 style versions, 200 change events and 12 custom domains. Each may store 12 context words and 30 distinct usage digests. Preferences are scoped to service account, language, reading profile and domain; they do not expire with cached translations. Domain routing, term checks and number checks run locally with no classifier or judge requests.</p>
 <p>Related reading uses local shared terms, code or citations. It reveals up to three excerpts and an individual full entry on demand, without uploading history or additional model calls. Up to 150 dismissed relationship digests are stored and removed when cache is cleared.</p>
+<h2>Optional model directory</h2>
+<p>Saving a model-directory URL for a compatible gateway enables discovery when Settings opens or that saved connection is selected. You can also refresh manually. One request to the original service’s <code>/models</code> endpoint uses its saved key, without source text or translation history. A temporary tab opens the configured directory with the browser’s existing sign-in state and reads only model IDs, types, trial labels and counts. The extension does not read or export cookies, or send inference keys to the directory page. Directory host access must already be granted for automatic discovery.</p>
+<p>Suggestions, API-list membership flags, fetch times and a hashed service/account identifier are cached locally for up to one hour for the latest 10 configurations. Displaying candidates sends no inference request; directory models missing from the API list remain unverified candidates. Expired entries are not reused and are pruned on later reads. Reset removes the cache; clearing and saving the directory URL stops automatic discovery. Private URLs, candidates and connection names are neither packaged for publication nor sent to the developer. Translation history records its service name, host and model ID for source display.</p>
 <h2>Optional quick start</h2>
-<p>First installation opens an optional guide; updates do not reopen it. Reopen it from Settings. Only an explicit translation click sends its public example text to your configured service and may incur provider charges. Wording changes require explicit saving. The guide uses normal translation, cache and memory receipts, without synthetic results, analytics or uploaded progress.</p>
+<p>First installation opens an optional guide. Updates do not interrupt fully authorized users. An existing user missing webpage or clipboard access receives one reminder; a local marker records that it was shown, and rejection is not retried automatically. The guide can be skipped or reopened from Settings.</p>
+<p>Enable essentials requests webpage access and clipboardRead together only after a click. Following browser confirmation it enables the webpage selection button, Markdown formatting and reuse of an existing reader. Already granted access does not show another prompt. The action does not read the clipboard, translate text, change the model/key or alter history retention. Custom and global shortcuts still require browser settings.</p>
+<p>Only an explicit translation click sends the guide's public example text to your configured service and may incur provider charges. Wording changes require explicit saving. The guide uses normal translation, cache and memory receipts, without synthetic results, analytics or uploaded progress.</p>
 <h2>Explicit connection test</h2>
 <p>Save &amp; test connection sends one fixed Hello translation and fixed instructions to the saved model endpoint, authenticated with its key. It does not send custom prompts, source history, feedback or personal terms. Limits are 1,024 requested output tokens, 256 locally accepted characters and 20 seconds, with explicit cancellation and no retry. Provider charges may apply. The temporary UI receipt shows elapsed time and outcome; the response is not persisted or added to translation, feedback or learning records. Ordinary Save makes no test request.</p>
 <h2>Explicit feedback and optional AI suggestions</h2>
@@ -60,6 +72,7 @@
 <p>The optional compatibility check sends two fixed synthetic texts with current translation instructions, not history or personal terms. Each input is capped at 4,096 bytes, requested output at 1,024 tokens and time at 15 seconds. Up to three checks per 24 hours, at least one minute apart, without retries. Local receipts contain attempt times, settings digests and pass/fail results, not model responses or hidden reasoning. They expire after 30 days or relevant setting changes. Passing does not enable trials automatically.</p>
 <p>Trials only concern explicitly saved terms: three simultaneous trials, one per translation, five distinct later passages each. Three local passes retain a term; two consecutive failures or budget exhaustion may revert it. Local checks do not add model calls or certify semantic quality.</p>
 <h2>Personal wording backup</h2>
+<p>Connection templates are separate exports containing only provider, endpoint, model, optional directory URL and a connection name. They contain no key, source history or personal preferences. Imports are validated locally and fill the form without requests until you check the URL, enter your own key and save. Service URLs may be private; you choose who receives a template. Templates are not sent to the developer.</p>
 <p>An explicit export downloads plain JSON with terms, domains and their cues, target languages, profiles and writing preferences from the current connection. It excludes keys, endpoints, full source history, feedback excerpts, learning evidence, use counts and previous internal IDs. Terminology can still be personal data; you control storage and sharing of the file.</p>
 <p>Import is validated and previewed locally, then written only after confirmation to the configured connection. No file upload or model call occurs. Duplicates are skipped and existing conflicts kept. Entries become manual or paused preferences without old learning evidence. Session storage temporarily keeps newly added IDs and the connection digest for a ten-minute undo, without copying backup text; it is cleared on a later relevant operation after expiry or the end of the browser session. Maximum 128 KB, 100 terms and 40 writing preferences. Invalid files are not partially imported.</p>
 <h2>Controls</h2>
@@ -70,6 +83,6 @@
 <p>临时限流状态：浏览器会话存储中最多 12 条连接摘要与等待类型、截止时间，不包含新增原文、译文或明文 Key，不发送给开发者；关闭浏览器会话后清除。</p>
 <p>Temporary rate-limit state: session storage holds up to 12 connection hashes, wait types and expiry times. These entries contain no source, translation or plaintext key, are not sent to the developer, and end with the browser session.</p>
 <h2>Optional clipboard access</h2>
-<p>Paste and translate requests the optional clipboardRead permission on an explicit click. Translation shortcuts use selected text first; without a selection they read the clipboard once only after permission has been granted, then translate through your configured service. There is no clipboard polling, background collection or automatic change listener. Revoke permission in Chrome to stop this access; manual paste remains available.</p>
+<p>Allow clipboard access in Quick start, or Paste and translate in the reader, requests the optional clipboardRead permission on an explicit click. The Quick start button grants permission without reading clipboard text or sending a model request. Translation shortcuts use selected text first; without a selection they read the clipboard once only after permission has been granted, then translate through your configured service. There is no clipboard polling, background collection or automatic change listener. Revoke permission in Chrome to stop this access; manual paste remains available.</p>
 <p>Evolution history reads the existing local records only, showing at most 40 branches and 8 retained later translations per branch. Opening it sends no network or model request and does not extend retention.</p>
-</main><footer>知我AI翻译 1.0 · 发布者 ZhuoCs</footer></body></html>
+</main><footer>知我AI翻译 1.0.2 · 发布者 ZhuoCs</footer></body></html>
