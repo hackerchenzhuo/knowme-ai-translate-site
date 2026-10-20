@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f9fa">
+  <meta name="description" content="按专题筛选 arXiv 论文，逐项查看评分、作者与机构依据。免费安装，收藏与缓存保存在本机。">
+  <meta property="og:title" content="知我论文雷达 · 发现论文，看清依据">
+  <meta property="og:description" content="按专题筛选 arXiv 论文，逐项查看评分、作者与机构依据。免费安装，收藏与缓存保存在本机。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://hackerchenzhuo.github.io/knowme-ai-translate-site/assets/social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="知我论文雷达与 AI 翻译：从找论文，到读懂它。">
+  <meta name="twitter:image" content="https://hackerchenzhuo.github.io/knowme-ai-translate-site/assets/social-preview.png">
+  <meta property="og:url" content="https://hackerchenzhuo.github.io/knowme-ai-translate-site/radar/">
+  <link rel="canonical" href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/radar/">
+  <link rel="alternate" hreflang="zh-CN" href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/radar/">
+  <link rel="alternate" hreflang="en" href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/radar/">
+  <link rel="alternate" hreflang="x-default" href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/radar/">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>知我论文雷达 · 发现论文，看清依据</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/knowme.svg">
+  <link rel="stylesheet" href="../style.css?v=20261021-r6">
+  <script src="../app.js?v=20261021-r6" defer></script>
+</head>
+<body class="product-landing" data-product="radar">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <nav class="shell navigation" aria-label="主导航">
+      <a class="brand" href="../" aria-label="知我首页"><img src="../assets/knowme.svg" width="34" height="34" alt=""><span>知我<span class="brand-en">KnowMe</span></span></a>
+      <div class="nav-links"><a href="../#products">产品</a><a href="#guide">使用指南</a><a href="#updates">更新</a></div>
+      <div class="nav-actions"><div class="language-switch" aria-label="网站语言"><span class="lang-current" lang="zh-CN">中文</span><span class="language-divider" aria-hidden="true">/</span><a href="../en/radar/" hreflang="en" lang="en" aria-label="Switch to English">EN</a></div><a class="nav-install" href="https://chromewebstore.google.com/detail/aneomkhamcijmfmeeegocbknklflilof?hl=zh-CN" target="_blank" rel="noopener noreferrer">开始使用 <span aria-hidden="true">↗</span></a></div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero shell" id="top" aria-labelledby="hero-title">
+      <div class="hero-heading">
+        <div class="hero-labels"><p class="eyebrow"><span class="small-orbit" aria-hidden="true"></span>KNOWME / PAPER RADAR</p><span class="free-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="m5.2 8 1.8 1.8 3.8-3.8"/></svg><span>免费安装</span></span></div>
+        <p class="product-page-name">知我论文雷达</p><h1 id="hero-title"><span>发现论文，</span><span class="accent">看清依据。</span></h1>
+      </div>
+      <div class="hero-intro">
+        <p class="hero-copy">按专题筛选 arXiv，逐项查看评分与作者依据。<br>从文献发现到收藏选读，让研究更有条理。</p>
+        <div class="hero-links"><a class="button primary" href="https://chromewebstore.google.com/detail/aneomkhamcijmfmeeegocbknklflilof?hl=zh-CN" target="_blank" rel="noopener noreferrer">安装论文雷达 <span aria-hidden="true">↗</span></a><a class="text-link" id="watch-demo" href="#experience">观看演示 <span aria-hidden="true">↓</span></a></div>
+        <p class="hero-note">无需模型 Key · 收藏与缓存保存在本机</p>
+      </div>
+      <div class="experience-heading"><p><span>01</span> 发现相关 <span class="flow-connector" aria-hidden="true">⟶</span> <span>02</span> 查看依据</p><span>让每一次选读都有据可循</span></div>
+      <div class="experience" id="experience" data-mode="radar" data-stage="0">
+        <div class="window-bar"><span class="window-title"><img src="../assets/knowme.svg" width="17" height="17" alt="">知我 · 研究工具</span><span class="demo-label"><i aria-hidden="true"></i>产品演示</span></div>
+        <div class="demo-toolbar">
+          <div class="product-tabs" role="tablist" aria-label="选择工具演示">
+            <button class="product-tab" id="radar-tab" role="tab" type="button" aria-selected="true" aria-controls="radar-demo" data-mode="radar"><span class="product-tab-index" aria-hidden="true">01</span><img src="../assets/radar.png" width="23" height="23" alt="">论文雷达</button>
+            <button class="product-tab" id="translate-tab" role="tab" type="button" aria-selected="false" aria-controls="translate-demo" tabindex="-1" data-mode="translate"><span class="product-tab-index" aria-hidden="true">02</span><img src="../assets/translate.png" width="23" height="23" alt="">AI 翻译</button>
+          </div>
+          <p class="tour-state"><i aria-hidden="true"></i><span id="tour-caption" role="status">自动演示 · 查看真实的论文评分与作者依据</span></p>
+        </div>
+        <div id="radar-demo" class="demo-panel radar-panel" role="tabpanel" aria-labelledby="radar-tab">
+          <div class="capture-heading"><span><i aria-hidden="true"></i><span id="capture-title">论文详情 · RRSI</span></span><a id="capture-original" href="../assets/radar-workbench.png" target="_blank" rel="noopener noreferrer">查看原图 <span aria-hidden="true">↗</span></a></div>
+          <div class="radar-capture" tabindex="0" role="region" aria-label="论文雷达真实界面，可滚动查看细节">
+            <img id="radar-screenshot" src="../assets/radar-workbench.png" alt="论文雷达真实界面：RRSI 的作者、机构、匹配子项与评分构成。" width="1280" height="800" decoding="async">
+          </div>
+          <div class="capture-footer"><p id="capture-description">相关性、质量与时效分别展示，作者贡献和匹配子项清晰可查。</p><button type="button" id="capture-zoom" aria-pressed="false">放大细节 <span aria-hidden="true">＋</span></button></div>
+        </div>
+        <div id="translate-demo" class="demo-panel translate-panel" role="tabpanel" aria-labelledby="translate-tab" hidden>
+          <section class="source-pane" aria-label="英文 Markdown 阅读笔记">
+            <div class="pane-heading"><span>原文 <span class="pane-paper">rrsi-notes.md</span></span><button type="button" id="source-format" aria-pressed="false">Markdown <span aria-hidden="true">‹/›</span></button></div>
+            <div class="reading-scroll source-scroll" tabindex="0" role="region" aria-label="英文原文与 Markdown 源码，可滚动">
+              <!-- fixed-demo:start -->
+              <article class="markdown-document source-rendered" lang="en">
+                <section data-section="intro">
+                  <p class="document-eyebrow">RESEARCH NOTE / RRSI</p>
+                  <h3>Reading an evolving<br>agent harness</h3>
+                  <blockquote><strong>Scope.</strong> A reading note based on the <a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">RRSI abstract ↗</a>.</blockquote>
+                  <h4>1. Define the system boundary</h4>
+                  <p>The <strong>backbone model</strong> stays frozen. Its <em>harness</em> brings together prompts, control flow, tools, memory and context management.</p>
+                </section>
+                <section data-section="table">
+                  <h5>1.1 Components to inspect</h5>
+                  <div class="markdown-table" tabindex="0" role="region" aria-label="Harness components table"><table><thead><tr><th>Layer</th><th>Example</th><th>Review question</th></tr></thead><tbody><tr><td>Prompts</td><td>Task instructions</td><td>Is the objective explicit?</td></tr><tr><td>Tools</td><td>Search / execution</td><td>How are failures handled?</td></tr><tr><td>Memory</td><td>Retrieved context</td><td>Are sources traceable?</td></tr></tbody></table></div>
+                  <p class="document-reference">Source: <a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">RRSI · arXiv:2609.24972 ↗</a></p>
+                </section>
+                <section data-section="outline">
+                  <h5>1.2 Follow the hierarchy</h5>
+                  <ol><li>Map the <strong>control flow</strong>.<ul><li>Trace the task from input to output.</li><li>Inspect the supporting components:<ul><li>tools and fallback behavior;</li><li>memory and context boundaries.</li></ul></li></ul></li><li>Compare the edited harness with a reference.<ul><li>Keep the model fixed.</li><li>Record what changed and why.</li></ul></li></ol>
+                  <h6>A note on terminology</h6><p>Keep <code>harness</code> consistent within this reading note.</p>
+                </section>
+                <section data-section="code">
+                  <h4>2. Keep configuration readable</h4>
+                  <p>This illustrative configuration shows the hierarchy of an agent harness.</p>
+                  <pre class="document-code"><code>agent:
+  model: frozen
+  harness:
+    prompts: versioned
+    tools:
+      - search
+      - execute
+    memory:
+      source_links: true</code></pre>
+                </section>
+                <section data-section="sources">
+                  <h4>3. Return to the source</h4>
+                  <ul><li><a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">Read the paper ↗</a></li><li><a href="https://arxiv.org/pdf/2609.24972" target="_blank" rel="noopener noreferrer">Open the PDF ↗</a></li></ul>
+                  <p class="document-reference">The checklist and YAML are illustrative reading aids.</p>
+                </section>
+              </article>
+              <pre class="markdown-source" hidden lang="en"><code><span data-section="intro"># Reading an evolving agent harness
+
+&gt; **Scope.** A reading note based on the [RRSI abstract](https://arxiv.org/abs/2609.24972).
+
+## 1. Define the system boundary
+
+The **backbone model** stays frozen. Its *harness* brings together prompts, control flow, tools, memory and context management.
+
+</span><span data-section="table">### 1.1 Components to inspect
+
+| Layer | Example | Review question |
+| :--- | :--- | :--- |
+| Prompts | Task instructions | Is the objective explicit? |
+| Tools | Search / execution | How are failures handled? |
+| Memory | Retrieved context | Are sources traceable? |
+
+Source: [RRSI · arXiv:2609.24972](https://arxiv.org/abs/2609.24972)
+
+</span><span data-section="outline">### 1.2 Follow the hierarchy
+
+1. Map the **control flow**.
+   - Trace the task from input to output.
+   - Inspect the supporting components:
+     - tools and fallback behavior;
+     - memory and context boundaries.
+2. Compare the edited harness with a reference.
+   - Keep the model fixed.
+   - Record what changed and why.
+
+#### A note on terminology
+
+Keep `harness` consistent within this reading note.
+
+</span><span data-section="code">## 2. Keep configuration readable
+
+This illustrative configuration shows the hierarchy of an agent harness.
+
+```yaml
+agent:
+  model: frozen
+  harness:
+    prompts: versioned
+    tools:
+      - search
+      - execute
+    memory:
+      source_links: true
+```
+
+</span><span data-section="sources">## 3. Return to the source
+
+- [Read the paper](https://arxiv.org/abs/2609.24972)
+- [Open the PDF](https://arxiv.org/pdf/2609.24972)
+
+The checklist and YAML are illustrative reading aids.
+</span></code></pre>
+              <!-- fixed-demo:end -->
+            </div>
+            <div class="reading-footer"><span>标题、链接、表格与代码，结构完整。</span><a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">arXiv ↗</a></div>
+          </section>
+          <section class="translation-pane" aria-label="保留 Markdown 结构的中文译文">
+            <div class="pane-heading"><span>译文 <span class="pane-paper">保留原文结构</span></span><span class="language-tag">简体中文</span></div>
+            <div class="reading-scroll translation-scroll" tabindex="0" role="region" aria-label="中文译文，可滚动对照标题、表格与代码">
+              <!-- fixed-demo:start -->
+              <article class="markdown-document translation-text" lang="zh-CN">
+                <section data-section="intro">
+                  <p class="document-eyebrow">研究笔记 / RRSI</p>
+                  <h3>理解持续演进的<br>智能体<span class="personal-term" data-term>执行框架</span></h3>
+                  <blockquote><strong>范围。</strong>基于 <a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">RRSI 摘要 ↗</a> 整理的阅读笔记。</blockquote>
+                  <h4>1. 明确系统边界</h4>
+                  <p><strong>基础模型</strong>保持冻结。它的<span class="personal-term" data-term>执行框架</span>将提示词、控制流程、工具、记忆与上下文管理组织在一起。</p>
+                </section>
+                <section data-section="table">
+                  <h5>1.1 需要考察的组件</h5>
+                  <div class="markdown-table" tabindex="0" role="region" aria-label="执行框架组件对照表"><table><thead><tr><th>层级</th><th>示例</th><th>考察问题</th></tr></thead><tbody><tr><td>提示词</td><td>任务指令</td><td>目标是否明确？</td></tr><tr><td>工具</td><td>检索 / 执行</td><td>如何处理失败？</td></tr><tr><td>记忆</td><td>检索到的上下文</td><td>来源是否可追溯？</td></tr></tbody></table></div>
+                  <p class="document-reference">来源：<a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">RRSI · arXiv:2609.24972 ↗</a></p>
+                </section>
+                <section data-section="outline">
+                  <h5>1.2 沿层级展开阅读</h5>
+                  <ol><li>梳理<strong>控制流程</strong>。<ul><li>追踪任务从输入到输出的路径。</li><li>检查支撑组件：<ul><li>工具与回退机制；</li><li>记忆与上下文边界。</li></ul></li></ul></li><li>将修改后的<span class="personal-term" data-term>执行框架</span>与参考版本对照。<ul><li>保持模型固定。</li><li>记录修改内容及原因。</li></ul></li></ol>
+                  <h6>术语说明</h6><p>本篇阅读笔记中，<code>harness</code> 统一使用「<span class="personal-term" data-term>执行框架</span>」。</p>
+                </section>
+                <section data-section="code">
+                  <h4>2. 保持配置清晰可读</h4>
+                  <p>以下示例配置展示了智能体<span class="personal-term" data-term>执行框架</span>的层级。</p>
+                  <pre class="document-code"><code>agent:
+  model: frozen
+  harness:
+    prompts: versioned
+    tools:
+      - search
+      - execute
+    memory:
+      source_links: true</code></pre>
+                </section>
+                <section data-section="sources">
+                  <h4>3. 回到原始来源</h4>
+                  <ul><li><a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">阅读论文 ↗</a></li><li><a href="https://arxiv.org/pdf/2609.24972" target="_blank" rel="noopener noreferrer">打开 PDF ↗</a></li></ul>
+                  <p class="document-reference">清单与 YAML 为辅助阅读的示例。</p>
+                </section>
+              </article>
+              <!-- fixed-demo:end -->
+            </div>
+            <div class="term-preference"><div><span class="term-symbol" aria-hidden="true">Aa</span><p><strong>沿用你的译法</strong><span>harness <span aria-hidden="true">→</span> <label class="sr-only" for="term-choice">harness 的示例译法</label><select id="term-choice"><option value="执行框架">执行框架</option><option value="运行框架">运行框架</option></select></span></p></div><button type="button" id="remember-term">保存译法 <span aria-hidden="true">↗</span></button></div>
+            <p class="memory-status" id="memory-status" role="status">按领域与语境，沿用个人译法。</p>
+          </section>
+        </div>
+        <div class="demo-controls">
+          <div class="stage-controls" role="group" aria-label="演示步骤"><button type="button" data-stage="0" aria-pressed="true"><span>01</span><span class="stage-name">论文详情</span></button><span class="stage-line" aria-hidden="true"></span><button type="button" data-stage="1" aria-pressed="false"><span>02</span><span class="stage-name">机构溯源</span></button><span class="stage-line" aria-hidden="true"></span><button type="button" data-stage="2" aria-pressed="false"><span>03</span><span class="stage-name">网页标注</span></button></div>
+          <div class="playback-controls"><span class="tour-position" id="tour-position" aria-hidden="true">01 / 03</span><button type="button" id="play-demo" aria-label="暂停演示"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5v10M13 5v10"></path></svg><span>暂停</span></button><button type="button" id="replay-demo" aria-label="重播演示"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7a6 6 0 1 1-1 5M4 3v5h5"></path></svg><span>重播</span></button></div>
+        </div>
+        <div class="demo-progress" aria-hidden="true"><span></span></div>
+      </div>
+      <p class="demo-disclaimer" id="demo-disclaimer">Chrome 商店原始截图 · 可滚动查看细节，或打开原图。</p>
+    </section>
+
+    <section class="principles shell" aria-label="产品特点"><div><span class="principle-number">01</span><h2>按方向发现</h2><p>按专题、子项与机构筛选，聚焦你关心的研究。</p></div><div><span class="principle-number">02</span><h2>逐项看依据</h2><p>评分构成、作者贡献与来源记录，随时展开。</p></div><div><span class="principle-number">03</span><h2>在原页继续</h2><p>回到 arXiv 查看标注，收藏并整理选读清单。</p></div></section>
+
+
+
+
+
+    <section class="guide-section shell" id="guide" aria-labelledby="guide-title"><div class="section-heading"><div><p class="eyebrow">GET STARTED</p><h2 id="guide-title">从这里开始。</h2></div><p>安装、设置、开始阅读。<br>常见问题，随时查阅。</p></div><div class="guide-grid"><div class="quick-start"><div><span>1</span><p><strong>从商店安装</strong><span>将论文雷达固定在工具栏，随时开始检索。</span></p></div><div><span>2</span><p><strong>选择关注方向</strong><span>先选 1–3 个专题，执行一次联网更新。</span></p></div><div><span>3</span><p><strong>展开依据，开始选读</strong><span>查看评分与作者线索，收藏值得继续读的论文。</span></p></div></div><div class="faq-list"><details><summary>首次使用，如何建立缓存？<span aria-hidden="true">+</span></summary><p>先选专题，执行一次「联网更新」。之后可用「仅用缓存」回看相同日期与筛选范围。缓存模式不会访问 arXiv；如需最新论文，请主动更新。</p></details>
+<details><summary>网页标注如何设置？<span aria-hidden="true">+</span></summary><p>作者主页、Scholar 搜索 / arXiv 详情可独立开关。「精简模式」保留「知我」入口，收起长状态与作者染色。标注来自本机记录与有限基础索引，未命中不代表论文不重要。</p></details>
+<details><summary>数据会自动同步吗？<span aria-hidden="true">+</span></summary><p>收藏、缓存、个人译法与历史保存在当前浏览器，不随 Google 账号自动同步。更换设备、浏览器配置或卸载前，请先导出备份。翻译与连接测试由你选择的模型服务处理。</p></details></div></div></section>
+
+    <section class="updates-section shell" id="updates" aria-labelledby="updates-title"><div class="section-heading"><div><p class="eyebrow">SMALL CHANGES, EVERY DAY</p><h2 id="updates-title">每一处，更进一步。</h2></div><span class="updated-date">2026.10.20</span></div><a class="update-row" href="https://chromewebstore.google.com/detail/aneomkhamcijmfmeeegocbknklflilof?hl=zh-CN" target="_blank" rel="noopener noreferrer" aria-label="在 Chrome 商店查看论文雷达"><span class="release-version">1.0.3</span><div><h3>论文雷达</h3><p>优化缓存与分批响应；新增独立标注开关、精简模式，作者信息更清晰。</p></div><span class="update-destination"><img src="../assets/radar.png" alt="" width="30" height="30"><span class="update-arrow" aria-hidden="true">↗</span></span></a><p class="update-note">可用版本以 Chrome 商店为准，更新保留原有设置与记录。</p></section>
+  </main>
+  <footer class="site-footer shell"><a class="brand" href="../"><img src="../assets/knowme.svg" width="30" height="30" alt=""><span>知我<span class="brand-en">KnowMe</span></span></a><p>轻量工具，深入阅读。</p><div><button type="button" id="open-privacy">隐私与数据</button><span class="contact-entry"><button type="button" aria-describedby="contact-email">联系</button><span class="contact-email" id="contact-email" role="tooltip">hackerchenzhuo@gmail.com</span></span><a href="https://github.com/hackerchenzhuo" target="_blank" rel="noopener noreferrer">ZhuoCs <span aria-hidden="true">↗</span></a></div></footer>
+  <dialog class="privacy-dialog" id="privacy-dialog" aria-labelledby="privacy-title"><button class="dialog-close" type="button" id="close-privacy" aria-label="关闭隐私说明">×</button><p class="eyebrow">PRIVACY, IN PLAIN WORDS</p><h2 id="privacy-title">数据如何使用。</h2><p>本页演示使用公开论文与预置文字。交互仅作用于当前页面，不调用模型，也不读取插件数据、剪贴板或浏览历史。</p><h3>论文雷达</h3><p>缓存、收藏与设置保存在当前浏览器。主动检索或更新会访问 arXiv 等公开学术来源；网页标注使用本机记录与有限基础索引。</p><h3>AI 翻译</h3><p>模型连接、个人译法与翻译历史保存在本机。翻译或测试连接时，请求会发送至你选择的模型服务，并使用对应额度。重要记忆请定期导出备份。</p><p class="privacy-foot">数据用途、权限与管理方式，详见隐私说明。</p><div class="privacy-doc-links"><a href="../radar-privacy.html">论文雷达隐私说明 ↗</a><a href="../privacy.html">AI 翻译隐私说明 ↗</a></div></dialog>
+  <noscript><p class="noscript-note shell">动态演示需要 JavaScript。产品说明、安装入口与常见问题仍可正常阅读。</p></noscript>
+</body>
+</html>
