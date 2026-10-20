@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#f7f9fa">
-  <meta name="description" content="知我论文雷达与知我 AI 翻译：两款轻量 Chrome 插件，从找论文，到读懂它。看得见的过程，需要时展开的细节。">
+  <meta name="description" content="知我论文雷达与 AI 翻译。两款轻量 Chrome 插件，让文献筛选更清晰，让专业阅读更从容。">
   <meta property="og:title" content="知我 · 从找论文，到读懂它">
-  <meta property="og:description" content="两款轻量研究工具，把筛选、阅读和整理连起来。">
+  <meta property="og:description" content="从文献筛选到对照阅读，两款轻量工具，融入日常研究。">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://hackerchenzhuo.github.io/knowme-ai-translate-site/assets/social-preview.png">
   <meta property="og:image:width" content="1200">
@@ -21,8 +21,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <title>知我 · 从找论文，到读懂它</title>
   <link rel="icon" type="image/svg+xml" href="assets/knowme.svg">
-  <link rel="stylesheet" href="style.css?v=20261020-r3">
-  <script src="app.js?v=20261020-r3" defer></script>
+  <link rel="stylesheet" href="style.css?v=20261021-r4">
+  <script src="app.js?v=20261021-r4" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到正文</a>
@@ -40,13 +40,13 @@
         <h1 id="hero-title"><span>从找论文，</span><span class="accent">到读懂它。</span></h1>
       </div>
       <div class="hero-intro">
-        <p class="hero-copy">筛论文，读原文，留下自己的理解。<br>两款轻量 Chrome 插件，接上日常研究。</p>
-        <div class="hero-links"><a class="button primary" href="#products">选择你的工具 <span aria-hidden="true">↗</span></a><a class="text-link" id="watch-demo" href="#experience">看产品怎么工作 <span aria-hidden="true">↓</span></a></div>
-        <p class="hero-note"><span aria-hidden="true">◌</span> 从 Chrome 商店安装 · 重要记录留在本机</p>
+        <p class="hero-copy">筛选文献，对照阅读，积累个人译法。<br>两款轻量 Chrome 插件，融入日常研究。</p>
+        <div class="hero-links"><a class="button primary" href="#products">探索产品 <span aria-hidden="true">↗</span></a><a class="text-link" id="watch-demo" href="#experience">观看演示 <span aria-hidden="true">↓</span></a></div>
+        <p class="hero-note"><span aria-hidden="true">◌</span> Chrome 商店安装 · 收藏与记忆留在本机</p>
       </div>
-      <div class="experience-heading"><p><span>01</span> 发现相关 <span class="flow-connector" aria-hidden="true">⟶</span> <span>02</span> 读懂原文</p><span>一个连贯的研究工作流</span></div>
+      <div class="experience-heading"><p><span>01</span> 发现相关 <span class="flow-connector" aria-hidden="true">⟶</span> <span>02</span> 读懂原文</p><span>从发现到理解</span></div>
       <div class="experience" id="experience" data-mode="radar" data-stage="0">
-        <div class="window-bar"><span class="window-title"><img src="assets/knowme.svg" width="17" height="17" alt="">知我研究工具台</span><span class="demo-label"><i aria-hidden="true"></i>交互预演</span></div>
+        <div class="window-bar"><span class="window-title"><img src="assets/knowme.svg" width="17" height="17" alt="">知我 · 研究工具</span><span class="demo-label"><i aria-hidden="true"></i>产品演示</span></div>
         <div class="demo-toolbar">
           <div class="product-tabs" role="tablist" aria-label="选择工具演示">
             <button class="product-tab" id="radar-tab" role="tab" type="button" aria-selected="true" aria-controls="radar-demo" data-mode="radar"><span class="product-tab-index" aria-hidden="true">01</span><img src="assets/radar.png" width="23" height="23" alt="">论文雷达</button>
@@ -62,24 +62,24 @@
               <button type="button" class="topic-chip" data-topic="reasoning" aria-pressed="true"><span class="chip-check" aria-hidden="true">✓</span><span>推理与后训练<small>推理轨迹与学习</small></span></button>
               <button type="button" class="topic-chip" data-topic="agent" aria-pressed="false"><span class="chip-check" aria-hidden="true">✓</span><span>Agent<small>工具与技能</small></span></button>
             </div>
-            <p class="panel-note">从少量专题起步，<br>细节留给需要的时候。</p>
+            <p class="panel-note">专注你的方向，<br>按需展开细节。</p>
             <span class="local-note"><span aria-hidden="true">◌</span> 缓存优先，按需更新</span>
           </aside>
           <div class="paper-panel">
             <div class="paper-panel-head"><span>选读清单</span><span class="paper-count" id="paper-count">02 篇公开示例</span></div>
             <div id="paper-list" class="paper-list" tabindex="0" role="region" aria-label="论文选读清单，可上下滚动"></div>
-            <div id="empty-papers" class="empty-papers" hidden><span aria-hidden="true">⌁</span><strong>先选一个方向</strong><p>勾选左侧专题，看看哪些论文会留下。</p></div>
+            <div id="empty-papers" class="empty-papers" hidden><span aria-hidden="true">⌁</span><strong>先选一个方向</strong><p>选择专题，查看相关论文。</p></div>
             <div class="batch-status"><span class="status-dot" aria-hidden="true"></span><span id="radar-status">01 · 选择关注方向</span></div>
           </div>
           <aside class="evidence-panel" aria-label="示例论文依据">
-            <div class="evidence-head"><span class="proof-mark" aria-hidden="true">↳</span><span>每个推荐，都有依据</span></div>
+            <div class="evidence-head"><span class="proof-mark" aria-hidden="true">↳</span><span>推荐有据可循</span></div>
             <p class="evidence-caption" id="evidence-title">RRSI</p>
             <div class="evidence-route">
-              <div><span class="route-point" aria-hidden="true"></span><p><small>与你的方向</small><strong id="evidence-topic">递归自我改进 · Agent Harness</strong></p></div>
-              <div><span class="route-point" aria-hidden="true"></span><p><small>从哪里看出来</small><strong id="evidence-phrase">标题与摘要中的 RSI 和 harness</strong></p></div>
-              <div><span class="route-point quiet" aria-hidden="true"></span><p><small>信息的边界</small><span>来源与未知项分别说明，<br>证据完整度不当成质量分。</span></p></div>
+              <div><span class="route-point" aria-hidden="true"></span><p><small>研究方向</small><strong id="evidence-topic">递归自我改进 · Agent Harness</strong></p></div>
+              <div><span class="route-point" aria-hidden="true"></span><p><small>匹配线索</small><strong id="evidence-phrase">标题与摘要中的 RSI 和 harness</strong></p></div>
+              <div><span class="route-point quiet" aria-hidden="true"></span><p><small>来源与边界</small><span>标明来源与未知项，<br>区分证据完整度与论文质量。</span></p></div>
             </div>
-            <details class="demo-proof"><summary>展开研究线索 <span aria-hidden="true">+</span></summary><p id="evidence-detail">RRSI 讨论在冻结基础模型的前提下，迭代改进智能体的提示词、控制流程、工具、记忆与上下文管理。标题和摘要可支持研究方向判断；作者与机构的完整证据仍需分别核对。</p><a id="paper-source" href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">查看这篇论文 <span aria-hidden="true">↗</span></a></details>
+            <details class="demo-proof"><summary>查看研究线索 <span aria-hidden="true">+</span></summary><p id="evidence-detail">RRSI 围绕冻结的基础模型，迭代改进提示词、控制流程、工具、记忆与上下文管理。题名与摘要支持方向判断；作者与机构信息应分别核对来源。</p><a id="paper-source" href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">查看这篇论文 <span aria-hidden="true">↗</span></a></details>
           </aside>
         </div>
         <div id="translate-demo" class="demo-panel translate-panel" role="tabpanel" aria-labelledby="translate-tab" hidden>
@@ -89,9 +89,9 @@
               <p class="sample-lead">An LLM agent's capability is largely magnified by its <mark>harness</mark>, namely the prompts, control flow, tooling, memory, and context management surrounding the frozen backbone model.</p>
               <p class="sample-body">Recent methods increasingly automate this process by iteratively proposing and selecting component-wise edits of an agent harness, practically establishing a form of recursive self-improvement (RSI) at the agent-system level.</p>
               <div class="sample-document"><h3>Reading notes</h3><ul><li>Model weights stay frozen.</li><li>Harness components can evolve.</li></ul></div>
-              <p class="document-footnote">论文摘要摘录 + 阅读笔记示例</p>
+              <p class="document-footnote">摘要摘录 · 阅读笔记</p>
             </div>
-            <div class="reading-footer"><span>原文结构，保留在熟悉的位置。</span><a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer" aria-label="查看 RRSI 原论文">arXiv ↗</a></div>
+            <div class="reading-footer"><span>保留原文结构，便于对照。</span><a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer" aria-label="查看 RRSI 原论文">arXiv ↗</a></div>
           </section>
           <section class="translation-pane" aria-label="示例中文译文">
             <div class="pane-heading"><span>译文 <span class="pane-paper">保留原文结构</span></span><span class="language-tag">简体中文</span></div>
@@ -101,8 +101,8 @@
               <div class="sample-document"><h3>阅读笔记</h3><ul><li>模型权重保持冻结。</li><li><span data-term>执行框架</span>的组件可以持续演进。</li></ul></div>
               <p class="document-footnote">预置中文译文，仅作产品演示</p>
             </div></div>
-            <div class="term-preference"><div><span class="term-symbol" aria-hidden="true">Aa</span><p><strong>这个词，按你的习惯。</strong><span>harness <span aria-hidden="true">→</span> <label class="sr-only" for="term-choice">harness 的示例译法</label><select id="term-choice"><option value="执行框架">执行框架</option><option value="运行框架">运行框架</option></select></span></p></div><button type="button" id="remember-term">记住这次译法 <span aria-hidden="true">↗</span></button><div class="term-popover" aria-hidden="true"><small>这篇论文里的 harness</small><span>执行框架</span><span>运行框架 <b>✓</b></span></div></div>
-            <p class="memory-status" id="memory-status" role="status">个人译法按领域和语境沿用。</p>
+            <div class="term-preference"><div><span class="term-symbol" aria-hidden="true">Aa</span><p><strong>沿用你的译法</strong><span>harness <span aria-hidden="true">→</span> <label class="sr-only" for="term-choice">harness 的示例译法</label><select id="term-choice"><option value="执行框架">执行框架</option><option value="运行框架">运行框架</option></select></span></p></div><button type="button" id="remember-term">保存译法 <span aria-hidden="true">↗</span></button><div class="term-popover" aria-hidden="true"><small>这篇论文里的 harness</small><span>执行框架</span><span>运行框架 <b>✓</b></span></div></div>
+            <p class="memory-status" id="memory-status" role="status">按领域与语境，沿用个人译法。</p>
           </section>
         </div>
         <div class="tour-cursor" aria-hidden="true"><svg viewBox="0 0 24 28"><path d="M3 2v21l5.5-6 4.7 9 4-2-4.7-9 8.5-.2z"/></svg><span>选择研究方向</span></div>
@@ -112,37 +112,37 @@
         </div>
         <div class="demo-progress" aria-hidden="true"><span></span></div>
       </div>
-      <p class="demo-disclaimer" id="demo-disclaimer">RRSI 沿用 Chrome 商店公开案例。预演操作仅影响本页，不发起检索或模型请求。</p>
+      <p class="demo-disclaimer" id="demo-disclaimer">RRSI 公开案例 · 本页为预置演示，不发起检索或模型请求。</p>
     </section>
 
     <section class="principles shell" aria-label="设计取舍">
-      <div><span class="principle-number">01</span><h2>操作轻一点</h2><p>缓存按需复用，常用动作就在手边。</p></div>
-      <div><span class="principle-number">02</span><h2>等待看得见</h2><p>结果分批出现，知道现在进行到哪一步。</p></div>
-      <div><span class="principle-number">03</span><h2>细节不缺席</h2><p>作者、依据、译法来源，需要时再展开。</p></div>
+      <div><span class="principle-number">01</span><h2>轻快响应</h2><p>缓存按需复用，减少重复等待。</p></div>
+      <div><span class="principle-number">02</span><h2>进度可见</h2><p>结果逐步呈现，随时了解当前进度。</p></div>
+      <div><span class="principle-number">03</span><h2>细节可查</h2><p>作者、研究依据与译法来源，按需展开。</p></div>
     </section>
 
     <section class="products-section shell" id="products" aria-labelledby="products-title">
-      <div class="section-heading"><div><p class="eyebrow">TWO TOOLS, ONE READING FLOW</p><h2 id="products-title">先找到，再读懂。</h2></div><p>各自独立使用，<br>也能放进同一套阅读习惯。</p></div>
+      <div class="section-heading"><div><p class="eyebrow">BUILT FOR RESEARCH</p><h2 id="products-title">先找到，再读懂。</h2></div><p>独立使用，<br>也能彼此衔接。</p></div>
       <div class="product-pair">
-        <article class="product-card radar-product" id="radar"><div class="product-identity"><img src="assets/radar.png" width="48" height="48" alt=""><div><span class="product-role">DISCOVER</span><h3>知我论文雷达</h3></div><span class="product-index" aria-hidden="true">01</span></div><p class="product-intro">把时间留给值得读的论文。</p><ul><li>按专题、子项与机构筛选 arXiv。</li><li>在原网页查看已收录的依据与作者线索。</li><li>收藏与多选分享，接上你的选读清单。</li></ul><div class="product-actions"><a class="button primary" href="https://chromewebstore.google.com/detail/aneomkhamcijmfmeeegocbknklflilof?hl=zh-CN" target="_blank" rel="noopener noreferrer">安装论文雷达 <span aria-hidden="true">↗</span></a><button class="text-link" type="button" data-open-demo="radar">看演示 <span aria-hidden="true">↑</span></button></div><p class="product-fineprint">无需模型 Key · 收藏与缓存保存在本机</p></article>
-        <article class="product-card translate-product" id="translate"><div class="product-identity"><img src="assets/translate.png" width="48" height="48" alt=""><div><span class="product-role">UNDERSTAND</span><h3>知我 AI 翻译</h3></div><span class="product-index" aria-hidden="true">02</span></div><p class="product-intro">读原文，也读得像自己的语言。</p><ul><li>网页划词，或复制后用快捷键唤起。</li><li>保留 Markdown、列表、表格和代码结构。</li><li>按领域记住译法，复用相关翻译记忆。</li></ul><div class="product-actions"><a class="button green" href="https://chromewebstore.google.com/detail/ggbnigoglmfkdfmjggiifmfoinncblgm?hl=zh-CN" target="_blank" rel="noopener noreferrer">安装 AI 翻译 <span aria-hidden="true">↗</span></a><button class="text-link" type="button" data-open-demo="translate">看演示 <span aria-hidden="true">↑</span></button></div><p class="product-fineprint">自备模型 Key · 连接、历史与个人译法保存在本机<br><a class="inline-doc" href="help.html">完整使用说明 ↗</a></p></article>
+        <article class="product-card radar-product" id="radar"><div class="product-identity"><img src="assets/radar.png" width="48" height="48" alt=""><div><span class="product-role">DISCOVER</span><h3>知我论文雷达</h3></div><span class="product-index" aria-hidden="true">01</span></div><p class="product-intro">把时间留给值得读的论文。</p><ul><li>按专题、子项与机构筛选 arXiv 论文。</li><li>在原网页查看论文依据与作者线索。</li><li>收藏、批量分享，整理个人选读清单。</li></ul><div class="product-actions"><a class="button primary" href="https://chromewebstore.google.com/detail/aneomkhamcijmfmeeegocbknklflilof?hl=zh-CN" target="_blank" rel="noopener noreferrer">安装论文雷达 <span aria-hidden="true">↗</span></a><button class="text-link" type="button" data-open-demo="radar">看演示 <span aria-hidden="true">↑</span></button></div><p class="product-fineprint">无需模型 Key · 收藏与缓存保存在本机</p></article>
+        <article class="product-card translate-product" id="translate"><div class="product-identity"><img src="assets/translate.png" width="48" height="48" alt=""><div><span class="product-role">UNDERSTAND</span><h3>知我 AI 翻译</h3></div><span class="product-index" aria-hidden="true">02</span></div><p class="product-intro">保留原文结构，沿用你的译法。</p><ul><li>网页划词，或复制后快捷唤起。</li><li>保留 Markdown、列表、表格和代码结构。</li><li>按领域积累译法，复用翻译记忆。</li></ul><div class="product-actions"><a class="button green" href="https://chromewebstore.google.com/detail/ggbnigoglmfkdfmjggiifmfoinncblgm?hl=zh-CN" target="_blank" rel="noopener noreferrer">安装 AI 翻译 <span aria-hidden="true">↗</span></a><button class="text-link" type="button" data-open-demo="translate">看演示 <span aria-hidden="true">↑</span></button></div><p class="product-fineprint">自备模型 Key · 连接、历史与个人译法保存在本机<br><a class="inline-doc" href="help.html">完整使用说明 ↗</a></p></article>
       </div>
     </section>
 
-    <section class="real-view shell" aria-labelledby="real-title"><div class="real-copy"><p class="eyebrow">FROM THE PRODUCT</p><h2 id="real-title">一篇论文，<br>读到依据。</h2><p>沿用 Chrome 商店的 RRSI 案例。<br>标题、作者、摘要与判断依据，按需展开。</p><button class="text-link" type="button" data-open-demo="radar">试着展开一篇 <span aria-hidden="true">↗</span></button></div><figure><a href="assets/radar-rrsi.webp" target="_blank" rel="noopener" aria-label="查看 RRSI 论文卡片原尺寸截图"><img src="assets/radar-rrsi.webp" alt="Chrome 商店公开的 RRSI 论文卡片：Regularized Recursive Self-Improvement of Agent Harnesses，包含作者、摘要与评分依据。" width="1090" height="596" loading="lazy"></a><figcaption>Chrome 商店公开展示界面 · RRSI 论文案例 · 点击看大图</figcaption></figure></section>
+    <section class="real-view shell" aria-labelledby="real-title"><div class="real-copy"><p class="eyebrow">FROM THE PRODUCT</p><h2 id="real-title">依据，<br>清晰可见。</h2><p>来自 Chrome 商店的 RRSI 公开案例。<br>从标题、作者到摘要与评估依据，逐层展开。</p><button class="text-link" type="button" data-open-demo="radar">探索论文详情 <span aria-hidden="true">↗</span></button></div><figure><a href="assets/radar-rrsi.webp" target="_blank" rel="noopener" aria-label="查看 RRSI 论文卡片原尺寸截图"><img src="assets/radar-rrsi.webp" alt="Chrome 商店公开的 RRSI 论文卡片：Regularized Recursive Self-Improvement of Agent Harnesses，包含作者、摘要与评分依据。" width="1090" height="596" loading="lazy"></a><figcaption>RRSI · Chrome 商店公开界面 · 查看原图 ↗</figcaption></figure></section>
 
-    <section class="guide-section shell" id="guide" aria-labelledby="guide-title"><div class="section-heading"><div><p class="eyebrow">START SMALL</p><h2 id="guide-title">第一次用，先做这几步。</h2></div><p>常见问题在这里，<br>不用一开始就读完整份说明。</p></div><div class="guide-grid"><div class="quick-start"><div><span>1</span><p><strong>先装一个常用的</strong><span>用论文雷达找文献，或用 AI 翻译读一段原文。</span></p></div><div><span>2</span><p><strong>只配与你有关的</strong><span>雷达先选 1–3 个专题；翻译先保存自己的模型连接。</span></p></div><div><span>3</span><p><strong>在下一次阅读里接着用</strong><span>回看收藏，或试试是否沿用了你确认过的译法。</span></p></div></div><div class="faq-list">
-      <details><summary>论文雷达第一次为什么不能只用缓存？<span aria-hidden="true">+</span></summary><p>新装插件还没有个人论文缓存。选好专题后，先主动「联网更新」一次；以后同一范围可用「仅用缓存」重看。仅缓存不会访问 arXiv，也不保证最新。还要核对日期、子项和机构筛选条件。</p></details>
-      <details><summary>三个网页标注开关分别管什么？<span aria-hidden="true">+</span></summary><p>作者主页和 Scholar 搜索 / arXiv 详情是两个独立范围；「精简模式」保留小「知我」按钮，收起较长状态和作者染色。需要时仍可点开依据。浏览网页只查询已存资料与有限基础索引，未命中不表示论文不重要。</p></details>
-      <details><summary>翻译插件要怎么连接模型？<span aria-hidden="true">+</span></summary><p>在快速入门中选择模型厂商或兼容网关，填入自己的模型、地址与 Key，保存并测试。模型请求使用你所选服务的额度；相同原文与配置命中本机缓存时可以复用。日常建议先用轻量文本模型。</p></details>
-      <details><summary>快捷键和网页划词怎么开始？<span aria-hidden="true">+</span></summary><p>先在翻译插件快速入门点「一键开启常用功能」，按浏览器提示确认所需权限。默认 Mac 快捷键为 ⌘⇧Y，Windows 为 Alt+Shift+Y；快捷键和跨应用的全局范围可在浏览器的扩展快捷键页自行设置。已打开的普通网页更新后刷新一次。</p></details>
-      <details><summary>收藏、译法和历史会自动同步吗？<span aria-hidden="true">+</span></summary><p>当前主要保存在本机浏览器，不随 Google 账号自动同步。换电脑、浏览器配置或卸载前，先使用插件提供的导出功能备份重要收藏和个人记忆。翻译发送的文本与模型连接测试会交给你选择的服务处理。</p></details>
+    <section class="guide-section shell" id="guide" aria-labelledby="guide-title"><div class="section-heading"><div><p class="eyebrow">GET STARTED</p><h2 id="guide-title">从这里开始。</h2></div><p>安装、设置、开始阅读。<br>常见问题，随时查阅。</p></div><div class="guide-grid"><div class="quick-start"><div><span>1</span><p><strong>选择工具</strong><span>用论文雷达发现文献，用 AI 翻译对照阅读。</span></p></div><div><span>2</span><p><strong>完成设置</strong><span>雷达选择 1–3 个关注专题；翻译保存并测试模型连接。</span></p></div><div><span>3</span><p><strong>开始阅读</strong><span>积累论文收藏与个人译法，让下一次阅读自然衔接。</span></p></div></div><div class="faq-list">
+      <details><summary>首次使用，如何建立缓存？<span aria-hidden="true">+</span></summary><p>先选专题，执行一次「联网更新」。之后可用「仅用缓存」回看相同日期与筛选范围。缓存模式不会访问 arXiv；如需最新论文，请主动更新。</p></details>
+      <details><summary>网页标注如何设置？<span aria-hidden="true">+</span></summary><p>作者主页、Scholar 搜索 / arXiv 详情可独立开关。「精简模式」保留「知我」入口，收起长状态与作者染色。标注来自本机记录与有限基础索引，未命中不代表论文不重要。</p></details>
+      <details><summary>如何连接翻译模型？<span aria-hidden="true">+</span></summary><p>在快速入门中选择模型服务或兼容网关，填写模型、地址与 Key，保存后测试连接。请求使用所选服务的额度；相同原文与配置命中本机缓存时可复用。</p></details>
+      <details><summary>如何使用划词和快捷键？<span aria-hidden="true">+</span></summary><p>在快速入门中点「一键开启常用功能」，按提示授予权限。默认快捷键：Mac ⌘⇧Y，Windows Alt+Shift+Y。可在扩展快捷键页调整组合键与全局范围。更新后请刷新已打开的网页。</p></details>
+      <details><summary>数据会自动同步吗？<span aria-hidden="true">+</span></summary><p>收藏、缓存、个人译法与历史保存在当前浏览器，不随 Google 账号自动同步。更换设备、浏览器配置或卸载前，请先导出备份。翻译与连接测试由你选择的模型服务处理。</p></details>
     </div></div></section>
 
-    <section class="updates-section shell" id="updates" aria-labelledby="updates-title"><div class="section-heading"><div><p class="eyebrow">SMALL CHANGES, EVERYDAY</p><h2 id="updates-title">持续打磨，读起来更顺。</h2></div><span class="updated-date">2026.10.20</span></div><div class="update-row"><span class="release-version">1.0.3</span><div><h3>论文雷达 <span class="release-state pending">Chrome 审核中</span></h3><p>缓存读取与响应优化，结果分批展示；独立标注开关、精简模式与更简洁的作者行。</p></div><img src="assets/radar.png" alt="" width="30" height="30"></div><div class="update-row"><span class="release-version">1.0.3</span><div><h3>AI 翻译 <span class="release-state">已发布</span></h3><p>浮窗更紧凑，翻译记忆就地下拉；连接摘要、未保存提示与设置细节更清楚。</p></div><img src="assets/translate.png" alt="" width="30" height="30"></div><p class="update-note">商店版本以实际页面为准。已有用户正常更新，保留原设置与记录，无需卸载重装。</p></section>
+    <section class="updates-section shell" id="updates" aria-labelledby="updates-title"><div class="section-heading"><div><p class="eyebrow">SMALL CHANGES, EVERY DAY</p><h2 id="updates-title">每一处，更进一步。</h2></div><span class="updated-date">2026.10.20</span></div><a class="update-row" href="https://chromewebstore.google.com/detail/aneomkhamcijmfmeeegocbknklflilof?hl=zh-CN" target="_blank" rel="noopener noreferrer" aria-label="在 Chrome 商店查看论文雷达"><span class="release-version">1.0.3</span><div><h3>论文雷达</h3><p>优化缓存读取，分批呈现结果。新增独立标注开关与精简模式，作者信息更清晰。</p></div><span class="update-destination"><img src="assets/radar.png" alt="" width="30" height="30"><span class="update-arrow" aria-hidden="true">↗</span></span></a><a class="update-row" href="https://chromewebstore.google.com/detail/ggbnigoglmfkdfmjggiifmfoinncblgm?hl=zh-CN" target="_blank" rel="noopener noreferrer" aria-label="在 Chrome 商店查看AI 翻译"><span class="release-version">1.0.3</span><div><h3>AI 翻译</h3><p>精简浮窗，便捷检索翻译记忆。优化连接摘要、未保存提示与设置体验。</p></div><span class="update-destination"><img src="assets/translate.png" alt="" width="30" height="30"><span class="update-arrow" aria-hidden="true">↗</span></span></a><p class="update-note">可用版本以 Chrome 商店为准，更新保留原有设置与记录。</p></section>
   </main>
-  <footer class="site-footer shell"><a class="brand" href="#top"><img src="assets/knowme.svg" width="30" height="30" alt=""><span>知我<span class="brand-en">KnowMe</span></span></a><p>轻一点，读深一点。</p><div><button type="button" id="open-privacy">隐私与数据</button><span class="contact-entry"><button type="button" aria-describedby="contact-email">联系</button><span class="contact-email" id="contact-email" role="tooltip">hackerchenzhuo@gmail.com</span></span><a href="https://github.com/hackerchenzhuo" target="_blank" rel="noopener noreferrer">ZhuoCs <span aria-hidden="true">↗</span></a></div></footer>
-  <dialog class="privacy-dialog" id="privacy-dialog" aria-labelledby="privacy-title"><button class="dialog-close" type="button" id="close-privacy" aria-label="关闭隐私说明">×</button><p class="eyebrow">PRIVACY, IN PLAIN WORDS</p><h2 id="privacy-title">你的研究，留在你手里。</h2><p>这个官网的演示使用预置的公开论文与示例文字。操作只改变本页展示，不会发送模型请求，也不读取你的插件数据、剪贴板或浏览历史。</p><h3>论文雷达</h3><p>缓存、收藏和设置保存在当前浏览器。主动检索或更新时会访问 arXiv 等公开学术来源；浏览网页上的标注只查询已存资料与有限基础索引。</p><h3>AI 翻译</h3><p>连接、个人译法与翻译历史保存在本机。你主动翻译或测试连接时，文本和请求会发往你选择的模型服务，并使用对应额度。重要记忆请自行备份。</p><p class="privacy-foot">完整数据用途、权限和控制方式，见各自的隐私说明。</p><div class="privacy-doc-links"><a href="radar-privacy.html">论文雷达隐私说明 ↗</a><a href="privacy.html">AI 翻译隐私说明 ↗</a></div></dialog>
+  <footer class="site-footer shell"><a class="brand" href="#top"><img src="assets/knowme.svg" width="30" height="30" alt=""><span>知我<span class="brand-en">KnowMe</span></span></a><p>轻量工具，深入阅读。</p><div><button type="button" id="open-privacy">隐私与数据</button><span class="contact-entry"><button type="button" aria-describedby="contact-email">联系</button><span class="contact-email" id="contact-email" role="tooltip">hackerchenzhuo@gmail.com</span></span><a href="https://github.com/hackerchenzhuo" target="_blank" rel="noopener noreferrer">ZhuoCs <span aria-hidden="true">↗</span></a></div></footer>
+  <dialog class="privacy-dialog" id="privacy-dialog" aria-labelledby="privacy-title"><button class="dialog-close" type="button" id="close-privacy" aria-label="关闭隐私说明">×</button><p class="eyebrow">PRIVACY, IN PLAIN WORDS</p><h2 id="privacy-title">数据如何使用。</h2><p>本页演示使用公开论文与预置文字。交互仅作用于当前页面，不调用模型，也不读取插件数据、剪贴板或浏览历史。</p><h3>论文雷达</h3><p>缓存、收藏与设置保存在当前浏览器。主动检索或更新会访问 arXiv 等公开学术来源；网页标注使用本机记录与有限基础索引。</p><h3>AI 翻译</h3><p>模型连接、个人译法与翻译历史保存在本机。翻译或测试连接时，请求会发送至你选择的模型服务，并使用对应额度。重要记忆请定期导出备份。</p><p class="privacy-foot">数据用途、权限与管理方式，详见隐私说明。</p><div class="privacy-doc-links"><a href="radar-privacy.html">论文雷达隐私说明 ↗</a><a href="privacy.html">AI 翻译隐私说明 ↗</a></div></dialog>
   <noscript><p class="noscript-note shell">动态演示需要 JavaScript。产品说明、安装入口与常见问题仍可正常阅读。</p></noscript>
 </body>
 </html>
