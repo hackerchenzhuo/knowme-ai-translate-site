@@ -42,9 +42,9 @@ Issues 是公开的；截图请隐去 Key、私人文档与个人信息。无需
 
 从论文到作者，再到合作网络。[打开图谱](https://hackerchenzhuo.github.io/knowme-ai-translate-site/#research-atlas)，探索有论文依据的连接，或切换到预置关注示例。
 
-论文雷达 1.0.4 提供可选的本地演化：在你打开 Scholar 作者主页时积累公开线索，近期关注逐渐浮现。可暂停、清除，论文评分保持独立。商店可用版本以审核结果为准。
+论文雷达 1.0.5 提供可选的本地演化：在你打开 Scholar 作者主页时积累公开线索，近期关注逐渐浮现。可暂停、清除，论文评分保持独立。商店可用版本以审核结果为准。
 
-<p align="center"><a href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/#research-atlas"><img src="assets/radar-research-map.png" alt="论文雷达 1.0.4 研究图谱预览：420 个节点与 1,500 条有论文依据的共作连接" width="100%"></a></p>
+<p align="center"><a href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/#research-demo"><img src="assets/research-to-paper.gif" alt="真实操作演示：从 3,200 个作者节点的图谱，进入 RRSI 的作者贡献与论文依据" width="100%"></a></p>
 
 ## English
 
@@ -52,7 +52,7 @@ Issues 是公开的；截图请隐去 Key、私人文档与个人信息。无需
 
 Start at the [KnowMe website](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/), with both tools, demos and installation links in one place. For more detail, visit [Paper Radar](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/radar/) or [AI Translate](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/translate/). Have an idea or a rough edge to share? [Suggest a feature](https://github.com/hackerchenzhuo/knowme-ai-translate-site/issues/new?template=feature_request.yml), [report a problem](https://github.com/hackerchenzhuo/knowme-ai-translate-site/issues/new?template=bug_report.yml), or add your experience to an existing issue. Please remove keys and private information from public reports.
 
-Preview the upcoming [Research Atlas](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/#research-atlas): explore coauthorship evidence and a preset focus example. Local evolution in version 1.0.4 is opt-in, stays in your browser, and can be paused or cleared. Availability in the Chrome Web Store depends on review.
+Preview the upcoming [Research Atlas](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/#research-atlas): explore coauthorship evidence and a preset focus example. Local evolution in version 1.0.5 is opt-in, stays in your browser, and can be paused or cleared. Availability in the Chrome Web Store depends on review.
 
 ## 使用与隐私
 
