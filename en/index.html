@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f9fa">
+  <meta name="description" content="Paper Radar and AI Translate: two lightweight Chrome extensions for research, with visible progress and details on demand.">
+  <meta property="og:title" content="KnowMe · From discovery to understanding">
+  <meta property="og:description" content="Two lightweight research tools connecting discovery, reading and personal notes.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://hackerchenzhuo.github.io/knowme-ai-translate-site/assets/social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Paper Radar and AI Translate: from discovery to understanding.">
+  <meta name="twitter:image" content="https://hackerchenzhuo.github.io/knowme-ai-translate-site/assets/social-preview.png">
+  <meta property="og:url" content="https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/">
+  <link rel="canonical" href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/">
+  <link rel="alternate" hreflang="zh-CN" href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/">
+  <link rel="alternate" hreflang="en" href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/">
+  <link rel="alternate" hreflang="x-default" href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>KnowMe · From discovery to understanding</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/knowme.svg">
+  <link rel="stylesheet" href="../style.css?v=20261020-r3">
+  <script src="../app.js?v=20261020-r3" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="shell navigation" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="KnowMe home"><img src="../assets/knowme.svg" width="34" height="34" alt=""><span>KnowMe<span class="brand-en">知我</span></span></a>
+      <div class="nav-links"><a href="#products">Products</a><a href="#guide">Guide</a><a href="#updates">Updates</a></div>
+      <div class="nav-actions"><div class="language-switch" aria-label="Site language"><a href="../" hreflang="zh-CN" lang="zh-CN" aria-label="切换到中文">中文</a><span class="language-divider" aria-hidden="true">/</span><span class="lang-current" lang="en">EN</span></div><a class="nav-install" href="#products">Get started <span aria-hidden="true">↗</span></a></div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero shell" id="top" aria-labelledby="hero-title">
+      <div class="hero-heading">
+        <p class="eyebrow"><span class="small-orbit" aria-hidden="true"></span>KNOWME / RESEARCH TOOLS</p>
+        <h1 id="hero-title"><span>From discovery,</span><span class="accent">to understanding.</span></h1>
+      </div>
+      <div class="hero-intro">
+        <p class="hero-copy">Find relevant papers. Read closely. Make it yours.<br>Two lightweight Chrome extensions for your research flow.</p>
+        <div class="hero-links"><a class="button primary" href="#products">Explore tools <span aria-hidden="true">↗</span></a><a class="text-link" id="watch-demo" href="#experience">See it in action <span aria-hidden="true">↓</span></a></div>
+        <p class="hero-note"><span aria-hidden="true">◌</span> Install from the Chrome Web Store · Keep important records locally</p>
+      </div>
+      <div class="experience-heading"><p><span>01</span> Discover <span class="flow-connector" aria-hidden="true">⟶</span> <span>02</span> Understand</p><span>One connected research flow</span></div>
+      <div class="experience" id="experience" data-mode="radar" data-stage="0">
+        <div class="window-bar"><span class="window-title"><img src="../assets/knowme.svg" width="17" height="17" alt="">KnowMe research workspace</span><span class="demo-label"><i aria-hidden="true"></i>Interactive tour</span></div>
+        <div class="demo-toolbar">
+          <div class="product-tabs" role="tablist" aria-label="Choose a product tour">
+            <button class="product-tab" id="radar-tab" role="tab" type="button" aria-selected="true" aria-controls="radar-demo" data-mode="radar"><span class="product-tab-index" aria-hidden="true">01</span><img src="../assets/radar.png" width="23" height="23" alt="">Paper Radar</button>
+            <button class="product-tab" id="translate-tab" role="tab" type="button" aria-selected="false" aria-controls="translate-demo" tabindex="-1" data-mode="translate"><span class="product-tab-index" aria-hidden="true">02</span><img src="../assets/translate.png" width="23" height="23" alt="">AI Translate</button>
+          </div>
+          <p class="tour-state"><i aria-hidden="true"></i><span id="tour-caption" role="status">Auto tour · Choose your interests</span></p>
+        </div>
+        <div id="radar-demo" class="demo-panel radar-panel" role="tabpanel" aria-labelledby="radar-tab">
+          <aside class="topic-panel" aria-label="Illustrative research interests">
+            <p class="panel-kicker">WORKSPACE / 01</p><h2>My research interests</h2>
+            <div class="topic-options" role="group" aria-label="Choose demo topics">
+              <button type="button" class="topic-chip" data-topic="data" aria-pressed="true"><span class="chip-check" aria-hidden="true">✓</span><span>Data Synthesis<small>Training data and selection</small></span></button>
+              <button type="button" class="topic-chip" data-topic="reasoning" aria-pressed="true"><span class="chip-check" aria-hidden="true">✓</span><span>Reasoning &amp; post-training<small>Reasoning traces and learning</small></span></button>
+              <button type="button" class="topic-chip" data-topic="agent" aria-pressed="false"><span class="chip-check" aria-hidden="true">✓</span><span>Agent<small>Tools and skills</small></span></button>
+            </div>
+            <p class="panel-note">Start with a few interests.<br>Refine when you need to.</p>
+            <span class="local-note"><span aria-hidden="true">◌</span> Reuse locally. Refresh when needed.</span>
+          </aside>
+          <div class="paper-panel">
+            <div class="paper-panel-head"><span>Your reading list</span><span class="paper-count" id="paper-count">02 public examples</span></div>
+            <div id="paper-list" class="paper-list" tabindex="0" role="region" aria-label="Paper reading list, scrollable"></div>
+            <div id="empty-papers" class="empty-papers" hidden><span aria-hidden="true">⌁</span><strong>Choose an interest first</strong><p>Select a topic to see which papers stay in your list.</p></div>
+            <div class="batch-status"><span class="status-dot" aria-hidden="true"></span><span id="radar-status">01 · Choose your interests</span></div>
+          </div>
+          <aside class="evidence-panel" aria-label="Illustrative paper evidence">
+            <div class="evidence-head"><span class="proof-mark" aria-hidden="true">↳</span><span>Follow the evidence</span></div>
+            <p class="evidence-caption" id="evidence-title">RRSI</p>
+            <div class="evidence-route">
+              <div><span class="route-point" aria-hidden="true"></span><p><small>Your research interests</small><strong id="evidence-topic">Recursive self-improvement · Agent harnesses</strong></p></div>
+              <div><span class="route-point" aria-hidden="true"></span><p><small>Where the match comes from</small><strong id="evidence-phrase">RSI and harness in the title and abstract</strong></p></div>
+              <div><span class="route-point quiet" aria-hidden="true"></span><p><small>What remains uncertain</small><span>Sources and unknowns stay separate.<br>Evidence coverage is not a quality score.</span></p></div>
+            </div>
+            <details class="demo-proof"><summary>Inspect the research clues <span aria-hidden="true">+</span></summary><p id="evidence-detail">RRSI explores iterative changes to prompts, control flow, tools, memory and context around a frozen backbone model. Its title and abstract support the topic match; author and affiliation evidence still need separate checks.</p><a id="paper-source" href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">Open the paper <span aria-hidden="true">↗</span></a></details>
+          </aside>
+        </div>
+        <div id="translate-demo" class="demo-panel translate-panel" role="tabpanel" aria-labelledby="translate-tab" hidden>
+          <section class="source-pane" aria-label="Example English source">
+            <div class="pane-heading"><span>Original excerpt <span class="pane-paper">RRSI</span></span><span class="language-tag">EN</span></div>
+            <div class="reading-scroll source-scroll" tabindex="0" role="region" aria-label="RRSI English excerpt and reading notes, scrollable">
+              <p class="sample-lead">An LLM agent's capability is largely magnified by its <mark>harness</mark>, namely the prompts, control flow, tooling, memory, and context management surrounding the frozen backbone model.</p>
+              <p class="sample-body">Recent methods increasingly automate this process by iteratively proposing and selecting component-wise edits of an agent harness, practically establishing a form of recursive self-improvement (RSI) at the agent-system level.</p>
+              <div class="sample-document"><h3>Reading notes</h3><ul><li>Model weights stay frozen.</li><li>Harness components can evolve.</li></ul></div>
+              <p class="document-footnote">Abstract excerpt + illustrative reading notes</p>
+            </div>
+            <div class="reading-footer"><span>Keep the structure you already know.</span><a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer" aria-label="Open the original RRSI paper">arXiv ↗</a></div>
+          </section>
+          <section class="translation-pane" aria-label="Example Chinese translation">
+            <div class="pane-heading"><span>Translation <span class="pane-paper">Original structure preserved</span></span><span class="language-tag">Simplified Chinese</span></div>
+            <div class="reading-scroll translation-scroll" tabindex="0" role="region" aria-label="RRSI Chinese translation and reading notes, scrollable"><div class="translation-text">
+              <p class="sample-lead">大语言模型智能体的能力，在很大程度上得益于它的<span class="personal-term" data-term>执行框架</span>：也就是围绕冻结的基础模型组织的提示词、控制流程、工具、记忆与上下文管理。</p>
+              <p class="sample-body">近来的方法通过反复提出并筛选对智能体<span data-term>执行框架</span>各个组件的修改，逐步自动化这一过程，实质上在智能体系统层面形成了递归自我改进（RSI）。</p>
+              <div class="sample-document"><h3>阅读笔记</h3><ul><li>模型权重保持冻结。</li><li><span data-term>执行框架</span>的组件可以持续演进。</li></ul></div>
+              <p class="document-footnote">预置中文译文，仅作产品演示</p>
+            </div></div>
+            <div class="term-preference"><div><span class="term-symbol" aria-hidden="true">Aa</span><p><strong>Your term. Your way.</strong><span>harness <span aria-hidden="true">→</span> <label class="sr-only" for="term-choice">Example translation for harness</label><select id="term-choice"><option value="执行框架">执行框架</option><option value="运行框架">运行框架</option></select></span></p></div><button type="button" id="remember-term">Remember this term <span aria-hidden="true">↗</span></button><div class="term-popover" aria-hidden="true"><small>Harness, in this paper</small><span>执行框架</span><span>运行框架 <b>✓</b></span></div></div>
+            <p class="memory-status" id="memory-status" role="status">Personal terms follow the domain and context.</p>
+          </section>
+        </div>
+        <div class="tour-cursor" aria-hidden="true"><svg viewBox="0 0 24 28"><path d="M3 2v21l5.5-6 4.7 9 4-2-4.7-9 8.5-.2z"/></svg><span>Choose your interests</span></div>
+        <div class="demo-controls">
+          <div class="stage-controls" role="group" aria-label="Tour steps"><button type="button" data-stage="0" aria-pressed="true"><span>01</span><span class="stage-name">Interests</span></button><span class="stage-line" aria-hidden="true"></span><button type="button" data-stage="1" aria-pressed="false"><span>02</span><span class="stage-name">Browse</span></button><span class="stage-line" aria-hidden="true"></span><button type="button" data-stage="2" aria-pressed="false"><span>03</span><span class="stage-name">Evidence</span></button></div>
+          <div class="playback-controls"><span class="tour-position" id="tour-position" aria-hidden="true">01 / 03</span><button type="button" id="play-demo" aria-label="Pause tour"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5v10M13 5v10"></path></svg><span>Pause</span></button><button type="button" id="replay-demo" aria-label="Replay tour"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7a6 6 0 1 1-1 5M4 3v5h5"></path></svg><span>Replay</span></button></div>
+        </div>
+        <div class="demo-progress" aria-hidden="true"><span></span></div>
+      </div>
+      <p class="demo-disclaimer" id="demo-disclaimer">RRSI is the public example from our Chrome Web Store page. This tour changes only this page; it sends no search or model requests.</p>
+    </section>
+
+    <section class="principles shell" aria-label="Design principles">
+      <div><span class="principle-number">01</span><h2>Less friction</h2><p>Reuse what is already there. Keep common actions close.</p></div>
+      <div><span class="principle-number">02</span><h2>Visible progress</h2><p>See results arrive, and know what is happening next.</p></div>
+      <div><span class="principle-number">03</span><h2>Details when needed</h2><p>Open authors, evidence and term origins when they matter.</p></div>
+    </section>
+
+    <section class="products-section shell" id="products" aria-labelledby="products-title">
+      <div class="section-heading"><div><p class="eyebrow">TWO TOOLS, ONE READING FLOW</p><h2 id="products-title">Find it. Then understand it.</h2></div><p>Use either on its own,<br>or bring both into your reading flow.</p></div>
+      <div class="product-pair">
+        <article class="product-card radar-product" id="radar"><div class="product-identity"><img src="../assets/radar.png" width="48" height="48" alt=""><div><span class="product-role">DISCOVER</span><h3>Paper Radar</h3></div><span class="product-index" aria-hidden="true">01</span></div><p class="product-intro">Save your time for papers worth reading.</p><ul><li>Filter arXiv by topics, subtopics and institutions.</li><li>Inspect saved evidence and author clues on the original page.</li><li>Save papers and copy a selection into your reading list.</li></ul><div class="product-actions"><a class="button primary" href="https://chromewebstore.google.com/detail/aneomkhamcijmfmeeegocbknklflilof?hl=en" target="_blank" rel="noopener noreferrer">Install Paper Radar <span aria-hidden="true">↗</span></a><button class="text-link" type="button" data-open-demo="radar">Try the demo <span aria-hidden="true">↑</span></button></div><p class="product-fineprint">No model key needed · Saved papers and cache stay local</p></article>
+        <article class="product-card translate-product" id="translate"><div class="product-identity"><img src="../assets/translate.png" width="48" height="48" alt=""><div><span class="product-role">UNDERSTAND</span><h3>AI Translate</h3></div><span class="product-index" aria-hidden="true">02</span></div><p class="product-intro">Read the original. Make it feel familiar.</p><ul><li>Select text, or copy it and open with a shortcut.</li><li>Preserve Markdown, lists, tables and code.</li><li>Keep domain-specific terms and revisit related translations.</li></ul><div class="product-actions"><a class="button green" href="https://chromewebstore.google.com/detail/ggbnigoglmfkdfmjggiifmfoinncblgm?hl=en" target="_blank" rel="noopener noreferrer">Install AI Translate <span aria-hidden="true">↗</span></a><button class="text-link" type="button" data-open-demo="translate">Try the demo <span aria-hidden="true">↑</span></button></div><p class="product-fineprint">Bring your own model key · Connections, history and terms stay local<br><a class="inline-doc" href="../help.html#english">Full user guide ↗</a></p></article>
+      </div>
+    </section>
+
+    <section class="real-view shell" aria-labelledby="real-title"><div class="real-copy"><p class="eyebrow">FROM THE PRODUCT</p><h2 id="real-title">One paper.<br>All the way to the evidence.</h2><p>The RRSI example from our Chrome Web Store page.<br>Title, authors, abstract and reasoning: open what you need.</p><button class="text-link" type="button" data-open-demo="radar">Explore a paper <span aria-hidden="true">↗</span></button></div><figure><a href="../assets/radar-rrsi.webp" target="_blank" rel="noopener" aria-label="Open the full-size RRSI paper screenshot"><img src="../assets/radar-rrsi.webp" alt="Public Chrome Web Store screenshot of RRSI: Regularized Recursive Self-Improvement of Agent Harnesses, with authors, abstract and scoring evidence." width="1090" height="596" loading="lazy"></a><figcaption>Public Chrome Web Store screenshot · RRSI example · Open full size</figcaption></figure></section>
+
+    <section class="guide-section shell" id="guide" aria-labelledby="guide-title"><div class="section-heading"><div><p class="eyebrow">START SMALL</p><h2 id="guide-title">Start with a few small steps.</h2></div><p>The essentials are here.<br>The full guide can wait.</p></div><div class="guide-grid"><div class="quick-start"><div><span>1</span><p><strong>Pick the tool you need first</strong><span>Find a paper with Radar, or read an excerpt with Translate.</span></p></div><div><span>2</span><p><strong>Set up only what matters</strong><span>Choose 1–3 interests in Radar, or save your own model connection in Translate.</span></p></div><div><span>3</span><p><strong>Continue on your next read</strong><span>Revisit a saved paper, or check how a confirmed term carries into a new passage.</span></p></div></div><div class="faq-list">
+      <details><summary>Why is my cache empty on the first use?<span aria-hidden="true">+</span></summary><p>A new installation has no personal paper cache. Choose your interests and run an online refresh once. Later, use cache-only mode to revisit the same scope. Cache-only mode does not contact arXiv or guarantee freshness; check the date range, subtopics and institution filters too.</p></details>
+      <details><summary>What do the three annotation switches control?<span aria-hidden="true">+</span></summary><p>Author profiles and Scholar search / arXiv details are controlled separately. Compact mode keeps the small KnowMe button while hiding longer status text and author coloring. Evidence remains available on demand. Browsing annotations use saved records and a limited bundled index; no match does not mean a paper is unimportant.</p></details>
+      <details><summary>How do I connect a model?<span aria-hidden="true">+</span></summary><p>Choose a provider or compatible gateway in quick setup, enter your model, address and key, then save and test. Requests use the allowance of your chosen service. An exact local cache match can be reused. A lightweight text model is a practical starting point.</p></details>
+      <details><summary>How do shortcuts and text selection work?<span aria-hidden="true">+</span></summary><p>Use the one-step setup button and confirm the requested browser permissions. The default shortcut is ⌘⇧Y on Mac or Alt+Shift+Y on Windows. You can change the binding and its global scope in the browser extension shortcuts page. Refresh ordinary pages that were already open after an update.</p></details>
+      <details><summary>Do saved papers, terms and history sync?<span aria-hidden="true">+</span></summary><p>These records are mainly stored in your local browser and do not automatically sync through your Google account. Export important saved papers and personal memory before switching devices, profiles or uninstalling. Translation text and connection tests are processed by the service you choose.</p></details>
+    </div></div></section>
+
+    <section class="updates-section shell" id="updates" aria-labelledby="updates-title"><div class="section-heading"><div><p class="eyebrow">SMALL CHANGES, EVERYDAY</p><h2 id="updates-title">Small refinements. Better reading.</h2></div><span class="updated-date">2026.10.20</span></div><div class="update-row"><span class="release-version">1.0.3</span><div><h3>Paper Radar <span class="release-state pending">Chrome review pending</span></h3><p>Faster cache access and response, incremental results, separate annotation controls, compact mode and cleaner author rows.</p></div><img src="../assets/radar.png" alt="" width="30" height="30"></div><div class="update-row"><span class="release-version">1.0.3</span><div><h3>AI Translate <span class="release-state">Released</span></h3><p>A more compact reading window, in-place memory search, clearer connection summaries, unsaved-change prompts and settings.</p></div><img src="../assets/translate.png" alt="" width="30" height="30"></div><p class="update-note">Check the store for the version currently available. Existing users can update normally, keeping settings and records without reinstalling.</p></section>
+  </main>
+  <footer class="site-footer shell"><a class="brand" href="#top"><img src="../assets/knowme.svg" width="30" height="30" alt=""><span>KnowMe<span class="brand-en">知我</span></span></a><p>Lightweight tools. Deeper reading.</p><div><button type="button" id="open-privacy">Privacy &amp; data</button><span class="contact-entry"><button type="button" aria-describedby="contact-email">Contact</button><span class="contact-email" id="contact-email" role="tooltip">hackerchenzhuo@gmail.com</span></span><a href="https://github.com/hackerchenzhuo" target="_blank" rel="noopener noreferrer">ZhuoCs <span aria-hidden="true">↗</span></a></div></footer>
+  <dialog class="privacy-dialog" id="privacy-dialog" aria-labelledby="privacy-title"><button class="dialog-close" type="button" id="close-privacy" aria-label="Close privacy information">×</button><p class="eyebrow">PRIVACY, IN PLAIN WORDS</p><h2 id="privacy-title">Your research stays in your hands.</h2><p>This website uses prewritten public examples. Its interactions only change this page. They make no model requests and do not read extension data, your clipboard or browsing history.</p><h3>Paper Radar</h3><p>Cache, saved papers and settings stay in your current browser. Searches and updates you start access public scholarly sources such as arXiv. Page annotations consult saved records and a limited bundled index.</p><h3>AI Translate</h3><p>Connections, personal terms and translation history stay locally. When you translate or test a connection, the text and request go to your selected model service and use its allowance. Back up important memory yourself.</p><p class="privacy-foot">Read each privacy policy for the full data uses, permissions and controls.</p><div class="privacy-doc-links"><a href="../radar-privacy.html#english">Paper Radar privacy ↗</a><a href="../privacy.html#english">AI Translate privacy ↗</a></div></dialog>
+  <noscript><p class="noscript-note shell">The interactive tour needs JavaScript. Product information, installation links and FAQs remain available.</p></noscript>
+</body>
+</html>
