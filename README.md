@@ -17,11 +17,11 @@
 
 ## A closer look
 
-The product tour follows the public **RRSI** example: select research interests, scroll the reading list, inspect the evidence, then read its abstract and choose a personal translation for *harness*.
+Explore Paper Radar through the original Chrome Web Store screenshots: the **RRSI** score breakdown, institution evidence and annotations on arXiv. Switch to AI Translate for a structured **Markdown** reading note with headings, nested lists, hyperlinks, tables and code. Compare the English source and Chinese translation, inspect the Markdown source and choose your preferred term for *harness*.
 
-The website uses clearly marked, prewritten examples. It does not run paper searches, call a model, read extension data or collect analytics. The translation pane intentionally demonstrates English-to-Chinese reading in both website languages.
+The website uses original product screenshots and a clearly marked, prewritten translation example. It does not run paper searches, call a model, read extension data or collect analytics. The translation pane intentionally demonstrates English-to-Chinese reading in both website languages.
 
-<p align="center"><img src="assets/product-tour.gif" alt="RRSI tour: scroll the reading list and expand the evidence" width="100%" loading="lazy"></p>
+<p align="center"><img src="assets/product-tour.gif" alt="Original Paper Radar screenshots and a structured Markdown translation tour" width="100%" loading="lazy"></p>
 
 ## Website source
 

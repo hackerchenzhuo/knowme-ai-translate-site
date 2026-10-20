@@ -21,8 +21,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <title>知我 · 从找论文，到读懂它</title>
   <link rel="icon" type="image/svg+xml" href="assets/knowme.svg">
-  <link rel="stylesheet" href="style.css?v=20261021-r4">
-  <script src="app.js?v=20261021-r4" defer></script>
+  <link rel="stylesheet" href="style.css?v=20261021-r5">
+  <script src="app.js?v=20261021-r5" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到正文</a>
@@ -52,67 +52,171 @@
             <button class="product-tab" id="radar-tab" role="tab" type="button" aria-selected="true" aria-controls="radar-demo" data-mode="radar"><span class="product-tab-index" aria-hidden="true">01</span><img src="assets/radar.png" width="23" height="23" alt="">论文雷达</button>
             <button class="product-tab" id="translate-tab" role="tab" type="button" aria-selected="false" aria-controls="translate-demo" tabindex="-1" data-mode="translate"><span class="product-tab-index" aria-hidden="true">02</span><img src="assets/translate.png" width="23" height="23" alt="">AI 翻译</button>
           </div>
-          <p class="tour-state"><i aria-hidden="true"></i><span id="tour-caption" role="status">自动演示 · 选择关注方向</span></p>
+          <p class="tour-state"><i aria-hidden="true"></i><span id="tour-caption" role="status">自动演示 · 查看真实的论文评分与作者依据</span></p>
         </div>
         <div id="radar-demo" class="demo-panel radar-panel" role="tabpanel" aria-labelledby="radar-tab">
-          <aside class="topic-panel" aria-label="示例研究方向">
-            <p class="panel-kicker">WORKSPACE / 01</p><h2>我的研究方向</h2>
-            <div class="topic-options" role="group" aria-label="选择演示专题">
-              <button type="button" class="topic-chip" data-topic="data" aria-pressed="true"><span class="chip-check" aria-hidden="true">✓</span><span>Data Synthesis<small>训练数据与选择</small></span></button>
-              <button type="button" class="topic-chip" data-topic="reasoning" aria-pressed="true"><span class="chip-check" aria-hidden="true">✓</span><span>推理与后训练<small>推理轨迹与学习</small></span></button>
-              <button type="button" class="topic-chip" data-topic="agent" aria-pressed="false"><span class="chip-check" aria-hidden="true">✓</span><span>Agent<small>工具与技能</small></span></button>
-            </div>
-            <p class="panel-note">专注你的方向，<br>按需展开细节。</p>
-            <span class="local-note"><span aria-hidden="true">◌</span> 缓存优先，按需更新</span>
-          </aside>
-          <div class="paper-panel">
-            <div class="paper-panel-head"><span>选读清单</span><span class="paper-count" id="paper-count">02 篇公开示例</span></div>
-            <div id="paper-list" class="paper-list" tabindex="0" role="region" aria-label="论文选读清单，可上下滚动"></div>
-            <div id="empty-papers" class="empty-papers" hidden><span aria-hidden="true">⌁</span><strong>先选一个方向</strong><p>选择专题，查看相关论文。</p></div>
-            <div class="batch-status"><span class="status-dot" aria-hidden="true"></span><span id="radar-status">01 · 选择关注方向</span></div>
+          <div class="capture-heading"><span><i aria-hidden="true"></i><span id="capture-title">论文详情 · RRSI</span></span><a id="capture-original" href="assets/radar-workbench.png" target="_blank" rel="noopener noreferrer">查看原图 <span aria-hidden="true">↗</span></a></div>
+          <div class="radar-capture" tabindex="0" role="region" aria-label="论文雷达真实界面，可滚动查看细节">
+            <img id="radar-screenshot" src="assets/radar-workbench.png" alt="论文雷达真实界面：RRSI 的作者、机构、匹配子项与评分构成。" width="1280" height="800" decoding="async">
           </div>
-          <aside class="evidence-panel" aria-label="示例论文依据">
-            <div class="evidence-head"><span class="proof-mark" aria-hidden="true">↳</span><span>推荐有据可循</span></div>
-            <p class="evidence-caption" id="evidence-title">RRSI</p>
-            <div class="evidence-route">
-              <div><span class="route-point" aria-hidden="true"></span><p><small>研究方向</small><strong id="evidence-topic">递归自我改进 · Agent Harness</strong></p></div>
-              <div><span class="route-point" aria-hidden="true"></span><p><small>匹配线索</small><strong id="evidence-phrase">标题与摘要中的 RSI 和 harness</strong></p></div>
-              <div><span class="route-point quiet" aria-hidden="true"></span><p><small>来源与边界</small><span>标明来源与未知项，<br>区分证据完整度与论文质量。</span></p></div>
-            </div>
-            <details class="demo-proof"><summary>查看研究线索 <span aria-hidden="true">+</span></summary><p id="evidence-detail">RRSI 围绕冻结的基础模型，迭代改进提示词、控制流程、工具、记忆与上下文管理。题名与摘要支持方向判断；作者与机构信息应分别核对来源。</p><a id="paper-source" href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">查看这篇论文 <span aria-hidden="true">↗</span></a></details>
-          </aside>
+          <div class="capture-footer"><p id="capture-description">相关性、质量与时效分别展示，作者贡献和匹配子项清晰可查。</p><button type="button" id="capture-zoom" aria-pressed="false">放大细节 <span aria-hidden="true">＋</span></button></div>
         </div>
         <div id="translate-demo" class="demo-panel translate-panel" role="tabpanel" aria-labelledby="translate-tab" hidden>
-          <section class="source-pane" aria-label="示例英文原文">
-            <div class="pane-heading"><span>原文摘录 <span class="pane-paper">RRSI</span></span><span class="language-tag">EN</span></div>
-            <div class="reading-scroll source-scroll" tabindex="0" role="region" aria-label="RRSI 英文摘录与阅读笔记，可滚动">
-              <p class="sample-lead">An LLM agent's capability is largely magnified by its <mark>harness</mark>, namely the prompts, control flow, tooling, memory, and context management surrounding the frozen backbone model.</p>
-              <p class="sample-body">Recent methods increasingly automate this process by iteratively proposing and selecting component-wise edits of an agent harness, practically establishing a form of recursive self-improvement (RSI) at the agent-system level.</p>
-              <div class="sample-document"><h3>Reading notes</h3><ul><li>Model weights stay frozen.</li><li>Harness components can evolve.</li></ul></div>
-              <p class="document-footnote">摘要摘录 · 阅读笔记</p>
+          <section class="source-pane" aria-label="英文 Markdown 阅读笔记">
+            <div class="pane-heading"><span>原文 <span class="pane-paper">rrsi-notes.md</span></span><button type="button" id="source-format" aria-pressed="false">Markdown <span aria-hidden="true">‹/›</span></button></div>
+            <div class="reading-scroll source-scroll" tabindex="0" role="region" aria-label="英文原文与 Markdown 源码，可滚动">
+              <!-- fixed-demo:start -->
+              <article class="markdown-document source-rendered" lang="en">
+                <section data-section="intro">
+                  <p class="document-eyebrow">RESEARCH NOTE / RRSI</p>
+                  <h3>Reading an evolving<br>agent harness</h3>
+                  <blockquote><strong>Scope.</strong> A reading note based on the <a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">RRSI abstract ↗</a>.</blockquote>
+                  <h4>1. Define the system boundary</h4>
+                  <p>The <strong>backbone model</strong> stays frozen. Its <em>harness</em> brings together prompts, control flow, tools, memory and context management.</p>
+                </section>
+                <section data-section="table">
+                  <h5>1.1 Components to inspect</h5>
+                  <div class="markdown-table" tabindex="0" role="region" aria-label="Harness components table"><table><thead><tr><th>Layer</th><th>Example</th><th>Review question</th></tr></thead><tbody><tr><td>Prompts</td><td>Task instructions</td><td>Is the objective explicit?</td></tr><tr><td>Tools</td><td>Search / execution</td><td>How are failures handled?</td></tr><tr><td>Memory</td><td>Retrieved context</td><td>Are sources traceable?</td></tr></tbody></table></div>
+                  <p class="document-reference">Source: <a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">RRSI · arXiv:2609.24972 ↗</a></p>
+                </section>
+                <section data-section="outline">
+                  <h5>1.2 Follow the hierarchy</h5>
+                  <ol><li>Map the <strong>control flow</strong>.<ul><li>Trace the task from input to output.</li><li>Inspect the supporting components:<ul><li>tools and fallback behavior;</li><li>memory and context boundaries.</li></ul></li></ul></li><li>Compare the edited harness with a reference.<ul><li>Keep the model fixed.</li><li>Record what changed and why.</li></ul></li></ol>
+                  <h6>A note on terminology</h6><p>Keep <code>harness</code> consistent within this reading note.</p>
+                </section>
+                <section data-section="code">
+                  <h4>2. Keep configuration readable</h4>
+                  <p>This illustrative configuration shows the hierarchy of an agent harness.</p>
+                  <pre class="document-code"><code>agent:
+  model: frozen
+  harness:
+    prompts: versioned
+    tools:
+      - search
+      - execute
+    memory:
+      source_links: true</code></pre>
+                </section>
+                <section data-section="sources">
+                  <h4>3. Return to the source</h4>
+                  <ul><li><a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">Read the paper ↗</a></li><li><a href="https://arxiv.org/pdf/2609.24972" target="_blank" rel="noopener noreferrer">Open the PDF ↗</a></li></ul>
+                  <p class="document-reference">The checklist and YAML are illustrative reading aids.</p>
+                </section>
+              </article>
+              <pre class="markdown-source" hidden lang="en"><code><span data-section="intro"># Reading an evolving agent harness
+
+&gt; **Scope.** A reading note based on the [RRSI abstract](https://arxiv.org/abs/2609.24972).
+
+## 1. Define the system boundary
+
+The **backbone model** stays frozen. Its *harness* brings together prompts, control flow, tools, memory and context management.
+
+</span><span data-section="table">### 1.1 Components to inspect
+
+| Layer | Example | Review question |
+| :--- | :--- | :--- |
+| Prompts | Task instructions | Is the objective explicit? |
+| Tools | Search / execution | How are failures handled? |
+| Memory | Retrieved context | Are sources traceable? |
+
+Source: [RRSI · arXiv:2609.24972](https://arxiv.org/abs/2609.24972)
+
+</span><span data-section="outline">### 1.2 Follow the hierarchy
+
+1. Map the **control flow**.
+   - Trace the task from input to output.
+   - Inspect the supporting components:
+     - tools and fallback behavior;
+     - memory and context boundaries.
+2. Compare the edited harness with a reference.
+   - Keep the model fixed.
+   - Record what changed and why.
+
+#### A note on terminology
+
+Keep `harness` consistent within this reading note.
+
+</span><span data-section="code">## 2. Keep configuration readable
+
+This illustrative configuration shows the hierarchy of an agent harness.
+
+```yaml
+agent:
+  model: frozen
+  harness:
+    prompts: versioned
+    tools:
+      - search
+      - execute
+    memory:
+      source_links: true
+```
+
+</span><span data-section="sources">## 3. Return to the source
+
+- [Read the paper](https://arxiv.org/abs/2609.24972)
+- [Open the PDF](https://arxiv.org/pdf/2609.24972)
+
+The checklist and YAML are illustrative reading aids.
+</span></code></pre>
+              <!-- fixed-demo:end -->
             </div>
-            <div class="reading-footer"><span>保留原文结构，便于对照。</span><a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer" aria-label="查看 RRSI 原论文">arXiv ↗</a></div>
+            <div class="reading-footer"><span>标题、链接、表格与代码，结构完整。</span><a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">arXiv ↗</a></div>
           </section>
-          <section class="translation-pane" aria-label="示例中文译文">
+          <section class="translation-pane" aria-label="保留 Markdown 结构的中文译文">
             <div class="pane-heading"><span>译文 <span class="pane-paper">保留原文结构</span></span><span class="language-tag">简体中文</span></div>
-            <div class="reading-scroll translation-scroll" tabindex="0" role="region" aria-label="RRSI 中文示例译文与阅读笔记，可滚动"><div class="translation-text">
-              <p class="sample-lead">大语言模型智能体的能力，在很大程度上得益于它的<span class="personal-term" data-term>执行框架</span>：也就是围绕冻结的基础模型组织的提示词、控制流程、工具、记忆与上下文管理。</p>
-              <p class="sample-body">近来的方法通过反复提出并筛选对智能体<span data-term>执行框架</span>各个组件的修改，逐步自动化这一过程，实质上在智能体系统层面形成了递归自我改进（RSI）。</p>
-              <div class="sample-document"><h3>阅读笔记</h3><ul><li>模型权重保持冻结。</li><li><span data-term>执行框架</span>的组件可以持续演进。</li></ul></div>
-              <p class="document-footnote">预置中文译文，仅作产品演示</p>
-            </div></div>
-            <div class="term-preference"><div><span class="term-symbol" aria-hidden="true">Aa</span><p><strong>沿用你的译法</strong><span>harness <span aria-hidden="true">→</span> <label class="sr-only" for="term-choice">harness 的示例译法</label><select id="term-choice"><option value="执行框架">执行框架</option><option value="运行框架">运行框架</option></select></span></p></div><button type="button" id="remember-term">保存译法 <span aria-hidden="true">↗</span></button><div class="term-popover" aria-hidden="true"><small>这篇论文里的 harness</small><span>执行框架</span><span>运行框架 <b>✓</b></span></div></div>
+            <div class="reading-scroll translation-scroll" tabindex="0" role="region" aria-label="中文译文，可滚动对照标题、表格与代码">
+              <!-- fixed-demo:start -->
+              <article class="markdown-document translation-text" lang="zh-CN">
+                <section data-section="intro">
+                  <p class="document-eyebrow">研究笔记 / RRSI</p>
+                  <h3>理解持续演进的<br>智能体<span class="personal-term" data-term>执行框架</span></h3>
+                  <blockquote><strong>范围。</strong>基于 <a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">RRSI 摘要 ↗</a> 整理的阅读笔记。</blockquote>
+                  <h4>1. 明确系统边界</h4>
+                  <p><strong>基础模型</strong>保持冻结。它的<span class="personal-term" data-term>执行框架</span>将提示词、控制流程、工具、记忆与上下文管理组织在一起。</p>
+                </section>
+                <section data-section="table">
+                  <h5>1.1 需要考察的组件</h5>
+                  <div class="markdown-table" tabindex="0" role="region" aria-label="执行框架组件对照表"><table><thead><tr><th>层级</th><th>示例</th><th>考察问题</th></tr></thead><tbody><tr><td>提示词</td><td>任务指令</td><td>目标是否明确？</td></tr><tr><td>工具</td><td>检索 / 执行</td><td>如何处理失败？</td></tr><tr><td>记忆</td><td>检索到的上下文</td><td>来源是否可追溯？</td></tr></tbody></table></div>
+                  <p class="document-reference">来源：<a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">RRSI · arXiv:2609.24972 ↗</a></p>
+                </section>
+                <section data-section="outline">
+                  <h5>1.2 沿层级展开阅读</h5>
+                  <ol><li>梳理<strong>控制流程</strong>。<ul><li>追踪任务从输入到输出的路径。</li><li>检查支撑组件：<ul><li>工具与回退机制；</li><li>记忆与上下文边界。</li></ul></li></ul></li><li>将修改后的<span class="personal-term" data-term>执行框架</span>与参考版本对照。<ul><li>保持模型固定。</li><li>记录修改内容及原因。</li></ul></li></ol>
+                  <h6>术语说明</h6><p>本篇阅读笔记中，<code>harness</code> 统一使用「<span class="personal-term" data-term>执行框架</span>」。</p>
+                </section>
+                <section data-section="code">
+                  <h4>2. 保持配置清晰可读</h4>
+                  <p>以下示例配置展示了智能体<span class="personal-term" data-term>执行框架</span>的层级。</p>
+                  <pre class="document-code"><code>agent:
+  model: frozen
+  harness:
+    prompts: versioned
+    tools:
+      - search
+      - execute
+    memory:
+      source_links: true</code></pre>
+                </section>
+                <section data-section="sources">
+                  <h4>3. 回到原始来源</h4>
+                  <ul><li><a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">阅读论文 ↗</a></li><li><a href="https://arxiv.org/pdf/2609.24972" target="_blank" rel="noopener noreferrer">打开 PDF ↗</a></li></ul>
+                  <p class="document-reference">清单与 YAML 为辅助阅读的示例。</p>
+                </section>
+              </article>
+              <!-- fixed-demo:end -->
+            </div>
+            <div class="term-preference"><div><span class="term-symbol" aria-hidden="true">Aa</span><p><strong>沿用你的译法</strong><span>harness <span aria-hidden="true">→</span> <label class="sr-only" for="term-choice">harness 的示例译法</label><select id="term-choice"><option value="执行框架">执行框架</option><option value="运行框架">运行框架</option></select></span></p></div><button type="button" id="remember-term">保存译法 <span aria-hidden="true">↗</span></button></div>
             <p class="memory-status" id="memory-status" role="status">按领域与语境，沿用个人译法。</p>
           </section>
         </div>
-        <div class="tour-cursor" aria-hidden="true"><svg viewBox="0 0 24 28"><path d="M3 2v21l5.5-6 4.7 9 4-2-4.7-9 8.5-.2z"/></svg><span>选择研究方向</span></div>
         <div class="demo-controls">
-          <div class="stage-controls" role="group" aria-label="演示步骤"><button type="button" data-stage="0" aria-pressed="true"><span>01</span><span class="stage-name">定方向</span></button><span class="stage-line" aria-hidden="true"></span><button type="button" data-stage="1" aria-pressed="false"><span>02</span><span class="stage-name">滑动选读</span></button><span class="stage-line" aria-hidden="true"></span><button type="button" data-stage="2" aria-pressed="false"><span>03</span><span class="stage-name">展开依据</span></button></div>
+          <div class="stage-controls" role="group" aria-label="演示步骤"><button type="button" data-stage="0" aria-pressed="true"><span>01</span><span class="stage-name">论文详情</span></button><span class="stage-line" aria-hidden="true"></span><button type="button" data-stage="1" aria-pressed="false"><span>02</span><span class="stage-name">机构溯源</span></button><span class="stage-line" aria-hidden="true"></span><button type="button" data-stage="2" aria-pressed="false"><span>03</span><span class="stage-name">网页标注</span></button></div>
           <div class="playback-controls"><span class="tour-position" id="tour-position" aria-hidden="true">01 / 03</span><button type="button" id="play-demo" aria-label="暂停演示"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5v10M13 5v10"></path></svg><span>暂停</span></button><button type="button" id="replay-demo" aria-label="重播演示"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7a6 6 0 1 1-1 5M4 3v5h5"></path></svg><span>重播</span></button></div>
         </div>
         <div class="demo-progress" aria-hidden="true"><span></span></div>
       </div>
-      <p class="demo-disclaimer" id="demo-disclaimer">RRSI 公开案例 · 本页为预置演示，不发起检索或模型请求。</p>
+      <p class="demo-disclaimer" id="demo-disclaimer">Chrome 商店原始截图 · 可滚动查看细节，或打开原图。</p>
     </section>
 
     <section class="principles shell" aria-label="设计取舍">
