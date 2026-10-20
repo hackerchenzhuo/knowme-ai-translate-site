@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="430" viewBox="0 0 1280 430" role="img" aria-labelledby="title desc">
+<title id="title">KnowMe — lightweight tools, deeper reading</title><desc id="desc">Paper Radar for discovery. AI Translate for understanding. Chrome extensions for everyday research.</desc>
+<rect width="1280" height="430" rx="12" fill="#f7f9fa"/>
+<path d="M64 96H1216M64 365H1216M790 133V325" stroke="#d8e2e8"/>
+<rect x="64" y="37" width="34" height="34" rx="7" fill="#196b7f"/>
+<text x="72" y="61" fill="white" font-size="24" font-family="system-ui,sans-serif">知</text>
+<text x="111" y="62" fill="#172830" font-size="25" font-weight="650" font-family="system-ui,sans-serif">KnowMe</text>
+<text x="1216" y="59" text-anchor="end" fill="#7b909e" font-size="11" letter-spacing="2" font-family="monospace">RESEARCH TOOLS / 2026</text>
+<text x="62" y="195" fill="#172830" font-size="61" font-weight="630" letter-spacing="-2.5" font-family="system-ui,sans-serif">Lightweight tools.</text>
+<text x="62" y="268" fill="#718693" font-size="61" font-weight="630" letter-spacing="-2.5" font-family="system-ui,sans-serif">Deeper reading.</text>
+<text x="66" y="315" fill="#839aa9" font-size="15" font-family="system-ui,sans-serif">From discovery to understanding.</text>
+<text x="840" y="165" fill="#93a7b4" font-size="10" font-family="monospace">01 / DISCOVER</text>
+<text x="839" y="202" fill="#1f3f50" font-size="26" font-weight="550" font-family="system-ui,sans-serif">Paper Radar</text>
+<text x="840" y="230" fill="#8199a7" font-size="13" font-family="system-ui,sans-serif">Find relevant papers. Follow the evidence.</text>
+<path d="M840 250H1214" stroke="#dce5eb"/>
+<text x="840" y="278" fill="#93a7b4" font-size="10" font-family="monospace">02 / UNDERSTAND</text>
+<text x="839" y="314" fill="#2e6e53" font-size="26" font-weight="550" font-family="system-ui,sans-serif">AI Translate</text>
+<text x="66" y="397" fill="#96a8b4" font-size="10" letter-spacing="1" font-family="monospace">CHROME WEB STORE · LOCAL-FIRST · YOUR MODEL, YOUR TERMS</text>
+<text x="1216" y="397" text-anchor="end" fill="#96a8b4" font-size="10" letter-spacing="1" font-family="monospace">中文 / EN</text>
+</svg>
