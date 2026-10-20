@@ -21,8 +21,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <title>KnowMe · From discovery to understanding</title>
   <link rel="icon" type="image/svg+xml" href="../assets/knowme.svg">
-  <link rel="stylesheet" href="../style.css?v=20261021-r8-atlas">
+  <link rel="stylesheet" href="../style.css?v=20261021-ui2">
   <script src="../app.js?v=20261021-r6" defer></script>
+  <script src="../assets/atlas-motion.js?v=20261021-polish" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -226,11 +227,15 @@ The checklist and YAML are illustrative reading aids.
     </section>
 
     <section class="atlas-section shell" id="research-atlas" aria-labelledby="atlas-title">
-      <div class="section-heading"><div><p class="eyebrow">KNOWME / RESEARCH ATLAS</p><h2 id="atlas-title">A clearer view of your research.</h2></div><span class="atlas-preview">Next release preview</span></div>
-      <p class="atlas-intro">From papers to authors, and authors to collaborators. Public evidence builds over time. Recent interests come into focus.</p>
-      <div class="atlas-frame"><iframe src="../assets/research-atlas.html?lang=en" title="Interactive coauthorship network · Public data demo" loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe></div>
-      <div class="atlas-notes"><p>Enable it once. Let it fit your workflow. Local evolution, with pause and reset controls.</p><a href="../assets/research-atlas.html?lang=en" target="_blank" rel="noopener noreferrer">Explore the map <span aria-hidden="true">↗</span></a></div>
-      <p class="atlas-source">420 nodes and 1,500 coauthorship links, grounded in 1,602 public papers. A preset demo with no access to your extension or browsing activity.</p>
+      <div class="section-heading"><div><p class="eyebrow">KNOWME / RESEARCH ATLAS</p><h2 id="atlas-title">See the research behind each paper.</h2></div><span class="atlas-preview">Next release preview</span></div>
+      <p class="atlas-intro">3,200 author nodes. 12,000 coauthorship links. Follow a connection back to the paper and its scoring evidence.</p>
+      <div class="atlas-frame"><iframe src="../assets/research-atlas.html?lang=en&amp;v=20261021-polish" title="Interactive coauthorship network · Public data demo" loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe></div>
+      <div class="atlas-notes"><p>Enable it once. Let it fit your workflow. Local evolution, with pause and reset controls.</p><a href="../assets/research-atlas.html?lang=en&amp;v=20261021-polish" target="_blank" rel="noopener noreferrer">Explore the map <span aria-hidden="true">↗</span></a></div>
+      <p class="atlas-source">A sample of 1,602 public papers, with identities kept separate by their evidence. Preset demo data only.</p>
+      <div class="atlas-walkthrough" id="research-demo">
+        <div class="atlas-walkthrough-copy"><p class="eyebrow">FROM THE GRAPH TO THE PAPER</p><h3>From a connection to a paper.</h3><p>Find an author, trace their collaborations, then open RRSI. See how author evidence becomes a scoring component.</p><ol><li>Find an author in the graph</li><li>Follow the paper trail to RRSI</li><li>Inspect contributions and sources</li><li>Continue in the Radar workspace</li></ol><div class="atlas-motion-actions"><button type="button" id="atlas-motion-toggle">Pause tour</button><button type="button" id="atlas-motion-open">View larger <span aria-hidden="true">↗</span></button><a href="../assets/research-to-paper.gif" target="_blank" rel="noopener noreferrer">GIF <span aria-hidden="true">↗</span></a></div><small>Recorded from the working interface with public papers; pacing adjusted for clarity.</small></div>
+        <button class="atlas-motion-preview" type="button" aria-label="Enlarge the graph-to-paper workflow"><img id="atlas-motion-image" src="../assets/research-to-paper-poster.webp" data-motion="../assets/research-to-paper.webp" data-poster="../assets/research-to-paper-poster.webp" width="1280" height="800" loading="lazy" decoding="async" alt="Recorded workflow: follow a coauthorship graph into RRSI to inspect the author components and paper evidence."></button>
+      </div>
     </section>
 
     <section class="products-section shell" id="products" aria-labelledby="products-title">
