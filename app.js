@@ -31,7 +31,7 @@ const playButton = document.querySelector('#play-demo');
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
 const state = {mode:'radar', stage:0, playing:!motion.matches, visible:true, zoom:false, markdown:false, term:'执行框架', remembered:false};
 let frame = null, lastTime = 0, elapsed = 0, captureIndex = -1, scrollDriver = null;
-const assetPrefix = english ? '../assets/' : 'assets/';
+const assetPrefix = new URL('assets/', document.querySelector('script[src*="app.js"]').src).href;
 
 function active() { return state.playing && state.visible && !document.hidden; }
 function ease(value) { const x = Math.max(0, Math.min(1, value)); return x*x*(3-2*x); }
@@ -198,5 +198,6 @@ if ('IntersectionObserver' in window) new IntersectionObserver(entries=>{
   if (visible!==state.visible) {state.visible=visible;updatePlayback();}
 },{threshold:.12}).observe(root);
 motion.addEventListener('change',()=>{if(motion.matches)pause();});
-if(new URLSearchParams(location.search).get('tool')==='translate')state.mode='translate';
+const initialProduct = document.body.dataset.product || new URLSearchParams(location.search).get('tool');
+if (['radar','translate'].includes(initialProduct)) state.mode = initialProduct;
 render();
