@@ -16,8 +16,8 @@
 | 为你做什么 | 按研究方向发现论文，逐项查看作者、机构与评分依据 | 划词或复制后快捷唤起，轻巧浮窗随用随收 |
 | 日常体验 | 聚焦相关文献，在 arXiv 原页继续阅读 | 读邮件、看文档，翻译融入手头的工作 |
 | 细节 | 专题筛选、作者线索、机构溯源、收藏与分享 | Markdown 结构、个人译法、翻译记忆与缓存 |
-| 产品官网 | [了解论文雷达 ↗](https://hackerchenzhuo.github.io/knowme-ai-translate-site/radar/) | [了解 AI 翻译 ↗](https://hackerchenzhuo.github.io/knowme-ai-translate-site/translate/) |
 | 安装与更新 | [Chrome 商店 ↗](https://chromewebstore.google.com/detail/aneomkhamcijmfmeeegocbknklflilof) | [Chrome 商店 ↗](https://chromewebstore.google.com/detail/ggbnigoglmfkdfmjggiifmfoinncblgm) |
+| 产品详情 | [了解论文雷达 ↗](https://hackerchenzhuo.github.io/knowme-ai-translate-site/radar/) | [了解 AI 翻译 ↗](https://hackerchenzhuo.github.io/knowme-ai-translate-site/translate/) |
 | 费用 | 免费安装，无需模型 Key | 免费安装，自备模型 Key；模型服务可能计费 |
 
 ## 好用的细节，来自真实使用
@@ -42,7 +42,7 @@ Issues 是公开的；截图请隐去 Key、私人文档与个人信息。无需
 
 **Paper Radar** helps you discover research and inspect the evidence behind each match. **AI Translate** brings translation into emails, documents and everyday work through text selection, shortcuts and a compact window. Both extensions are free to install; AI Translate uses your own model connection, and provider fees may apply.
 
-Explore [Paper Radar](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/radar/) or [AI Translate](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/translate/). Have an idea or a rough edge to share? [Suggest a feature](https://github.com/hackerchenzhuo/knowme-ai-translate-site/issues/new?template=feature_request.yml), [report a problem](https://github.com/hackerchenzhuo/knowme-ai-translate-site/issues/new?template=bug_report.yml), or add your experience to an existing issue. Please remove keys and private information from public reports.
+Start at the [KnowMe website](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/), with both tools, demos and installation links in one place. For more detail, visit [Paper Radar](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/radar/) or [AI Translate](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/translate/). Have an idea or a rough edge to share? [Suggest a feature](https://github.com/hackerchenzhuo/knowme-ai-translate-site/issues/new?template=feature_request.yml), [report a problem](https://github.com/hackerchenzhuo/knowme-ai-translate-site/issues/new?template=bug_report.yml), or add your experience to an existing issue. Please remove keys and private information from public reports.
 
 ## 使用与隐私
 
