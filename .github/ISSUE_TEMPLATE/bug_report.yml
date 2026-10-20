@@ -1,0 +1,43 @@
+name: 使用问题 · Bug report
+description: 报告一个可复现的问题，帮助我们定位和修复。 / Help us reproduce and fix a problem.
+title: "[问题] "
+body:
+  - type: markdown
+    attributes:
+      value: "此处公开可见。截图请隐去 Key、私人文档与个人信息；不要附上插件安装包。 / This report is public. Remove keys and private information from screenshots; do not attach extension packages."
+  - type: dropdown
+    id: product
+    attributes:
+      label: 对应产品 · Product
+      options:
+        - 论文雷达 · Paper Radar
+        - AI 翻译 · AI Translate
+        - 官网 · Website
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: 版本与环境 · Version and environment
+      description: 插件版本、浏览器版本、操作系统。 / Extension version, browser and operating system.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 如何复现？ · Steps to reproduce
+      description: 从打开页面开始，按顺序描述操作。 / Describe the steps in order.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: 实际与预期结果 · Actual and expected result
+      description: 发生了什么，以及你预期看到什么。 / What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: 补充信息 · Additional context
+      description: 可选截图或错误文字，请先去除私人信息。 / Optional screenshots or error text, with private information removed.

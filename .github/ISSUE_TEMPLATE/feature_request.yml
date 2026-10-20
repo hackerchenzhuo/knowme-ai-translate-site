@@ -1,0 +1,31 @@
+name: 功能建议 · Feature request
+description: 分享使用场景，让下一次改进更贴近你的工作。 / Share a use case or improvement.
+title: "[建议] "
+body:
+  - type: markdown
+    attributes:
+      value: "感谢分享。请描述真实使用场景；此处公开可见，请勿填写 Key、私人文档或个人信息。 / Thanks for sharing. This is public; please omit keys and private information."
+  - type: dropdown
+    id: product
+    attributes:
+      label: 对应产品 · Product
+      options:
+        - 论文雷达 · Paper Radar
+        - AI 翻译 · AI Translate
+        - 官网 · Website
+    validations:
+      required: true
+  - type: textarea
+    id: use_case
+    attributes:
+      label: 你在完成什么工作？ · What are you trying to do?
+      description: 描述场景，以及当前哪一步不够顺手。 / Describe your workflow and the friction.
+    validations:
+      required: true
+  - type: textarea
+    id: improvement
+    attributes:
+      label: 希望怎样改进？ · What would help?
+      description: 期望的操作或结果，也欢迎只描述问题。 / Share the interaction or result you would like.
+    validations:
+      required: true
