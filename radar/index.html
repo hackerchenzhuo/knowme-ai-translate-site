@@ -21,8 +21,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <title>知我论文雷达 · 发现论文，看清依据</title>
   <link rel="icon" type="image/svg+xml" href="../assets/knowme.svg">
-  <link rel="stylesheet" href="../style.css?v=20261021-personal1">
-  <script src="../app.js?v=20261021-personal1" defer></script>
+  <link rel="stylesheet" href="../style.css?v=20261022-multipaper1">
+  <script src="../app.js?v=20261022-multipaper1" defer></script>
 </head>
 <body class="product-landing" data-product="radar">
   <a class="skip-link" href="#main">跳到正文</a>
@@ -55,111 +55,65 @@
           <p class="tour-state"><i aria-hidden="true"></i><span id="tour-caption" role="status">自动演示 · 查看真实的论文评分与作者依据</span></p>
         </div>
         <div id="radar-demo" class="demo-panel radar-panel" role="tabpanel" aria-labelledby="radar-tab">
-          <div class="capture-heading"><span><i aria-hidden="true"></i><span id="capture-title">论文详情 · RRSI</span></span><a id="capture-original" href="../assets/radar-workbench.png" target="_blank" rel="noopener noreferrer">查看原图 <span aria-hidden="true">↗</span></a></div>
+          <div class="capture-heading"><span><i aria-hidden="true"></i><span id="capture-title">论文详情 · When Agents Slow Down</span></span><a id="capture-original" href="../assets/radar-agents.png" target="_blank" rel="noopener noreferrer">查看原图 <span aria-hidden="true">↗</span></a></div>
           <div class="radar-capture" tabindex="0" role="region" aria-label="论文雷达真实界面，可滚动查看细节">
-            <img id="radar-screenshot" src="../assets/radar-workbench.png" alt="论文雷达真实界面：RRSI 的作者、机构、匹配子项与评分构成。" width="1280" height="800" decoding="async">
+            <img id="radar-screenshot" src="../assets/radar-agents.png" alt="Paper Radar: When Agents Slow Down, authors, affiliations and evidence." width="1280" height="800" decoding="async">
           </div>
           <div class="capture-footer"><p id="capture-description">相关性、质量与时效分别展示，作者贡献和匹配子项清晰可查。</p><button type="button" id="capture-zoom" aria-pressed="false">放大细节 <span aria-hidden="true">＋</span></button></div>
         </div>
         <div id="translate-demo" class="demo-panel translate-panel" role="tabpanel" aria-labelledby="translate-tab" hidden>
           <section class="source-pane" aria-label="英文 Markdown 阅读笔记">
-            <div class="pane-heading"><span>原文 <span class="pane-paper">rrsi-notes.md</span></span><button type="button" id="source-format" aria-pressed="false">Markdown <span aria-hidden="true">‹/›</span></button></div>
+            <div class="pane-heading"><span>原文 <span class="pane-paper">research-notes.md</span></span><button type="button" id="source-format" aria-pressed="false">Markdown <span aria-hidden="true">‹/›</span></button></div>
             <div class="reading-scroll source-scroll" tabindex="0" role="region" aria-label="英文原文与 Markdown 源码，可滚动">
               <!-- fixed-demo:start -->
-              <article class="markdown-document source-rendered" lang="en">
-                <section data-section="intro">
-                  <p class="document-eyebrow">RESEARCH NOTE / RRSI</p>
-                  <h3>Reading an evolving<br>agent harness</h3>
-                  <blockquote><strong>Scope.</strong> A reading note based on the <a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">RRSI abstract ↗</a>.</blockquote>
-                  <h4>1. Define the system boundary</h4>
-                  <p>The <strong>backbone model</strong> stays frozen. Its <em>harness</em> brings together prompts, control flow, tools, memory and context management.</p>
-                </section>
-                <section data-section="table">
-                  <h5>1.1 Components to inspect</h5>
-                  <div class="markdown-table" tabindex="0" role="region" aria-label="Harness components table"><table><thead><tr><th>Layer</th><th>Example</th><th>Review question</th></tr></thead><tbody><tr><td>Prompts</td><td>Task instructions</td><td>Is the objective explicit?</td></tr><tr><td>Tools</td><td>Search / execution</td><td>How are failures handled?</td></tr><tr><td>Memory</td><td>Retrieved context</td><td>Are sources traceable?</td></tr></tbody></table></div>
-                  <p class="document-reference">Source: <a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">RRSI · arXiv:2609.24972 ↗</a></p>
-                </section>
-                <section data-section="outline">
-                  <h5>1.2 Follow the hierarchy</h5>
-                  <ol><li>Map the <strong>control flow</strong>.<ul><li>Trace the task from input to output.</li><li>Inspect the supporting components:<ul><li>tools and fallback behavior;</li><li>memory and context boundaries.</li></ul></li></ul></li><li>Compare the edited harness with a reference.<ul><li>Keep the model fixed.</li><li>Record what changed and why.</li></ul></li></ol>
-                  <h6>A note on terminology</h6><p>Keep <code>harness</code> consistent within this reading note.</p>
-                </section>
-                <section data-section="code">
-                  <h4>2. Keep configuration readable</h4>
-                  <p>This illustrative configuration shows the hierarchy of an agent harness.</p>
-                  <pre class="document-code"><code>agent:
-  model: frozen
-  harness:
-    prompts: versioned
-    tools:
-      - search
-      - execute
-    memory:
-      source_links: true</code></pre>
-                </section>
-                <section data-section="sources">
-                  <h4>3. Return to the source</h4>
-                  <ul><li><a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">Read the paper ↗</a></li><li><a href="https://arxiv.org/pdf/2609.24972" target="_blank" rel="noopener noreferrer">Open the PDF ↗</a></li></ul>
-                  <p class="document-reference">The checklist and YAML are illustrative reading aids.</p>
-                </section>
-              </article>
-              <pre class="markdown-source" hidden lang="en"><code><span data-section="intro"># Reading an evolving agent harness
+<article class="markdown-document source-rendered" lang="en">
+<section data-section="intro"><p class="document-eyebrow">READING BRIEF / THREE PAPERS</p><h3>Three papers.<br>Three research questions.</h3><blockquote><strong>Sources.</strong> <a href="https://arxiv.org/abs/2609.15309" target="_blank" rel="noopener noreferrer">When Agents Slow Down ↗</a> · <a href="https://arxiv.org/abs/2609.05405" target="_blank" rel="noopener noreferrer">WearableQA ↗</a> · <a href="https://arxiv.org/abs/2603.29678" target="_blank" rel="noopener noreferrer">Conversation Compiler ↗</a></blockquote><h4>1. Start with the research question</h4><p>A useful reading brief connects the question, the data and the evidence. These three papers provide different starting points.</p><ol><li><strong>Agent reasoning</strong><ul><li>Inspect the test-time strategy and token budget.</li><li>Follow the decisions recorded in the <em>trace</em>.</li></ul></li><li><strong>Wearable data</strong><ul><li>Check the available health signals.</li><li>Separate the task definition from the evidence used to answer it.</li></ul></li><li><strong>Conversation analysis</strong><ul><li>Follow the views used to inspect an agent trace.</li><li>Return to the original paper for its full method.</li></ul></li></ol></section>
+<section data-section="table"><h4>1.1 A compact comparison</h4><table><thead><tr><th>Paper</th><th>Research focus</th><th>Read for</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.15309" target="_blank" rel="noopener noreferrer">When Agents Slow Down ↗</a></td><td>LLM agent strategies</td><td>Compute and progress</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05405" target="_blank" rel="noopener noreferrer">WearableQA ↗</a></td><td>Reasoning over wearable data</td><td>Signals and questions</td></tr><tr><td><a href="https://arxiv.org/abs/2603.29678" target="_blank" rel="noopener noreferrer">Conversation Compiler ↗</a></td><td>Agent trace analysis</td><td>Views and evidence</td></tr></tbody></table></section>
+<section data-section="outline"><h4>2. Trace the evidence</h4><p>A <strong>trace</strong> records steps in a process. Keep each claim connected to its source.</p><ul><li>Read the research question.<ul><li>Locate the relevant figure or example.</li><li>Keep source links with your notes.</li></ul></li><li>Record open questions for the next pass.</li></ul></section>
+<section data-section="code"><h4>3. Keep code intact</h4><pre><code>for paper in reading_list:
+    print(paper["title"], paper["url"])</code></pre><p class="document-reference">Illustrative reading checklist. Open each source for the complete paper.</p></section></article><pre class="markdown-source" hidden lang="en"><code><span data-section="intro"># Three papers. Three research questions.
 
-&gt; **Scope.** A reading note based on the [RRSI abstract](https://arxiv.org/abs/2609.24972).
+&gt; **Sources:** [When Agents Slow Down](https://arxiv.org/abs/2609.15309) · [WearableQA](https://arxiv.org/abs/2609.05405) · [Conversation Compiler](https://arxiv.org/abs/2603.29678)
 
-## 1. Define the system boundary
+## 1. Start with the research question
 
-The **backbone model** stays frozen. Its *harness* brings together prompts, control flow, tools, memory and context management.
+1. **Agent reasoning**
+   - Inspect the test-time strategy and token budget.
+   - Follow the decisions recorded in the *trace*.
+2. **Wearable data**
+   - Check the available health signals.
+   - Separate the task definition from the evidence.
+3. **Conversation analysis**
+   - Follow the views used to inspect an agent trace.
+   - Return to the original paper for its full method.
 
-</span><span data-section="table">### 1.1 Components to inspect
+</span><span data-section="table">### 1.1 A compact comparison
 
-| Layer | Example | Review question |
+| Paper | Research focus | Read for |
 | :--- | :--- | :--- |
-| Prompts | Task instructions | Is the objective explicit? |
-| Tools | Search / execution | How are failures handled? |
-| Memory | Retrieved context | Are sources traceable? |
+| [When Agents Slow Down](https://arxiv.org/abs/2609.15309) | LLM agent strategies | Compute and progress |
+| [WearableQA](https://arxiv.org/abs/2609.05405) | Reasoning over wearable data | Signals and questions |
+| [Conversation Compiler](https://arxiv.org/abs/2603.29678) | Agent trace analysis | Views and evidence |
 
-Source: [RRSI · arXiv:2609.24972](https://arxiv.org/abs/2609.24972)
+</span><span data-section="outline">## 2. Trace the evidence
 
-</span><span data-section="outline">### 1.2 Follow the hierarchy
+A **trace** records steps in a process. Keep each claim connected to its source.
 
-1. Map the **control flow**.
-   - Trace the task from input to output.
-   - Inspect the supporting components:
-     - tools and fallback behavior;
-     - memory and context boundaries.
-2. Compare the edited harness with a reference.
-   - Keep the model fixed.
-   - Record what changed and why.
+- Read the research question.
+  - Locate the relevant figure or example.
+  - Keep source links with your notes.
+- Record open questions for the next pass.
 
-#### A note on terminology
+</span><span data-section="code">## 3. Keep code intact
 
-Keep `harness` consistent within this reading note.
-
-</span><span data-section="code">## 2. Keep configuration readable
-
-This illustrative configuration shows the hierarchy of an agent harness.
-
-```yaml
-agent:
-  model: frozen
-  harness:
-    prompts: versioned
-    tools:
-      - search
-      - execute
-    memory:
-      source_links: true
+```python
+for paper in reading_list:
+    print(paper[&quot;title&quot;], paper[&quot;url&quot;])
 ```
 
-</span><span data-section="sources">## 3. Return to the source
-
-- [Read the paper](https://arxiv.org/abs/2609.24972)
-- [Open the PDF](https://arxiv.org/pdf/2609.24972)
-
-The checklist and YAML are illustrative reading aids.
+Illustrative reading checklist. Open each source for the complete paper.
 </span></code></pre>
-              <!-- fixed-demo:end -->
+<!-- fixed-demo:end -->
             </div>
             <div class="reading-footer"><span>标题、链接、表格与代码，结构完整。</span><a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">arXiv ↗</a></div>
           </section>
@@ -167,46 +121,15 @@ The checklist and YAML are illustrative reading aids.
             <div class="pane-heading"><span>译文 <span class="pane-paper">保留原文结构</span></span><span class="language-tag">简体中文</span></div>
             <div class="reading-scroll translation-scroll" tabindex="0" role="region" aria-label="中文译文，可滚动对照标题、表格与代码">
               <!-- fixed-demo:start -->
-              <article class="markdown-document translation-text" lang="zh-CN">
-                <section data-section="intro">
-                  <p class="document-eyebrow">研究笔记 / RRSI</p>
-                  <h3>理解持续演进的<br>智能体<span class="personal-term" data-term>执行框架</span></h3>
-                  <blockquote><strong>范围。</strong>基于 <a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">RRSI 摘要 ↗</a> 整理的阅读笔记。</blockquote>
-                  <h4>1. 明确系统边界</h4>
-                  <p><strong>基础模型</strong>保持冻结。它的<span class="personal-term" data-term>执行框架</span>将提示词、控制流程、工具、记忆与上下文管理组织在一起。</p>
-                </section>
-                <section data-section="table">
-                  <h5>1.1 需要考察的组件</h5>
-                  <div class="markdown-table" tabindex="0" role="region" aria-label="执行框架组件对照表"><table><thead><tr><th>层级</th><th>示例</th><th>考察问题</th></tr></thead><tbody><tr><td>提示词</td><td>任务指令</td><td>目标是否明确？</td></tr><tr><td>工具</td><td>检索 / 执行</td><td>如何处理失败？</td></tr><tr><td>记忆</td><td>检索到的上下文</td><td>来源是否可追溯？</td></tr></tbody></table></div>
-                  <p class="document-reference">来源：<a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">RRSI · arXiv:2609.24972 ↗</a></p>
-                </section>
-                <section data-section="outline">
-                  <h5>1.2 沿层级展开阅读</h5>
-                  <ol><li>梳理<strong>控制流程</strong>。<ul><li>追踪任务从输入到输出的路径。</li><li>检查支撑组件：<ul><li>工具与回退机制；</li><li>记忆与上下文边界。</li></ul></li></ul></li><li>将修改后的<span class="personal-term" data-term>执行框架</span>与参考版本对照。<ul><li>保持模型固定。</li><li>记录修改内容及原因。</li></ul></li></ol>
-                  <h6>术语说明</h6><p>本篇阅读笔记中，<code>harness</code> 统一使用「<span class="personal-term" data-term>执行框架</span>」。</p>
-                </section>
-                <section data-section="code">
-                  <h4>2. 保持配置清晰可读</h4>
-                  <p>以下示例配置展示了智能体<span class="personal-term" data-term>执行框架</span>的层级。</p>
-                  <pre class="document-code"><code>agent:
-  model: frozen
-  harness:
-    prompts: versioned
-    tools:
-      - search
-      - execute
-    memory:
-      source_links: true</code></pre>
-                </section>
-                <section data-section="sources">
-                  <h4>3. 回到原始来源</h4>
-                  <ul><li><a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer">阅读论文 ↗</a></li><li><a href="https://arxiv.org/pdf/2609.24972" target="_blank" rel="noopener noreferrer">打开 PDF ↗</a></li></ul>
-                  <p class="document-reference">清单与 YAML 为辅助阅读的示例。</p>
-                </section>
-              </article>
-              <!-- fixed-demo:end -->
+<article class="markdown-document translated-document" lang="zh-CN">
+<section data-section="intro"><p class="document-eyebrow">阅读简报 / 三篇论文</p><h3>三篇论文，<br>三个研究问题。</h3><blockquote><strong>来源。</strong><a href="https://arxiv.org/abs/2609.15309" target="_blank" rel="noopener noreferrer">When Agents Slow Down ↗</a> · <a href="https://arxiv.org/abs/2609.05405" target="_blank" rel="noopener noreferrer">WearableQA ↗</a> · <a href="https://arxiv.org/abs/2603.29678" target="_blank" rel="noopener noreferrer">Conversation Compiler ↗</a></blockquote><h4>1. 从研究问题开始</h4><p>一份有用的阅读简报，会把问题、数据与证据联系起来。这三篇论文提供了不同的切入点。</p><ol><li><strong>Agent 推理</strong><ul><li>查看测试时策略与 token 预算。</li><li>沿着<span data-term>执行轨迹</span>理解各步决策。</li></ul></li><li><strong>可穿戴数据</strong><ul><li>核对可用的健康信号。</li><li>分别查看任务定义与作答依据。</li></ul></li><li><strong>对话分析</strong><ul><li>了解用于分析 Agent <span data-term>执行轨迹</span>的不同视图。</li><li>返回原文，查看完整方法。</li></ul></li></ol></section>
+<section data-section="table"><h4>1.1 简明对照</h4><table><thead><tr><th>论文</th><th>研究重点</th><th>阅读线索</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.15309" target="_blank" rel="noopener noreferrer">When Agents Slow Down ↗</a></td><td>大模型 Agent 策略</td><td>计算开销与过程进展</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05405" target="_blank" rel="noopener noreferrer">WearableQA ↗</a></td><td>可穿戴数据推理</td><td>信号与问题设置</td></tr><tr><td><a href="https://arxiv.org/abs/2603.29678" target="_blank" rel="noopener noreferrer">Conversation Compiler ↗</a></td><td>Agent 轨迹分析</td><td>分析视图与证据</td></tr></tbody></table></section>
+<section data-section="outline"><h4>2. 沿线索查看证据</h4><p><strong><span data-term>执行轨迹</span></strong>记录了一个过程中的各个步骤。为每条结论保留对应的来源。</p><ul><li>明确研究问题。<ul><li>找到对应的图表或实例。</li><li>将原文链接保存在笔记中。</li></ul></li><li>记录留待下一轮阅读的问题。</li></ul></section>
+<section data-section="code"><h4>3. 代码保持原样</h4><pre><code>for paper in reading_list:
+    print(paper["title"], paper["url"])</code></pre><p class="document-reference">此处为阅读清单示例；完整内容请查阅各篇原文。</p></section></article>
+<!-- fixed-demo:end -->
             </div>
-            <div class="term-preference"><div><span class="term-symbol" aria-hidden="true">Aa</span><p><strong>沿用你的译法</strong><span>harness <span aria-hidden="true">→</span> <label class="sr-only" for="term-choice">harness 的示例译法</label><select id="term-choice"><option value="执行框架">执行框架</option><option value="运行框架">运行框架</option></select></span></p></div><button type="button" id="remember-term">保存译法 <span aria-hidden="true">↗</span></button></div>
+            <div class="term-preference"><div><span class="term-symbol" aria-hidden="true">Aa</span><p><strong>沿用你的译法</strong><span>trace <span aria-hidden="true">→</span> <label class="sr-only" for="term-choice">trace 的示例译法</label><select id="term-choice"><option value="执行轨迹">执行轨迹</option><option value="过程记录">过程记录</option></select></span></p></div><button type="button" id="remember-term">保存译法 <span aria-hidden="true">↗</span></button></div>
             <p class="memory-status" id="memory-status" role="status">按领域与语境，沿用个人译法。</p>
           </section>
         </div>
