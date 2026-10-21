@@ -5,34 +5,12 @@ const color = node => researchMapColors[node.group] ?? '#899c9c';
 
 export function createResearchMapVisual(canvas, { onSelect = () => {}, onViewChange = () => {} } = {}) {
   const win = canvas.ownerDocument.defaultView, ctx = canvas.getContext('2d');
-  const base = canvas.ownerDocument.createElement('canvas'), baseContext = base.getContext('2d');
-  let graph = { nodes: [], edges: [] }, indexed = new Map(), adjacent = new Map();
+  let graph = { nodes: [], edges: [] }, indexed = new Map(), adjacent = new Map(), labelOrder = [], attentionOrder = [], drawn = [];
   let state = { selected: '', personal: false, query: '', paperId: '' }, active = new Set(), hovered = '';
-  let view = [...defaultView], frame = 0, motion = null, disposed = false, drag = null, dirty = true, baseReady = false, labelsDrawn = new Set(), metrics = { scale: 1, ox: 0, oy: 0, width: 0, height: 0, dpr: 1 };
-  const radius = node => Math.min(6.8, 1.4 + Math.log2(1 + node.paperCount) * .85);
+  let view = [...defaultView], frame = 0, motion = null, disposed = false, drag = null, metrics = { scale: 1, ox: 0, oy: 0, width: 0, height: 0 };
   const reduced = () => win.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-  const request = (rebuild = true) => { if (rebuild) dirty = true; if (!frame && !disposed) frame = win.requestAnimationFrame(draw); };
+  const request = () => { if (!frame && !disposed) frame = win.requestAnimationFrame(draw); };
   const resize = new win.ResizeObserver(request); resize.observe(canvas);
-
-  function drawHover() {
-    const node = indexed.get(hovered); if (!node || node.id === state.selected) return;
-    const { scale, ox, oy, dpr, width, height } = metrics;
-    const x = node.x * scale + ox, y = node.y * scale + oy;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.beginPath(); ctx.arc(x, y, radius(node) * scale + 4, 0, Math.PI * 2);
-    ctx.globalAlpha = .85; ctx.strokeStyle = '#225e4d'; ctx.lineWidth = 1.2; ctx.stroke();
-    const query = state.query.trim().toLowerCase();
-    const faded = query ? !node.name.toLowerCase().includes(query) : active.size > 0 && !active.has(node.id);
-    if (!labelsDrawn.has(node.id) && !faded) {
-      ctx.font = '500 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif'; ctx.textBaseline = 'middle';
-      const textWidth = ctx.measureText(node.name).width;
-      const tx = Math.max(5, Math.min(width - textWidth - 5, x + radius(node) * scale + 4));
-      const ty = Math.max(9, Math.min(height - 9, y));
-      ctx.globalAlpha = .96; ctx.fillStyle = '#fbfdfb'; ctx.fillRect(tx - 3, ty - 8, textWidth + 6, 16);
-      ctx.globalAlpha = 1; ctx.fillStyle = '#225e4d'; ctx.fillText(node.name, tx, ty);
-    }
-    ctx.globalAlpha = 1;
-  }
 
   function membership() {
     active = new Set();
@@ -51,7 +29,6 @@ export function createResearchMapVisual(canvas, { onSelect = () => {}, onViewCha
   function draw(now) {
     frame = 0; if (disposed) return;
     if (motion) {
-      dirty = true;
       const fraction = Math.min(1, (now - motion.start) / motion.duration), ease = 1 - (1 - fraction) ** 3;
       view = motion.from.map((value, index) => value + (motion.to[index] - value) * ease);
       if (fraction >= 1) motion = null;
@@ -59,26 +36,23 @@ export function createResearchMapVisual(canvas, { onSelect = () => {}, onViewCha
     const rect = canvas.getBoundingClientRect(), dpr = Math.min(2, win.devicePixelRatio || 1);
     if (!rect.width || !rect.height) return;
     const width = Math.round(rect.width * dpr), height = Math.round(rect.height * dpr);
-    if (canvas.width !== width || canvas.height !== height) { canvas.width = width; canvas.height = height; dirty = true; }
-    if (!dirty && baseReady) {
-      ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, width, height);
-      ctx.drawImage(base, 0, 0); drawHover(); return;
-    }
+    if (canvas.width !== width || canvas.height !== height) { canvas.width = width; canvas.height = height; }
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, rect.width, rect.height);
     const scale = Math.min(rect.width / view[2], rect.height / view[3]);
     const ox = (rect.width - view[2] * scale) / 2 - view[0] * scale, oy = (rect.height - view[3] * scale) / 2 - view[1] * scale;
-    metrics = { scale, ox, oy, width: rect.width, height: rect.height, dpr };
+    metrics = { scale, ox, oy, width: rect.width, height: rect.height };
     ctx.setTransform(dpr * scale, 0, 0, dpr * scale, dpr * ox, dpr * oy);
     const query = state.query.trim().toLowerCase();
     const faded = node => query ? !node.name.toLowerCase().includes(query) : active.size > 0 && !active.has(node.id);
     const selectedEdges = [];
     ctx.beginPath();
-    for (const edge of graph.edges) {
+    const edgeStride = Math.max(1, Math.ceil(graph.edges.length / (motion || drag?.moved ? 9000 : 18000)));
+    for (const [edgeIndex, edge] of graph.edges.entries()) {
       const a = indexed.get(edge.source), b = indexed.get(edge.target);
       if (!a || !b) continue;
       const emphasized = state.paperId ? edge.paperIds.includes(state.paperId) : state.selected ? edge.source === state.selected || edge.target === state.selected : state.personal && (a.attention > 0 || b.attention > 0);
       if (emphasized) selectedEdges.push([a, b, edge]);
-      else { ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); }
+      else if (edgeIndex % edgeStride === 0 && !((a.x < view[0] && b.x < view[0]) || (a.x > view[0] + view[2] && b.x > view[0] + view[2]) || (a.y < view[1] && b.y < view[1]) || (a.y > view[1] + view[3] && b.y > view[1] + view[3]))) { ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); }
     }
     ctx.strokeStyle = active.size || query ? '#cfdbd4' : '#92ada4'; ctx.globalAlpha = active.size || query ? .18 : .15; ctx.lineWidth = .6 / scale; ctx.stroke();
     ctx.beginPath();
@@ -86,45 +60,50 @@ export function createResearchMapVisual(canvas, { onSelect = () => {}, onViewCha
     ctx.globalAlpha = .58; ctx.strokeStyle = '#317b67'; ctx.lineWidth = 1.1 / scale; ctx.stroke();
 
     const buckets = new Map();
+    const cells = new Set(); drawn = [];
     for (const node of graph.nodes) {
+      if (node.x < view[0] - 12 || node.x > view[0] + view[2] + 12 || node.y < view[1] - 12 || node.y > view[1] + view[3] + 12) continue;
+      if (graph.nodes.length > 6000 && !active.has(node.id) && node.id !== hovered && !(query && node.name.toLowerCase().includes(query))) {
+        const pixelCell = `${Math.floor((node.x * scale + ox) / 3)}:${Math.floor((node.y * scale + oy) / 3)}`;
+        if (cells.has(pixelCell)) continue;
+        cells.add(pixelCell);
+      }
+      drawn.push(node);
       const alpha = faded(node) ? .11 : node.confidence === 'byline' ? .62 : .9;
       const key = `${color(node)}:${alpha}`;
       const bucket = buckets.get(key) ?? { color: color(node), alpha, nodes: [] }; bucket.nodes.push(node); buckets.set(key, bucket);
     }
+    const radius = node => Math.min(6.8, 1.4 + Math.log2(1 + node.paperCount) * .85);
     for (const bucket of buckets.values()) {
       ctx.beginPath();
       for (const node of bucket.nodes) { const r = radius(node); ctx.moveTo(node.x + r, node.y); ctx.arc(node.x, node.y, r, 0, Math.PI * 2); }
       ctx.globalAlpha = bucket.alpha; ctx.fillStyle = bucket.color; ctx.fill();
     }
-    for (const node of graph.nodes) {
+    for (const node of drawn) {
       if (state.personal && node.attention > 0) {
         ctx.beginPath(); ctx.arc(node.x, node.y, radius(node) + 9 + Math.min(8, node.attention), 0, Math.PI * 2); ctx.globalAlpha = .11; ctx.fillStyle = '#2d957a'; ctx.fill();
       }
-      if (node.id === state.selected) {
+      if (node.id === state.selected || node.id === hovered) {
         ctx.beginPath(); ctx.arc(node.x, node.y, radius(node) + 4 / scale, 0, Math.PI * 2); ctx.globalAlpha = .85; ctx.strokeStyle = '#225e4d'; ctx.lineWidth = 1.2 / scale; ctx.stroke();
       }
     }
-    const labels = graph.nodes.filter(node => !faded(node)).sort((a, b) =>
-      Number(b.id === state.selected) - Number(a.id === state.selected) ||
-      (state.personal ? b.attention - a.attention : 0) || b.paperCount - a.paperCount).slice(0, query ? 35 : state.paperId ? 30 : 23);
-    const occupied = []; labelsDrawn = new Set();
+    const labels = [], labelIds = new Set(), wanted = query ? 35 : state.paperId ? 30 : 23;
+    for (const node of [indexed.get(state.selected), indexed.get(hovered), ...(state.personal ? attentionOrder : labelOrder)]) {
+      if (!node || labelIds.has(node.id) || faded(node) || node.x < view[0] || node.x > view[0] + view[2] || node.y < view[1] || node.y > view[1] + view[3]) continue;
+      labels.push(node); labelIds.add(node.id); if (labels.length >= wanted) break;
+    }
+    const occupied = [];
     ctx.font = `500 ${10.5 / scale}px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif`; ctx.textBaseline = 'middle';
     for (const node of labels) {
       const x = node.x + radius(node) + 4 / scale, y = node.y, w = ctx.measureText(node.name).width, h = 14 / scale;
       const bounds = { x, y: y - h / 2, w: w + 5 / scale, h };
-      if (node.id !== state.selected && occupied.some(box => bounds.x < box.x + box.w && bounds.x + bounds.w > box.x && bounds.y < box.y + box.h && bounds.y + bounds.h > box.y)) continue;
-      labelsDrawn.add(node.id);
+      if (node.id !== state.selected && node.id !== hovered && occupied.some(box => bounds.x < box.x + box.w && bounds.x + bounds.w > box.x && bounds.y < box.y + box.h && bounds.y + bounds.h > box.y)) continue;
       occupied.push(bounds); ctx.globalAlpha = .88; ctx.strokeStyle = '#fbfdfb'; ctx.lineWidth = 3 / scale; ctx.lineJoin = 'round'; ctx.strokeText(node.name, x, y);
       ctx.fillStyle = node.id === state.selected ? '#1b5442' : '#36594f'; ctx.globalAlpha = 1; ctx.fillText(node.name, x, y);
     }
     ctx.globalAlpha = 1;
-    baseReady = !motion && !drag?.moved;
-    if (baseReady) {
-      if (base.width !== width || base.height !== height) { base.width = width; base.height = height; }
-      baseContext.clearRect(0, 0, width, height); baseContext.drawImage(canvas, 0, 0);
-    }
-    dirty = false; drawHover();
     canvas.dataset.nodeCount = String(graph.nodes.length); canvas.dataset.edgeCount = String(graph.edges.length);
+    canvas.dataset.visibleNodeCount = String(drawn.length);
     canvas.dataset.view = view.map(number => number.toFixed(2)).join(' ');
     onViewChange(view);
     if (motion) request();
@@ -132,7 +111,7 @@ export function createResearchMapVisual(canvas, { onSelect = () => {}, onViewCha
   function hit(event) {
     const rect = canvas.getBoundingClientRect(), x = (event.clientX - rect.left - metrics.ox) / metrics.scale, y = (event.clientY - rect.top - metrics.oy) / metrics.scale;
     let best = null, distance = (11 / metrics.scale) ** 2;
-    for (const node of graph.nodes) {
+    for (const node of drawn) {
       const d = (node.x - x) ** 2 + (node.y - y) ** 2;
       if (d < distance) { distance = d; best = node; }
     }
@@ -155,9 +134,9 @@ export function createResearchMapVisual(canvas, { onSelect = () => {}, onViewCha
       return;
     }
     const node = hit(event), next = node?.id ?? '';
-    if (hovered !== next) { hovered = next; canvas.title = node ? `${node.name} · ${node.paperCount}` : ''; canvas.style.cursor = node ? 'pointer' : 'grab'; request(false); }
+    if (hovered !== next) { hovered = next; canvas.title = node ? `${node.name} · ${node.paperCount}` : ''; canvas.style.cursor = node ? 'pointer' : 'grab'; request(); }
   };
-  const up = event => { if (canvas.hasPointerCapture(event.pointerId)) canvas.releasePointerCapture(event.pointerId); const moved = drag?.moved; if (drag && !moved) { const node = hit(event); if (node) onSelect(node.id); } drag = null; if (moved) request(); };
+  const up = event => { if (canvas.hasPointerCapture(event.pointerId)) canvas.releasePointerCapture(event.pointerId); if (drag && !drag.moved) { const node = hit(event); if (node) onSelect(node.id); } drag = null; };
   const cancel = () => { drag = null; };
   const doubleClick = event => { const node = hit(event); if (node) { onSelect(node.id); focus(node.id); } };
   const wheel = event => { if (event.ctrlKey || event.metaKey) { event.preventDefault(); zoom(event.deltaY > 0 ? 1.18 : .85); } };
@@ -166,11 +145,11 @@ export function createResearchMapVisual(canvas, { onSelect = () => {}, onViewCha
     if (shift) { event.preventDefault(); move([view[0] + shift[0] * view[2] * .1, view[1] + shift[1] * view[3] * .1, view[2], view[3]]); }
     else if (['+', '=', '-', 'Home'].includes(event.key)) { event.preventDefault(); if (event.key === 'Home') move([...defaultView]); else zoom(event.key === '-' ? 1.3 : .77); }
   };
-  const leave = () => { if (hovered) { hovered = ''; canvas.title = ''; canvas.style.cursor = 'grab'; request(false); } };
+  const leave = () => { if (hovered) { hovered = ''; request(); } };
   for (const [name, handler] of [['pointerdown', down], ['pointermove', pointerMove], ['pointerup', up], ['pointercancel', cancel], ['dblclick', doubleClick], ['keydown', key], ['pointerleave', leave]]) canvas.addEventListener(name, handler);
   canvas.addEventListener('wheel', wheel, { passive: false });
   return {
-    setGraph(value) { graph = value; indexed = new Map(graph.nodes.map(node => [node.id, node])); adjacent = new Map(); for (const edge of graph.edges) for (const [a, b] of [[edge.source, edge.target], [edge.target, edge.source]]) { const set = adjacent.get(a) ?? new Set(); set.add(b); adjacent.set(a, set); } membership(); request(); },
+    setGraph(value) { graph = value; indexed = new Map(graph.nodes.map(node => [node.id, node])); labelOrder = [...graph.nodes].sort((a, b) => b.paperCount - a.paperCount); attentionOrder = [...graph.nodes].sort((a, b) => b.attention - a.attention || b.paperCount - a.paperCount); adjacent = new Map(); for (const edge of graph.edges) for (const [a, b] of [[edge.source, edge.target], [edge.target, edge.source]]) { const set = adjacent.get(a) ?? new Set(); set.add(b); adjacent.set(a, set); } membership(); request(); },
     setState(update) { state = { ...state, ...update }; membership(); request(); },
     focus,
     focusPaper(id) {
@@ -182,6 +161,6 @@ export function createResearchMapVisual(canvas, { onSelect = () => {}, onViewCha
     },
     zoom,
     reset() { move([...defaultView]); },
-    destroy() { disposed = true; win.cancelAnimationFrame(frame); resize.disconnect(); base.width = 0; base.height = 0; for (const [name, handler] of [['pointerdown', down], ['pointermove', pointerMove], ['pointerup', up], ['pointercancel', cancel], ['dblclick', doubleClick], ['keydown', key], ['pointerleave', leave], ['wheel', wheel]]) canvas.removeEventListener(name, handler); },
+    destroy() { disposed = true; win.cancelAnimationFrame(frame); resize.disconnect(); for (const [name, handler] of [['pointerdown', down], ['pointermove', pointerMove], ['pointerup', up], ['pointercancel', cancel], ['dblclick', doubleClick], ['keydown', key], ['pointerleave', leave], ['wheel', wheel]]) canvas.removeEventListener(name, handler); },
   };
 }
