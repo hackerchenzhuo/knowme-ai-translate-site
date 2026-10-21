@@ -2,17 +2,13 @@
 
 // Locale copy
 const english = document.documentElement.lang === 'en';
-const dictionary={"暂停":"Pause","播放":"Play","暂停演示":"Pause tour","播放演示":"Play tour","自动演示 · ":"Auto tour · ","手动探索 · ":"Explore · ","保存译法":"Save term","按领域与语境，沿用个人译法。":"Keep your terminology consistent with the domain and context.","论文详情 · RRSI":"Paper details · RRSI","论文雷达真实界面：RRSI 的作者、机构、匹配子项与评分构成。":"Original Paper Radar screenshot: RRSI authors, affiliations, matched topics and score breakdown.","论文雷达真实界面：机构先验、来源引用与逐项匹配依据。":"Original Paper Radar screenshot: institution priors, cited sources and individual matches.","论文雷达真实界面：arXiv 论文页面上的评分与证据浮窗。":"Original Paper Radar screenshot: scores and evidence on an arXiv paper page.","相关性、质量与时效分别展示，作者贡献和匹配子项清晰可查。":"Relevance, quality and recency, with author contributions and matching topics in detail.","机构依据逐项展开，来源、匹配线索与不确定性一并呈现。":"Inspect each institutional signal, its source, matching evidence and uncertainty.","在 arXiv 原页查看评分、研究方向与机构依据，阅读无需来回切换。":"View scores, topic matches and affiliation evidence directly on arXiv.","放大细节":"Zoom in","适应宽度":"Fit to width","论文详情":"Paper details","机构溯源":"Affiliations","网页标注":"On the page","查看真实的论文评分与作者依据":"Explore actual scores and author evidence","逐项追溯机构与来源":"Trace institutions and their sources","回到原网页，继续阅读":"Keep reading on the original page","文档结构":"Document","表格与链接":"Tables & links","代码与译法":"Code & terms","多级标题、引用与嵌套列表":"Headings, blockquotes and nested lists","表格和超链接，原样保留":"Tables and hyperlinks, preserved","代码保持原样，沿用个人译法":"Keep code intact and apply personal terms","Chrome 商店原始截图 · 可滚动查看细节，或打开原图。":"Original Chrome Web Store screenshots · Scroll to explore or open the full-size image.","RRSI Markdown 阅读笔记 · 预置中英示例，不调用模型。":"RRSI Markdown reading note · Prewritten English and Chinese examples. No model calls.","已保存":"Saved"};
+const dictionary={"暂停":"Pause","播放":"Play","暂停演示":"Pause tour","播放演示":"Play tour","自动演示 · ":"Auto tour · ","手动探索 · ":"Explore · ","保存译法":"Save term","按领域与语境，沿用个人译法。":"Keep your terminology consistent with the domain and context.","论文雷达真实界面：机构先验、来源引用与逐项匹配依据。":"Original Paper Radar screenshot: institution priors, cited sources and individual matches.","论文雷达真实界面：arXiv 论文页面上的评分与证据浮窗。":"Original Paper Radar screenshot: scores and evidence on an arXiv paper page.","相关性、质量与时效分别展示，作者贡献和匹配子项清晰可查。":"Relevance, quality and recency, with author contributions and matching topics in detail.","机构依据逐项展开，来源、匹配线索与不确定性一并呈现。":"Inspect each institutional signal, its source, matching evidence and uncertainty.","在 arXiv 原页查看评分、研究方向与机构依据，阅读无需来回切换。":"View scores, topic matches and affiliation evidence directly on arXiv.","放大细节":"Zoom in","适应宽度":"Fit to width","论文详情":"Paper details","机构溯源":"Affiliations","网页标注":"On the page","查看真实的论文评分与作者依据":"Explore actual scores and author evidence","逐项追溯机构与来源":"Trace institutions and their sources","回到原网页，继续阅读":"Keep reading on the original page","文档结构":"Document","表格与链接":"Tables & links","代码与译法":"Code & terms","多级标题、引用与嵌套列表":"Headings, blockquotes and nested lists","表格和超链接，原样保留":"Tables and hyperlinks, preserved","代码保持原样，沿用个人译法":"Keep code intact and apply personal terms","插件界面 · 三篇公开论文，可切换或打开原图。":"Original Chrome Web Store screenshots · Scroll to explore or open the full-size image.","已保存":"Saved","论文详情 · When Agents Slow Down":"Paper details · When Agents Slow Down","论文详情 · WearableQA":"Paper details · WearableQA","论文详情 · Conversation Compiler":"Paper details · Conversation Compiler","Agent 推理":"Agent reasoning","健康数据问答":"Health data QA","对话分析":"Conversation analysis","查看 Agent 策略研究的作者与评分依据":"Inspect author and score evidence for agent strategies","查看可穿戴数据问答的机构与研究线索":"Explore institutions and evidence for wearable-data QA","查看对话轨迹分析的作者与来源":"Inspect authors and sources for conversation trace analysis","论文雷达界面：When Agents Slow Down 的论文与评分依据。":"Paper Radar: When Agents Slow Down and its scoring evidence.","论文雷达界面：WearableQA 的作者、机构与研究依据。":"Paper Radar: WearableQA authors, institutions and evidence.","论文雷达界面：Conversation Compiler 的作者与来源。":"Paper Radar: Conversation Compiler authors and sources.","插件界面 · 三篇公开论文，可切换或打开原图。":"Product interface · Three public papers. Switch examples or open the original images.","多论文 Markdown 阅读笔记 · 预置中英示例，不调用模型。":"Multi-paper Markdown reading brief · Preset English and Chinese examples. No model calls."};
 const t = value => english ? (dictionary[value] ?? value) : value;
 
 // Public screenshots and a prewritten Markdown reading note. No extension engine runs here.
-const captures = [
-  {file:'radar-workbench.png', title:'论文详情 · RRSI', description:'相关性、质量与时效分别展示，作者贡献和匹配子项清晰可查。', alt:'论文雷达真实界面：RRSI 的作者、机构、匹配子项与评分构成。'},
-  {file:'radar-institutions.png', title:'机构溯源', description:'机构依据逐项展开，来源、匹配线索与不确定性一并呈现。', alt:'论文雷达真实界面：机构先验、来源引用与逐项匹配依据。'},
-  {file:'radar-page-annotation.png', title:'网页标注', description:'在 arXiv 原页查看评分、研究方向与机构依据，阅读无需来回切换。', alt:'论文雷达真实界面：arXiv 论文页面上的评分与证据浮窗。'}
-];
-const labels = {radar:['论文详情','机构溯源','网页标注'], translate:['文档结构','表格与链接','代码与译法']};
-const captions = {radar:['查看真实的论文评分与作者依据','逐项追溯机构与来源','回到原网页，继续阅读'], translate:['多级标题、引用与嵌套列表','表格和超链接，原样保留','代码保持原样，沿用个人译法']};
+const captures = [{"file": "radar-agents.png", "title": "论文详情 · When Agents Slow Down", "description": "查看 Agent 策略研究的作者与评分依据", "alt": "论文雷达界面：When Agents Slow Down 的论文与评分依据。"}, {"file": "radar-wearableqa.png", "title": "论文详情 · WearableQA", "description": "查看可穿戴数据问答的机构与研究线索", "alt": "论文雷达界面：WearableQA 的作者、机构与研究依据。"}, {"file": "radar-conversation.png", "title": "论文详情 · Conversation Compiler", "description": "查看对话轨迹分析的作者与来源", "alt": "论文雷达界面：Conversation Compiler 的作者与来源。"}];
+const labels = {radar:['Agent 推理','健康数据问答','对话分析'], translate:['文档结构','表格与链接','代码与译法']};
+const captions = {radar:['查看 Agent 策略研究的作者与评分依据','查看可穿戴数据问答的机构与研究线索','查看对话轨迹分析的作者与来源'], translate:['多级标题、引用与嵌套列表','表格和超链接，原样保留','代码保持原样，沿用个人译法']};
 const durationByMode = {radar:[7000,6500,6500], translate:[5000,6500,8500]};
 const root = document.querySelector('#experience');
 const tabs = [...document.querySelectorAll('.product-tab')];
@@ -29,7 +25,7 @@ const sourceFormat = document.querySelector('#source-format');
 const termChoice = document.querySelector('#term-choice');
 const playButton = document.querySelector('#play-demo');
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
-const state = {mode:'radar', stage:0, playing:!motion.matches, visible:true, zoom:false, markdown:false, term:'执行框架', remembered:false};
+const state = {mode:'radar', stage:0, playing:!motion.matches, visible:true, zoom:false, markdown:false, term:'执行轨迹', remembered:false};
 let frame = null, lastTime = 0, elapsed = 0, captureIndex = -1, scrollDriver = null;
 const assetPrefix = new URL('assets/', document.querySelector('script[src*="app.js"]').src).href;
 
@@ -71,7 +67,7 @@ function renderTerm() {
   root.dataset.remembered = String(state.remembered);
   document.querySelector('#remember-term').firstChild.textContent = t(state.remembered ? '已保存' : '保存译法')+' ';
   document.querySelector('#memory-status').textContent = state.remembered
-    ? (english ? 'Saved in this demo: harness → '+state.term+'. Replay resets it.' : '本页已保存：harness → '+state.term+'。重播可重置。')
+    ? (english ? 'Saved in this demo: trace → '+state.term+'. Replay resets it.' : '本页已保存：trace → '+state.term+'。重播可重置。')
     : t('按领域与语境，沿用个人译法。');
 }
 function updatePlayback() {
@@ -98,8 +94,8 @@ function render() {
   });
   document.querySelector('#tour-position').textContent = String(state.stage+1).padStart(2,'0')+' / 03';
   document.querySelector('#demo-disclaimer').textContent = t(state.mode === 'radar'
-    ? 'Chrome 商店原始截图 · 可滚动查看细节，或打开原图。'
-    : 'RRSI Markdown 阅读笔记 · 预置中英示例，不调用模型。');
+    ? '插件界面 · 三篇公开论文，可切换或打开原图。'
+    : '多论文 Markdown 阅读笔记 · 预置中英示例，不调用模型。');
   if (state.mode === 'radar') renderCapture();
   renderTerm(); updatePlayback();
 }
@@ -129,7 +125,7 @@ function tick(now) {
     else if (state.stage === 1) scrollReading('table',ease((elapsed-500)/2600));
     else if (state.stage === 2) {
       scrollReading('code',ease((elapsed-1900)/2800),'outline');
-      if (elapsed>4900 && state.term!=='运行框架') { state.term='运行框架'; renderTerm(); }
+      if (elapsed>4900 && state.term!=='过程记录') { state.term='过程记录'; renderTerm(); }
       if (elapsed>6400 && !state.remembered) { state.remembered=true; renderTerm(); }
     }
   }
@@ -138,7 +134,7 @@ function tick(now) {
 function pause() { if (state.playing) { state.playing=false; updatePlayback(); } }
 function chooseMode(mode) { if (['radar','translate'].includes(mode)) { state.mode=mode; startStage(0); } }
 function replay() {
-  state.term='执行框架'; state.remembered=false; state.zoom=false; state.markdown=false;
+  state.term='执行轨迹'; state.remembered=false; state.zoom=false; state.markdown=false;
   sourceRendered.hidden=false; sourceMarkdown.hidden=true; sourceFormat.setAttribute('aria-pressed','false');
   captureIndex=-1; state.playing=!motion.matches; startStage(0);
 }
