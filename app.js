@@ -6,17 +6,37 @@ const dictionary={"暂停":"Pause","播放":"Play","暂停演示":"Pause tour","
 const t = value => english ? (dictionary[value] ?? value) : value;
 
 // Public screenshots and a prewritten Markdown reading note. No extension engine runs here.
-const captures = [{"file": "radar-agents.png", "title": "论文详情 · When Agents Slow Down", "description": "查看 Agent 策略研究的作者与评分依据", "alt": "论文雷达界面：When Agents Slow Down 的论文与评分依据。"}, {"file": "radar-wearableqa.png", "title": "论文详情 · WearableQA", "description": "查看可穿戴数据问答的机构与研究线索", "alt": "论文雷达界面：WearableQA 的作者、机构与研究依据。"}, {"file": "radar-conversation.png", "title": "论文详情 · Conversation Compiler", "description": "查看对话轨迹分析的作者与来源", "alt": "论文雷达界面：Conversation Compiler 的作者与来源。"}];
-const labels = {radar:['Agent 推理','健康数据问答','对话分析'], translate:['文档结构','表格与链接','代码与译法']};
-const captions = {radar:['查看 Agent 策略研究的作者与评分依据','查看可穿戴数据问答的机构与研究线索','查看对话轨迹分析的作者与来源'], translate:['多级标题、引用与嵌套列表','表格和超链接，原样保留','代码保持原样，沿用个人译法']};
-const durationByMode = {radar:[7000,6500,6500], translate:[5000,6500,8500]};
+Object.assign(dictionary, {
+  '论文选读 · When Agents Slow Down':'Reading list · When Agents Slow Down',
+  '论文选读 · WearableQA':'Reading list · WearableQA',
+  '论文选读 · Conversation Compiler':'Reading list · Conversation Compiler',
+  '研究图谱 · 公开书目':'Research map · Public bibliography',
+  '从标题、作者与机构，快速找到值得继续读的论文。':'Find your next read through titles, authors and affiliations.',
+  '研究线索、机构来源与个人评分，同屏呈现。':'Research topics, affiliations and personal scores, together.',
+  '从摘要到代码入口，沿着论文继续探索。':'Follow the paper from its abstract to the original code.',
+  '从论文到作者网络，探索研究之间的联系。':'Follow the connections between papers and their authors.',
+  '可穿戴问答':'Wearable QA','对话轨迹':'Agent traces','研究图谱':'Research map',
+  '论文雷达工作台：When Agents Slow Down 的完整论文卡片与选读列表。':'Paper Radar workbench: When Agents Slow Down in the reading list.',
+  '论文雷达工作台：WearableQA 的论文、作者与机构标签。':'Paper Radar workbench: WearableQA, authors and affiliations.',
+  '论文雷达工作台：Conversation Compiler 的论文卡片与代码入口。':'Paper Radar workbench: Conversation Compiler and its code link.',
+  '研究图谱：公开书目中的作者与合作关系。':'Research map: authors and coauthorship from public bibliography.',
+  '原始界面 · 左右滑动浏览。论文与图谱均为公开资料演示。':'Original interface · Swipe to explore. Papers and map use public data.',
+});
+const captures = [
+  {file:'radar-agents.webp', original:'radar-agents.png', title:'论文选读 · When Agents Slow Down', description:'从标题、作者与机构，快速找到值得继续读的论文。', alt:'论文雷达工作台：When Agents Slow Down 的完整论文卡片与选读列表。'},
+  {file:'radar-wearableqa.webp', original:'radar-wearableqa.png', title:'论文选读 · WearableQA', description:'研究线索、机构来源与个人评分，同屏呈现。', alt:'论文雷达工作台：WearableQA 的论文、作者与机构标签。'},
+  {file:'radar-conversation.webp', original:'radar-conversation.png', title:'论文选读 · Conversation Compiler', description:'从摘要到代码入口，沿着论文继续探索。', alt:'论文雷达工作台：Conversation Compiler 的论文卡片与代码入口。'},
+  {file:'radar-research-map.webp', original:'radar-research-map.png', title:'研究图谱 · 公开书目', description:'从论文到作者网络，探索研究之间的联系。', alt:'研究图谱：公开书目中的作者与合作关系。'},
+];
+const labels = {radar:['Agent 推理','可穿戴问答','对话轨迹','研究图谱'], translate:['文档结构','表格与链接','代码与译法']};
+const captions = {radar:captures.map(item=>item.description), translate:['多级标题、引用与嵌套列表','表格和超链接，原样保留','代码保持原样，沿用个人译法']};
+const durationByMode = {radar:[6500,6500,6500,6500], translate:[5000,6500,8500]};
 const root = document.querySelector('#experience');
 const tabs = [...document.querySelectorAll('.product-tab')];
 const stageButtons = [...document.querySelectorAll('.stage-controls button')];
 const capture = document.querySelector('.radar-capture');
-const captureImage = document.querySelector('#radar-screenshot');
+const captureSlides = [...document.querySelectorAll('.capture-slide')];
 const captureLink = document.querySelector('#capture-original');
-const zoomButton = document.querySelector('#capture-zoom');
 const sourceScroll = document.querySelector('.source-scroll');
 const translationScroll = document.querySelector('.translation-scroll');
 const sourceRendered = document.querySelector('.source-rendered');
@@ -25,8 +45,8 @@ const sourceFormat = document.querySelector('#source-format');
 const termChoice = document.querySelector('#term-choice');
 const playButton = document.querySelector('#play-demo');
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
-const state = {mode:'radar', stage:0, playing:!motion.matches, visible:true, zoom:false, markdown:false, term:'执行轨迹', remembered:false};
-let frame = null, lastTime = 0, elapsed = 0, captureIndex = -1, scrollDriver = null;
+const state = {mode:'radar', stage:0, playing:!motion.matches, visible:true, markdown:false, term:'执行轨迹', remembered:false};
+let frame = null, lastTime = 0, elapsed = 0, scrollDriver = null, galleryTarget = null, galleryDrag = null;
 const assetPrefix = new URL('assets/', document.querySelector('script[src*="app.js"]').src).href;
 
 function active() { return state.playing && state.visible && !document.hidden; }
@@ -44,22 +64,22 @@ function scrollReading(key, progress=1, from='intro') {
     scroller.scrollTop = start+(end-start)*progress;
   }
 }
-function renderCapture() {
+function renderCapture(align=true) {
   const item = captures[state.stage];
-  if (captureIndex !== state.stage) {
-    captureIndex = state.stage;
-    captureImage.src = assetPrefix+item.file;
-    captureImage.alt = t(item.alt);
-    captureLink.href = assetPrefix+item.file;
-    capture.scrollTop = 0;
-    capture.scrollLeft = 0;
+  captureSlides.forEach((slide,index)=>{
+    slide.setAttribute('aria-hidden',String(index!==state.stage));
+    slide.querySelector('img').alt=t(captures[index].alt);
+  });
+  if (align && capture.clientWidth) {
+    const left=state.stage*capture.clientWidth;
+    galleryTarget=Math.abs(capture.scrollLeft-left)>1?left:null;
+    if(motion.matches)capture.scrollLeft=left;
+    else capture.scrollTo({left,behavior:'smooth'});
   }
+  captureLink.href = assetPrefix+item.original;
   document.querySelector('#capture-title').textContent = t(item.title);
   document.querySelector('#capture-description').textContent = t(item.description);
-  capture.classList.toggle('is-zoomed', state.zoom);
-  zoomButton.setAttribute('aria-pressed', String(state.zoom));
-  zoomButton.firstChild.textContent = t(state.zoom ? '适应宽度' : '放大细节')+' ';
-  zoomButton.querySelector('span').textContent = state.zoom ? '−' : '＋';
+  document.querySelector('#capture-position').textContent=String(state.stage+1).padStart(2,'0')+' / '+String(captures.length).padStart(2,'0');
 }
 function renderTerm() {
   document.querySelectorAll('[data-term]').forEach(el => el.textContent = state.term);
@@ -79,7 +99,7 @@ function updatePlayback() {
   cancelAnimationFrame(frame); frame = null; lastTime = 0;
   if (active()) frame = requestAnimationFrame(tick);
 }
-function render() {
+function render(alignCapture=true) {
   root.dataset.mode = state.mode;
   root.dataset.stage = String(state.stage);
   document.querySelector('#radar-demo').hidden = state.mode !== 'radar';
@@ -89,20 +109,21 @@ function render() {
     tab.setAttribute('aria-selected', String(selected)); tab.tabIndex = selected ? 0 : -1;
   });
   stageButtons.forEach((button, index) => {
+    button.hidden=index>=labels[state.mode].length;
     button.setAttribute('aria-pressed', String(index === state.stage));
-    button.querySelector('.stage-name').textContent = t(labels[state.mode][index]);
+    button.querySelector('.stage-name').textContent = t(labels[state.mode][index]||'');
   });
-  document.querySelector('#tour-position').textContent = String(state.stage+1).padStart(2,'0')+' / 03';
+  document.querySelector('#tour-position').textContent = String(state.stage+1).padStart(2,'0')+' / '+String(labels[state.mode].length).padStart(2,'0');
   document.querySelector('#demo-disclaimer').textContent = t(state.mode === 'radar'
-    ? '插件界面 · 三篇公开论文，可切换或打开原图。'
+    ? '原始界面 · 左右滑动浏览。论文与图谱均为公开资料演示。'
     : '多论文 Markdown 阅读笔记 · 预置中英示例，不调用模型。');
-  if (state.mode === 'radar') renderCapture();
+  if (state.mode === 'radar') renderCapture(alignCapture);
   renderTerm(); updatePlayback();
 }
-function startStage(stage, manual=false) {
+function startStage(stage, manual=false, alignCapture=true) {
   state.stage = stage; elapsed = 0; scrollDriver = null;
   if (manual) state.playing = false;
-  render();
+  render(alignCapture);
   if (state.mode === 'translate') {
     if (stage === 0) { sourceScroll.scrollTop=0; translationScroll.scrollTop=0; }
     else scrollReading(stage === 1 ? (manual ? 'table' : 'intro') : (manual ? 'code' : 'outline'));
@@ -119,11 +140,10 @@ function tick(now) {
   if (!active()) { frame=null; return; }
   if (lastTime) elapsed += Math.min(now-lastTime,80);
   lastTime = now;
-  if (elapsed >= durationByMode[state.mode][state.stage]) { startStage((state.stage+1)%3); return; }
+  if (elapsed >= durationByMode[state.mode][state.stage]) { startStage((state.stage+1)%labels[state.mode].length); return; }
   if (!motion.matches) {
-    if (state.mode === 'radar') capture.scrollTop = maxScroll(capture)*ease((elapsed-1300)/3600);
-    else if (state.stage === 1) scrollReading('table',ease((elapsed-500)/2600));
-    else if (state.stage === 2) {
+    if (state.mode === 'translate' && state.stage === 1) scrollReading('table',ease((elapsed-500)/2600));
+    else if (state.mode === 'translate' && state.stage === 2) {
       scrollReading('code',ease((elapsed-1900)/2800),'outline');
       if (elapsed>4900 && state.term!=='过程记录') { state.term='过程记录'; renderTerm(); }
       if (elapsed>6400 && !state.remembered) { state.remembered=true; renderTerm(); }
@@ -134,9 +154,9 @@ function tick(now) {
 function pause() { if (state.playing) { state.playing=false; updatePlayback(); } }
 function chooseMode(mode) { if (['radar','translate'].includes(mode)) { state.mode=mode; startStage(0); } }
 function replay() {
-  state.term='执行轨迹'; state.remembered=false; state.zoom=false; state.markdown=false;
+  state.term='执行轨迹'; state.remembered=false; state.markdown=false;
   sourceRendered.hidden=false; sourceMarkdown.hidden=true; sourceFormat.setAttribute('aria-pressed','false');
-  captureIndex=-1; state.playing=!motion.matches; startStage(0);
+  state.playing=!motion.matches; startStage(0);
 }
 
 tabs.forEach(tab => {
@@ -151,7 +171,46 @@ tabs.forEach(tab => {
 stageButtons.forEach(button=>button.addEventListener('click',()=>startStage(Number(button.dataset.stage),true)));
 playButton.addEventListener('click',()=>{state.playing=!state.playing;scrollDriver=null;updatePlayback();});
 document.querySelector('#replay-demo').addEventListener('click',replay);
-zoomButton.addEventListener('click',()=>{pause();state.zoom=!state.zoom;renderCapture();});
+document.querySelectorAll('[data-capture-direction]').forEach(button=>button.addEventListener('click',()=>{
+  startStage((state.stage+Number(button.dataset.captureDirection)+captures.length)%captures.length,true);
+}));
+capture.addEventListener('keydown',event=>{
+  if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
+  event.preventDefault();
+  const next=event.key==='Home'?0:event.key==='End'?captures.length-1:(state.stage+(event.key==='ArrowRight'?1:-1)+captures.length)%captures.length;
+  startStage(next,true);
+});
+capture.addEventListener('scroll',()=>{
+  if(state.mode!=='radar'||!capture.clientWidth||galleryDrag)return;
+  if(galleryTarget!==null){if(Math.abs(capture.scrollLeft-galleryTarget)<2)galleryTarget=null;return;}
+  const next=Math.max(0,Math.min(captures.length-1,Math.round(capture.scrollLeft/capture.clientWidth)));
+  if(next!==state.stage)startStage(next,true,false);
+},{passive:true});
+capture.addEventListener('pointerdown',event=>{
+  if(event.button!==0)return;
+  pause();galleryTarget=null;
+  if(event.pointerType!=='mouse')return;
+  galleryDrag={x:event.clientX,left:capture.scrollLeft,id:event.pointerId};
+  capture.classList.add('is-dragging');capture.setPointerCapture(event.pointerId);
+});
+capture.addEventListener('pointermove',event=>{
+  if(!galleryDrag)return;
+  capture.scrollLeft=galleryDrag.left+galleryDrag.x-event.clientX;
+});
+function finishGalleryDrag(){
+  if(!galleryDrag)return;
+  galleryDrag=null;capture.classList.remove('is-dragging');
+  startStage(Math.max(0,Math.min(captures.length-1,Math.round(capture.scrollLeft/capture.clientWidth))),true);
+}
+capture.addEventListener('pointerup',finishGalleryDrag);
+capture.addEventListener('pointercancel',finishGalleryDrag);
+capture.addEventListener('lostpointercapture',finishGalleryDrag);
+if('ResizeObserver' in window)new ResizeObserver(()=>{
+  if(state.mode!=='radar'||!capture.clientWidth)return;
+  galleryTarget=state.stage*capture.clientWidth;
+  capture.scrollLeft=galleryTarget;
+  galleryTarget=null;
+}).observe(capture);
 sourceFormat.addEventListener('click',()=>{
   pause(); scrollDriver=null;
   const fraction=maxScroll(sourceScroll)?sourceScroll.scrollTop/maxScroll(sourceScroll):0;
@@ -163,10 +222,10 @@ sourceFormat.addEventListener('click',()=>{
 termChoice.addEventListener('change',()=>{pause();state.term=termChoice.value;state.remembered=false;renderTerm();});
 document.querySelector('#remember-term').addEventListener('click',()=>{pause();state.remembered=true;renderTerm();});
 for (const scroller of [capture,sourceScroll,translationScroll]) {
-  const takeControl=()=>{pause();scrollDriver=scroller;};
+  const takeControl=()=>{pause();scrollDriver=scroller;if(scroller===capture)galleryTarget=null;};
   scroller.addEventListener('wheel',takeControl,{passive:true});
   scroller.addEventListener('touchstart',takeControl,{passive:true});
-  scroller.addEventListener('keydown',event=>{if (['ArrowDown','ArrowUp','ArrowLeft','ArrowRight','PageDown','PageUp','Home','End',' '].includes(event.key)) takeControl();});
+  scroller.addEventListener('keydown',event=>{if (!event.defaultPrevented && ['ArrowDown','ArrowUp','ArrowLeft','ArrowRight','PageDown','PageUp','Home','End',' '].includes(event.key)) takeControl();});
   if (scroller!==capture) scroller.addEventListener('scroll',()=>{
     if (scrollDriver!==scroller || state.playing) return;
     const other=scroller===sourceScroll?translationScroll:sourceScroll;
@@ -193,7 +252,7 @@ if ('IntersectionObserver' in window) new IntersectionObserver(entries=>{
   const visible=entries[0].isIntersecting;
   if (visible!==state.visible) {state.visible=visible;updatePlayback();}
 },{threshold:.12}).observe(root);
-motion.addEventListener('change',()=>{if(motion.matches)pause();});
+motion.addEventListener('change',()=>{if(motion.matches){pause();if(state.mode==='radar')renderCapture();}});
 const initialProduct = document.body.dataset.product || new URLSearchParams(location.search).get('tool');
 if (['radar','translate'].includes(initialProduct)) state.mode = initialProduct;
 render();

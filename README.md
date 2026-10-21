@@ -32,7 +32,7 @@ Issues 是公开的；截图请隐去 Key、私人文档与个人信息。无需
 
 ## 看看实际效果
 
-论文雷达展示实际插件界面：When Agents Slow Down、WearableQA 与 Conversation Compiler 的论文详情和证据。AI 翻译使用三篇论文的对照阅读简报，包含多级标题、嵌套列表、超链接、表格和代码，展示结构保留与个人译法。
+左右滑动原始界面，浏览 When Agents Slow Down、WearableQA、Conversation Compiler 的论文卡片与选读列表，再进入公开研究图谱。支持箭头、缩略图、鼠标拖动与触屏滑动。AI 翻译展示多篇论文的 Markdown 对照阅读，保留多级标题、列表、超链接、表格、代码与个人译法。
 
 <p align="center"><a href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/#experience"><img src="assets/product-tour.gif" alt="论文雷达原始界面与复杂 Markdown 翻译对照演示" width="100%"></a></p>
 
@@ -48,7 +48,7 @@ Issues 是公开的；截图请隐去 Key、私人文档与个人信息。无需
 
 公开案例仅作功能演示，不代表作者或机构对产品的认可、合作或背书。
 
-<p align="center"><a href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/#research-demo"><img src="assets/research-to-paper.webp" alt="真实操作演示：从作者合作网络进入 RRSI，查看作者贡献与论文依据" width="100%"></a></p>
+<p align="center"><a href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/#research-demo"><img src="assets/research-to-paper.webp" alt="公开图谱演示：从作者合作网络进入论文，查看作者贡献与来源" width="100%"></a></p>
 
 个人分由已存证据与研究偏好自动计算，无需逐篇打分；基础证据分单独保留。官网的偏好切换使用预计算的公开样本，只展示计算结果。插件内核与评分引擎保持私有。
 
@@ -58,7 +58,9 @@ Issues 是公开的；截图请隐去 Key、私人文档与个人信息。无需
 
 Start at the [KnowMe website](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/), with both tools, demos and installation links in one place. For more detail, visit [Paper Radar](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/radar/) or [AI Translate](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/translate/). Have an idea or a rough edge to share? [Suggest a feature](https://github.com/hackerchenzhuo/knowme-ai-translate-site/issues/new?template=feature_request.yml), [report a problem](https://github.com/hackerchenzhuo/knowme-ai-translate-site/issues/new?template=bug_report.yml), or add your experience to an existing issue. Please remove keys and private information from public reports.
 
-Preview [personal scores and the Research Atlas](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/#research-atlas). Version 1.0.4 uses your research interests and stored bibliography to calculate private author weights, which contribute to each paper’s personal score. [Switch perspectives on the same RRSI paper](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/#personal-ranking-preview). Optional local evolution adds public bibliography and coauthorship evidence from Scholar profiles you visit. You can pause or clear it; map counts describe the current view. Released features depend on the version available in the Chrome Web Store.
+Swipe through [the original interface](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/#experience): three paper examples and the public research map. Use the arrows, thumbnails, mouse drag or touch gestures to explore.
+
+Preview [personal scores and the Research Atlas](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/#research-atlas). Version 1.0.4 uses your research interests and stored bibliography to calculate private author weights, which contribute to each paper’s personal score. [Compare research preferences across three paper examples](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/#personal-ranking-preview). Optional local evolution adds public bibliography and coauthorship evidence from Scholar profiles you visit. You can pause or clear it; map counts describe the current view. Released features depend on the version available in the Chrome Web Store.
 
 Personal scores are calculated automatically from stored evidence and research preferences, without paper-by-paper ratings. Base evidence scores remain separately available. The public preview switches precomputed outputs; extension engines remain private.
 
