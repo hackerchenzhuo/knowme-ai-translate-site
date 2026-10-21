@@ -42,7 +42,11 @@ Issues 是公开的；截图请隐去 Key、私人文档与个人信息。无需
 
 从论文发现作者，沿合作关系拓展视野。[探索持续演化的研究图谱](https://hackerchenzhuo.github.io/knowme-ai-translate-site/#research-atlas)，让公开线索逐渐汇成自己的研究脉络。
 
-论文雷达 1.0.4 预览：你的研究方向与已存书目一起，形成作者在私人研究体系中的权重，并进入每篇论文的个人分。用同一篇 RRSI [切换两种研究偏好](https://hackerchenzhuo.github.io/knowme-ai-translate-site/#personal-ranking-preview)，查看作者权重与个人分如何变化。开启可选的本地演化后，访问 Scholar 作者主页会补充公开书目与共作线索；可暂停、清除。图中计数对应当前视图，实际内容随本地资料变化。正式可用功能以 Chrome 商店发布版本为准。
+论文雷达下一版预览：复用已完成的筛选，首批论文先出现，剩余结果按进度载入；可停止并保留已显示内容。作者与机构在私人研究体系中的权重，随研究方向与公开书目变化。用 [三个真实论文案例](https://hackerchenzhuo.github.io/knowme-ai-translate-site/#personal-ranking-preview) 查看预计算结果、自动关键词与来源；身份或书目依据不足时保持中性。
+
+研究图谱采用预计算布局、视区裁剪与按需展开。图中数量对应当前公开样本，署名节点不等同于已核验的独立作者。可选的本地演化、查询缓存自动整理均可关闭；论文原件、收藏和固定查询保留。插件的正式可用功能以 Chrome 商店发布版本为准。
+
+公开案例仅作功能演示，不代表作者或机构对产品的认可、合作或背书。
 
 <p align="center"><a href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/#research-demo"><img src="assets/research-to-paper.webp" alt="真实操作演示：从作者合作网络进入 RRSI，查看作者贡献与论文依据" width="100%"></a></p>
 

@@ -202,27 +202,32 @@ const initialProduct = document.body.dataset.product || new URLSearchParams(loca
 if (['radar','translate'].includes(initialProduct)) state.mode = initialProduct;
 render();
 
-// The public preview switches precomputed outputs; the private ranking engine is not shipped here.
+// Precomputed public results only. The scoring engine stays in the extension.
 (function mountPersonalPreview() {
-  const root = document.getElementById('personal-ranking-preview');
-  const source = document.getElementById('personal-preview-data');
-  if (!root || !source) return;
-  const samples = JSON.parse(source.textContent).cases;
-  function show(id) {
-    const sample = samples.find(item => item.id === id);
-    if (!sample) return;
-    root.querySelectorAll('[data-personal-profile]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.personalProfile === id)));
-    root.querySelector('[data-personal-base]').textContent = sample.base.toFixed(1);
-    root.querySelector('[data-personal-operator]').textContent = sample.adjustment < 0 ? '−' : '+';
-    root.querySelector('[data-personal-adjustment]').textContent = Math.abs(sample.adjustment).toFixed(1);
-    root.querySelector('[data-personal-total]').textContent = sample.total.toFixed(1);
-    root.querySelectorAll('[data-personal-author]').forEach((row, index) => {
-      const author = sample.authors[index];
-      row.querySelector('[data-personal-weight]').textContent = '×' + author.weight.toFixed(3);
-      row.querySelector('.personal-weight-track i').style.width = Math.max(0, Math.min(100, (author.weight - .5) * 100)) + '%';
-    });
-    root.dataset.personalCurrent = id;
+ const root=document.getElementById('personal-ranking-preview'),source=document.getElementById('personal-preview-data');
+ if(!root||!source)return;
+ const data=JSON.parse(source.textContent),en=document.documentElement.lang==='en';
+ let selectedPaper=data.papers[0].id,selectedProfile='agents';
+ const names={berkeley:'UC Berkeley',washington:'University of Washington',princeton:'Princeton University',stanford:'Stanford University',meta:'Meta'};
+ function show(){
+  const paper=data.papers.find(p=>p.id===selectedPaper),sample=paper.cases.find(c=>c.id===selectedProfile);
+  root.querySelectorAll('[data-personal-profile]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.personalProfile===selectedProfile)));
+  root.querySelectorAll('[data-personal-paper]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.personalPaper===selectedPaper)));
+  root.querySelector('[data-personal-title]').textContent=paper.short+' · '+paper.id;
+  root.querySelector('[data-personal-source]').href=paper.url;
+  for(const [field,value]of [['base',sample.base],['author-adjustment',sample.authorAdjustment],['institution-adjustment',sample.institutionAdjustment],['total',sample.total]])root.querySelector('[data-personal-'+field+']').textContent=value.toFixed(1);
+  const rows=root.querySelector('[data-personal-rows]');rows.replaceChildren();
+  for(const item of [...sample.authors,...sample.institutions]){
+   const tr=document.createElement('tr'),th=document.createElement('th'),td=document.createElement('td');th.scope='row';th.textContent=en?(names[item.id]||item.name):item.name;
+   const weight=document.createElement('span');weight.textContent='×'+item.weight.toFixed(3);td.append(weight);
+   const track=document.createElement('span'),fill=document.createElement('i');track.className='personal-weight-track';track.setAttribute('aria-hidden','true');fill.style.width=Math.max(0,Math.min(100,(item.weight-.5)*100))+'%';track.append(fill);td.append(track);tr.append(th,td);rows.append(tr);
   }
-  root.querySelectorAll('[data-personal-profile]').forEach(button => button.addEventListener('click', () => show(button.dataset.personalProfile)));
-  show('agents');
+  root.querySelector('[data-personal-weight-note]').textContent=en?'1 is neutral. Authors without sufficient resolved bibliography retain neutral weights.':'×1 为中性；缺少足够身份与书目依据的作者保持中性，不作质量判断。';
+  const details=root.querySelector('[data-personal-evidence]');details.replaceChildren();
+  for(const institution of sample.institutions){const p=document.createElement('p');p.textContent=(en?(names[institution.id]||institution.name):institution.name)+' · '+institution.papers.toLocaleString()+(en?' evidenced papers · ':' 篇已核书目 · ')+institution.keywords.join(' / ');details.append(p);for(const example of institution.examples.slice(0,1)){const a=document.createElement('a');a.href=example.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=example.title+' ↗';details.append(a);}}
+  root.dataset.personalCurrent=selectedProfile;root.dataset.paperCurrent=selectedPaper;
+ }
+ root.querySelectorAll('[data-personal-profile]').forEach(b=>b.addEventListener('click',()=>{selectedProfile=b.dataset.personalProfile;show()}));
+ root.querySelectorAll('[data-personal-paper]').forEach(b=>b.addEventListener('click',()=>{selectedPaper=b.dataset.personalPaper;show()}));
+ show();
 })();
