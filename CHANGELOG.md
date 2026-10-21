@@ -1,5 +1,12 @@
 # Website updates
 
+## 2026-10-22
+
+- Explore a broader precomputed graph with viewport culling and compact data; indexed scope and displayed nodes are separate.
+- Compare three sourced papers under preset research perspectives, including institution weights, keywords and evidence.
+- Explain cache reuse and bounded automatic query cleanup in the next-version preview.
+- Clarify that public author and institution names do not imply endorsement or partnership.
+
 ## 2026-10-21
 
 - Preview personal author weights and paper scores with two research perspectives on the same RRSI paper.
