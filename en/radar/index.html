@@ -21,8 +21,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <title>Paper Radar · Discover papers. See the evidence.</title>
   <link rel="icon" type="image/svg+xml" href="../../assets/knowme.svg">
-  <link rel="stylesheet" href="../../style.css?v=20261022-multipaper1">
-  <script src="../../app.js?v=20261022-multipaper1" defer></script>
+  <link rel="stylesheet" href="../../style.css?v=20261022-gallery2">
+  <script src="../../app.js?v=20261022-gallery2" defer></script>
 </head>
 <body class="product-landing" data-product="radar">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -52,14 +52,21 @@
             <button class="product-tab" id="radar-tab" role="tab" type="button" aria-selected="true" aria-controls="radar-demo" data-mode="radar"><span class="product-tab-index" aria-hidden="true">01</span><img src="../../assets/radar.png" width="23" height="23" alt="">Paper Radar</button>
             <button class="product-tab" id="translate-tab" role="tab" type="button" aria-selected="false" aria-controls="translate-demo" tabindex="-1" data-mode="translate"><span class="product-tab-index" aria-hidden="true">02</span><img src="../../assets/translate.png" width="23" height="23" alt="">AI Translate</button>
           </div>
-          <p class="tour-state"><i aria-hidden="true"></i><span id="tour-caption" role="status">Auto tour · Explore actual scores and author evidence</span></p>
+          <p class="tour-state"><i aria-hidden="true"></i><span id="tour-caption" role="status">Auto tour · Find your next read through titles, authors and affiliations.</span></p>
         </div>
         <div id="radar-demo" class="demo-panel radar-panel" role="tabpanel" aria-labelledby="radar-tab">
-          <div class="capture-heading"><span><i aria-hidden="true"></i><span id="capture-title">Paper details · When Agents Slow Down</span></span><a id="capture-original" href="../../assets/radar-agents.png" target="_blank" rel="noopener noreferrer">View original <span aria-hidden="true">↗</span></a></div>
-          <div class="radar-capture" tabindex="0" role="region" aria-label="Original Paper Radar screenshot, scrollable">
-            <img id="radar-screenshot" src="../../assets/radar-agents.png" alt="Paper Radar: When Agents Slow Down, authors, affiliations and evidence." width="1280" height="800" decoding="async">
+          <div class="capture-heading"><span><i aria-hidden="true"></i><span id="capture-title">Reading list · When Agents Slow Down</span></span><a id="capture-original" href="../../assets/radar-agents.png" target="_blank" rel="noopener noreferrer">View original <span aria-hidden="true">↗</span></a></div>
+          <div class="capture-gallery">
+            <div class="radar-capture" id="radar-captures" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Paper Radar screenshot gallery" aria-describedby="capture-hint">
+              <figure class="capture-slide" role="group" aria-label="1 / 4" aria-hidden="false"><img src="../../assets/radar-agents.webp" alt="Paper Radar: When Agents Slow Down in the reading list." width="1280" height="800" draggable="false" decoding="async" fetchpriority="high"></figure>
+              <figure class="capture-slide" role="group" aria-label="2 / 4" aria-hidden="true"><img src="../../assets/radar-wearableqa.webp" alt="Paper Radar: WearableQA, authors and affiliations." width="1280" height="800" draggable="false" decoding="async" loading="lazy"></figure>
+              <figure class="capture-slide" role="group" aria-label="3 / 4" aria-hidden="true"><img src="../../assets/radar-conversation.webp" alt="Paper Radar: Conversation Compiler and its code link." width="1280" height="800" draggable="false" decoding="async" loading="lazy"></figure>
+              <figure class="capture-slide" role="group" aria-label="4 / 4" aria-hidden="true"><img src="../../assets/radar-research-map.webp" alt="Research map: authors and coauthorship from public bibliography." width="1280" height="800" draggable="false" decoding="async" loading="lazy"></figure>
+            </div>
+            <button class="capture-arrow capture-previous" type="button" data-capture-direction="-1" aria-label="Previous screenshot" aria-controls="radar-captures"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
+            <button class="capture-arrow capture-next" type="button" data-capture-direction="1" aria-label="Next screenshot" aria-controls="radar-captures"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
           </div>
-          <div class="capture-footer"><p id="capture-description">Relevance, quality and recency, with author contributions and matching topics in detail.</p><button type="button" id="capture-zoom" aria-pressed="false">Zoom in <span aria-hidden="true">＋</span></button></div><p class="capture-locale">Current Chinese interface · Full English UI planned.</p>
+          <div class="capture-footer"><p id="capture-description">Find your next read through titles, authors and affiliations.</p><span class="capture-hint" id="capture-hint">Swipe or use ← →</span><span class="capture-position" id="capture-position" aria-hidden="true">01 / 04</span></div><p class="capture-locale">Current Chinese interface · Full English UI planned.</p>
         </div>
         <div id="translate-demo" class="demo-panel translate-panel" role="tabpanel" aria-labelledby="translate-tab" hidden>
           <section class="source-pane" aria-label="English Markdown reading note">
@@ -134,12 +141,12 @@ Illustrative reading checklist. Open each source for the complete paper.
           </section>
         </div>
         <div class="demo-controls">
-          <div class="stage-controls" role="group" aria-label="Tour steps"><button type="button" data-stage="0" aria-pressed="true"><span>01</span><span class="stage-name">Paper details</span></button><span class="stage-line" aria-hidden="true"></span><button type="button" data-stage="1" aria-pressed="false"><span>02</span><span class="stage-name">Affiliations</span></button><span class="stage-line" aria-hidden="true"></span><button type="button" data-stage="2" aria-pressed="false"><span>03</span><span class="stage-name">On the page</span></button></div>
-          <div class="playback-controls"><span class="tour-position" id="tour-position" aria-hidden="true">01 / 03</span><button type="button" id="play-demo" aria-label="Pause tour"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5v10M13 5v10"></path></svg><span>Pause</span></button><button type="button" id="replay-demo" aria-label="Replay tour"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7a6 6 0 1 1-1 5M4 3v5h5"></path></svg><span>Replay</span></button></div>
+          <div class="stage-controls" role="group" aria-label="Tour views"><button type="button" data-stage="0" aria-pressed="true"><span class="stage-number">01</span><img class="stage-thumb" src="../../assets/radar-agents-thumb.webp" alt="" width="220" height="138" loading="lazy"><span class="stage-name">Agent reasoning</span></button><button type="button" data-stage="1" aria-pressed="false"><span class="stage-number">02</span><img class="stage-thumb" src="../../assets/radar-wearableqa-thumb.webp" alt="" width="220" height="138" loading="lazy"><span class="stage-name">Wearable QA</span></button><button type="button" data-stage="2" aria-pressed="false"><span class="stage-number">03</span><img class="stage-thumb" src="../../assets/radar-conversation-thumb.webp" alt="" width="220" height="138" loading="lazy"><span class="stage-name">Agent traces</span></button><button type="button" data-stage="3" aria-pressed="false"><span class="stage-number">04</span><img class="stage-thumb" src="../../assets/radar-research-map-thumb.webp" alt="" width="220" height="138" loading="lazy"><span class="stage-name">Research map</span></button></div>
+          <div class="playback-controls"><span class="tour-position" id="tour-position" aria-hidden="true">01 / 04</span><button type="button" id="play-demo" aria-label="Pause tour"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5v10M13 5v10"></path></svg><span>Pause</span></button><button type="button" id="replay-demo" aria-label="Replay tour"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7a6 6 0 1 1-1 5M4 3v5h5"></path></svg><span>Replay</span></button></div>
         </div>
         <div class="demo-progress" aria-hidden="true"><span></span></div>
       </div>
-      <p class="demo-disclaimer" id="demo-disclaimer">Original Chrome Web Store screenshots · Scroll to explore or open the full-size image.</p>
+      <p class="demo-disclaimer" id="demo-disclaimer">Original interface · Swipe to explore. Papers and map use public data.</p>
     </section>
 
     <section class="principles shell" aria-label="Product benefits"><div><span class="principle-number">01</span><h2>Follow your interests</h2><p>Filter by topics, subtopics and institutions to find relevant work.</p></div><div><span class="principle-number">02</span><h2>Inspect the evidence</h2><p>Explore scores, author contributions and source records.</p></div><div><span class="principle-number">03</span><h2>Stay with the paper</h2><p>View annotations on arXiv and save papers for your next read.</p></div></section>
