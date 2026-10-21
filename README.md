@@ -40,11 +40,11 @@ Issues 是公开的；截图请隐去 Key、私人文档与个人信息。无需
 
 ## 下一版预览 · 研究图谱
 
-从论文到作者，再到合作网络。[打开图谱](https://hackerchenzhuo.github.io/knowme-ai-translate-site/#research-atlas)，探索有论文依据的连接，或切换到预置关注示例。
+从论文发现作者，沿合作关系拓展视野。[探索持续演化的研究图谱](https://hackerchenzhuo.github.io/knowme-ai-translate-site/#research-atlas)，让公开线索逐渐汇成自己的研究脉络。
 
-论文雷达 1.0.5 提供可选的本地演化：在你打开 Scholar 作者主页时积累公开线索，近期关注逐渐浮现。可暂停、清除，论文评分保持独立。商店可用版本以审核结果为准。
+论文雷达 1.0.5 提供可选的本地演化：开启后，访问 Scholar 作者主页会在本地补充书目、作者与共作线索，近期关注影响图中优先呈现的内容。可暂停、清除，论文评分保持独立。图中计数对应当前视图，实际内容随本地资料与关注变化。商店可用版本以审核结果为准。
 
-<p align="center"><a href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/#research-demo"><img src="assets/research-to-paper.gif" alt="真实操作演示：从 3,200 个作者节点的图谱，进入 RRSI 的作者贡献与论文依据" width="100%"></a></p>
+<p align="center"><a href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/#research-demo"><img src="assets/research-to-paper.gif" alt="真实操作演示：从作者合作网络进入 RRSI，查看作者贡献与论文依据" width="100%"></a></p>
 
 ## English
 
@@ -52,7 +52,7 @@ Issues 是公开的；截图请隐去 Key、私人文档与个人信息。无需
 
 Start at the [KnowMe website](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/), with both tools, demos and installation links in one place. For more detail, visit [Paper Radar](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/radar/) or [AI Translate](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/translate/). Have an idea or a rough edge to share? [Suggest a feature](https://github.com/hackerchenzhuo/knowme-ai-translate-site/issues/new?template=feature_request.yml), [report a problem](https://github.com/hackerchenzhuo/knowme-ai-translate-site/issues/new?template=bug_report.yml), or add your experience to an existing issue. Please remove keys and private information from public reports.
 
-Preview the upcoming [Research Atlas](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/#research-atlas): explore coauthorship evidence and a preset focus example. Local evolution in version 1.0.5 is opt-in, stays in your browser, and can be paused or cleared. Availability in the Chrome Web Store depends on review.
+Preview the upcoming [Research Atlas](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/#research-atlas), a map that evolves with what you read and follow. With local evolution enabled in version 1.0.5, visits to Scholar author pages add public bibliography and coauthorship evidence on your device. Recent interests shape the view; displayed counts describe a sample, not a fixed product-wide total. You can pause or clear local evolution, and paper scoring stays independent. Availability in the Chrome Web Store depends on review.
 
 ## 使用与隐私
 
