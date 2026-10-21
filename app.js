@@ -2,7 +2,14 @@
 
 // Locale copy
 const english = document.documentElement.lang === 'en';
-const dictionary={"暂停":"Pause","播放":"Play","暂停演示":"Pause tour","播放演示":"Play tour","自动演示 · ":"Auto tour · ","手动探索 · ":"Explore · ","保存译法":"Save term","按领域与语境，沿用个人译法。":"Keep your terminology consistent with the domain and context.","论文雷达真实界面：机构先验、来源引用与逐项匹配依据。":"Original Paper Radar screenshot: institution priors, cited sources and individual matches.","论文雷达真实界面：arXiv 论文页面上的评分与证据浮窗。":"Original Paper Radar screenshot: scores and evidence on an arXiv paper page.","相关性、质量与时效分别展示，作者贡献和匹配子项清晰可查。":"Relevance, quality and recency, with author contributions and matching topics in detail.","机构依据逐项展开，来源、匹配线索与不确定性一并呈现。":"Inspect each institutional signal, its source, matching evidence and uncertainty.","在 arXiv 原页查看评分、研究方向与机构依据，阅读无需来回切换。":"View scores, topic matches and affiliation evidence directly on arXiv.","放大细节":"Zoom in","适应宽度":"Fit to width","论文详情":"Paper details","机构溯源":"Affiliations","网页标注":"On the page","查看真实的论文评分与作者依据":"Explore actual scores and author evidence","逐项追溯机构与来源":"Trace institutions and their sources","回到原网页，继续阅读":"Keep reading on the original page","文档结构":"Document","表格与链接":"Tables & links","代码与译法":"Code & terms","多级标题、引用与嵌套列表":"Headings, blockquotes and nested lists","表格和超链接，原样保留":"Tables and hyperlinks, preserved","代码保持原样，沿用个人译法":"Keep code intact and apply personal terms","插件界面 · 三篇公开论文，可切换或打开原图。":"Original Chrome Web Store screenshots · Scroll to explore or open the full-size image.","已保存":"Saved","论文详情 · When Agents Slow Down":"Paper details · When Agents Slow Down","论文详情 · WearableQA":"Paper details · WearableQA","论文详情 · Conversation Compiler":"Paper details · Conversation Compiler","Agent 推理":"Agent reasoning","健康数据问答":"Health data QA","对话分析":"Conversation analysis","查看 Agent 策略研究的作者与评分依据":"Inspect author and score evidence for agent strategies","查看可穿戴数据问答的机构与研究线索":"Explore institutions and evidence for wearable-data QA","查看对话轨迹分析的作者与来源":"Inspect authors and sources for conversation trace analysis","论文雷达界面：When Agents Slow Down 的论文与评分依据。":"Paper Radar: When Agents Slow Down and its scoring evidence.","论文雷达界面：WearableQA 的作者、机构与研究依据。":"Paper Radar: WearableQA authors, institutions and evidence.","论文雷达界面：Conversation Compiler 的作者与来源。":"Paper Radar: Conversation Compiler authors and sources.","插件界面 · 三篇公开论文，可切换或打开原图。":"Product interface · Three public papers. Switch examples or open the original images.","多论文 Markdown 阅读笔记 · 预置中英示例，不调用模型。":"Multi-paper Markdown reading brief · Preset English and Chinese examples. No model calls."};
+const dictionary={
+  '保存译法':'Save term','已保存':'Saved',
+  '按领域与语境，沿用个人译法。':'Keep your terminology consistent with the domain and context.',
+  'Agent 推理':'Agent reasoning','文档结构':'Document','表格与链接':'Tables & links','代码与译法':'Code & terms',
+  '多维加权 · 按你的研究偏好排序':'Multiple dimensions · Weighted to your research',
+  '保留结构 · 沿用你的译法':'Original structure · Your preferred terms',
+  '多论文 Markdown 阅读笔记 · 预置中英示例，不调用模型。':'Multi-paper Markdown reading brief · Preset English and Chinese examples. No model calls.',
+};
 const t = value => english ? (dictionary[value] ?? value) : value;
 
 // Public screenshots and a prewritten Markdown reading note. No extension engine runs here.
@@ -29,8 +36,6 @@ const captures = [
   {file:'radar-research-map.webp', original:'radar-research-map.png', title:'研究图谱 · 公开书目', description:'从论文到作者网络，探索研究之间的联系。', alt:'研究图谱：公开书目中的作者与合作关系。'},
 ];
 const labels = {radar:['Agent 推理','可穿戴问答','对话轨迹','研究图谱'], translate:['文档结构','表格与链接','代码与译法']};
-const captions = {radar:captures.map(item=>item.description), translate:['多级标题、引用与嵌套列表','表格和超链接，原样保留','代码保持原样，沿用个人译法']};
-const durationByMode = {radar:[6500,6500,6500,6500], translate:[5000,6500,8500]};
 const root = document.querySelector('#experience');
 const tabs = [...document.querySelectorAll('.product-tab')];
 const stageButtons = [...document.querySelectorAll('.stage-controls button')];
@@ -43,14 +48,11 @@ const sourceRendered = document.querySelector('.source-rendered');
 const sourceMarkdown = document.querySelector('.markdown-source');
 const sourceFormat = document.querySelector('#source-format');
 const termChoice = document.querySelector('#term-choice');
-const playButton = document.querySelector('#play-demo');
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
-const state = {mode:'radar', stage:0, playing:!motion.matches, visible:true, markdown:false, term:'执行轨迹', remembered:false};
-let frame = null, lastTime = 0, elapsed = 0, scrollDriver = null, galleryTarget = null, galleryDrag = null;
+const state = {mode:'radar', stage:0, markdown:false, term:'执行轨迹', remembered:false};
+let scrollDriver = null, galleryTarget = null, galleryDrag = null;
 const assetPrefix = new URL('assets/', document.querySelector('script[src*="app.js"]').src).href;
 
-function active() { return state.playing && state.visible && !document.hidden; }
-function ease(value) { const x = Math.max(0, Math.min(1, value)); return x*x*(3-2*x); }
 function maxScroll(el) { return Math.max(0, el.scrollHeight-el.clientHeight); }
 function sectionOffset(scroller, key) {
   const scope = scroller === sourceScroll ? (state.markdown ? sourceMarkdown : sourceRendered) : scroller;
@@ -58,11 +60,8 @@ function sectionOffset(scroller, key) {
   if (!section) return 0;
   return Math.max(0, Math.min(maxScroll(scroller), section.getBoundingClientRect().top-scroller.getBoundingClientRect().top+scroller.scrollTop-8));
 }
-function scrollReading(key, progress=1, from='intro') {
-  for (const scroller of [sourceScroll, translationScroll]) {
-    const start = sectionOffset(scroller, from), end = sectionOffset(scroller, key);
-    scroller.scrollTop = start+(end-start)*progress;
-  }
+function scrollReading(key) {
+  for (const scroller of [sourceScroll, translationScroll]) scroller.scrollTop=sectionOffset(scroller,key);
 }
 function renderCapture(align=true) {
   const item = captures[state.stage];
@@ -87,17 +86,8 @@ function renderTerm() {
   root.dataset.remembered = String(state.remembered);
   document.querySelector('#remember-term').firstChild.textContent = t(state.remembered ? '已保存' : '保存译法')+' ';
   document.querySelector('#memory-status').textContent = state.remembered
-    ? (english ? 'Saved in this demo: trace → '+state.term+'. Replay resets it.' : '本页已保存：trace → '+state.term+'。重播可重置。')
+    ? (english ? 'Saved in this example: trace → '+state.term+'.' : '本页已保存：trace → '+state.term+'。')
     : t('按领域与语境，沿用个人译法。');
-}
-function updatePlayback() {
-  root.classList.toggle('is-playing', active());
-  playButton.querySelector('span').textContent = t(state.playing ? '暂停' : '播放');
-  playButton.setAttribute('aria-label', t(state.playing ? '暂停演示' : '播放演示'));
-  playButton.querySelector('path').setAttribute('d', state.playing ? 'M7 5v10M13 5v10' : 'M6 4l9 6-9 6z');
-  document.querySelector('#tour-caption').textContent = t(state.playing ? '自动演示 · ' : '手动探索 · ')+t(captions[state.mode][state.stage]);
-  cancelAnimationFrame(frame); frame = null; lastTime = 0;
-  if (active()) frame = requestAnimationFrame(tick);
 }
 function render(alignCapture=true) {
   root.dataset.mode = state.mode;
@@ -113,51 +103,22 @@ function render(alignCapture=true) {
     button.setAttribute('aria-pressed', String(index === state.stage));
     button.querySelector('.stage-name').textContent = t(labels[state.mode][index]||'');
   });
-  document.querySelector('#tour-position').textContent = String(state.stage+1).padStart(2,'0')+' / '+String(labels[state.mode].length).padStart(2,'0');
   document.querySelector('#demo-disclaimer').textContent = t(state.mode === 'radar'
     ? '原始界面 · 左右滑动浏览。论文与图谱均为公开资料演示。'
     : '多论文 Markdown 阅读笔记 · 预置中英示例，不调用模型。');
   if (state.mode === 'radar') renderCapture(alignCapture);
-  renderTerm(); updatePlayback();
+  document.querySelector('#tour-caption').textContent=t(state.mode==='radar'?'多维加权 · 按你的研究偏好排序':'保留结构 · 沿用你的译法');
+  renderTerm();
 }
-function startStage(stage, manual=false, alignCapture=true) {
-  state.stage = stage; elapsed = 0; scrollDriver = null;
-  if (manual) state.playing = false;
+function startStage(stage, alignCapture=true) {
+  state.stage=stage;scrollDriver=null;
   render(alignCapture);
-  if (state.mode === 'translate') {
-    if (stage === 0) { sourceScroll.scrollTop=0; translationScroll.scrollTop=0; }
-    else scrollReading(stage === 1 ? (manual ? 'table' : 'intro') : (manual ? 'code' : 'outline'));
+  if(state.mode==='translate'){
+    if(stage===0){sourceScroll.scrollTop=0;translationScroll.scrollTop=0;}
+    else scrollReading(stage===1?'table':'code');
   }
-  updateProgress();
 }
-function updateProgress() {
-  const durations = durationByMode[state.mode];
-  const total = durations.reduce((a,b)=>a+b,0);
-  const done = durations.slice(0,state.stage).reduce((a,b)=>a+b,0)+elapsed;
-  root.style.setProperty('--tour-progress', String(done/total));
-}
-function tick(now) {
-  if (!active()) { frame=null; return; }
-  if (lastTime) elapsed += Math.min(now-lastTime,80);
-  lastTime = now;
-  if (elapsed >= durationByMode[state.mode][state.stage]) { startStage((state.stage+1)%labels[state.mode].length); return; }
-  if (!motion.matches) {
-    if (state.mode === 'translate' && state.stage === 1) scrollReading('table',ease((elapsed-500)/2600));
-    else if (state.mode === 'translate' && state.stage === 2) {
-      scrollReading('code',ease((elapsed-1900)/2800),'outline');
-      if (elapsed>4900 && state.term!=='过程记录') { state.term='过程记录'; renderTerm(); }
-      if (elapsed>6400 && !state.remembered) { state.remembered=true; renderTerm(); }
-    }
-  }
-  updateProgress(); frame=requestAnimationFrame(tick);
-}
-function pause() { if (state.playing) { state.playing=false; updatePlayback(); } }
-function chooseMode(mode) { if (['radar','translate'].includes(mode)) { state.mode=mode; startStage(0); } }
-function replay() {
-  state.term='执行轨迹'; state.remembered=false; state.markdown=false;
-  sourceRendered.hidden=false; sourceMarkdown.hidden=true; sourceFormat.setAttribute('aria-pressed','false');
-  state.playing=!motion.matches; startStage(0);
-}
+function chooseMode(mode) { if(['radar','translate'].includes(mode)){state.mode=mode;startStage(0);} }
 
 tabs.forEach(tab => {
   tab.addEventListener('click',()=>chooseMode(tab.dataset.mode));
@@ -168,27 +129,25 @@ tabs.forEach(tab => {
     chooseMode(tabs[next].dataset.mode); tabs[next].focus();
   });
 });
-stageButtons.forEach(button=>button.addEventListener('click',()=>startStage(Number(button.dataset.stage),true)));
-playButton.addEventListener('click',()=>{state.playing=!state.playing;scrollDriver=null;updatePlayback();});
-document.querySelector('#replay-demo').addEventListener('click',replay);
+stageButtons.forEach(button=>button.addEventListener('click',()=>startStage(Number(button.dataset.stage))));
 document.querySelectorAll('[data-capture-direction]').forEach(button=>button.addEventListener('click',()=>{
-  startStage((state.stage+Number(button.dataset.captureDirection)+captures.length)%captures.length,true);
+  startStage((state.stage+Number(button.dataset.captureDirection)+captures.length)%captures.length);
 }));
 capture.addEventListener('keydown',event=>{
   if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
   event.preventDefault();
   const next=event.key==='Home'?0:event.key==='End'?captures.length-1:(state.stage+(event.key==='ArrowRight'?1:-1)+captures.length)%captures.length;
-  startStage(next,true);
+  startStage(next);
 });
 capture.addEventListener('scroll',()=>{
   if(state.mode!=='radar'||!capture.clientWidth||galleryDrag)return;
   if(galleryTarget!==null){if(Math.abs(capture.scrollLeft-galleryTarget)<2)galleryTarget=null;return;}
   const next=Math.max(0,Math.min(captures.length-1,Math.round(capture.scrollLeft/capture.clientWidth)));
-  if(next!==state.stage)startStage(next,true,false);
+  if(next!==state.stage)startStage(next,false);
 },{passive:true});
 capture.addEventListener('pointerdown',event=>{
   if(event.button!==0)return;
-  pause();galleryTarget=null;
+  galleryTarget=null;
   if(event.pointerType!=='mouse')return;
   galleryDrag={x:event.clientX,left:capture.scrollLeft,id:event.pointerId};
   capture.classList.add('is-dragging');capture.setPointerCapture(event.pointerId);
@@ -200,7 +159,7 @@ capture.addEventListener('pointermove',event=>{
 function finishGalleryDrag(){
   if(!galleryDrag)return;
   galleryDrag=null;capture.classList.remove('is-dragging');
-  startStage(Math.max(0,Math.min(captures.length-1,Math.round(capture.scrollLeft/capture.clientWidth))),true);
+  startStage(Math.max(0,Math.min(captures.length-1,Math.round(capture.scrollLeft/capture.clientWidth))));
 }
 capture.addEventListener('pointerup',finishGalleryDrag);
 capture.addEventListener('pointercancel',finishGalleryDrag);
@@ -212,34 +171,34 @@ if('ResizeObserver' in window)new ResizeObserver(()=>{
   galleryTarget=null;
 }).observe(capture);
 sourceFormat.addEventListener('click',()=>{
-  pause(); scrollDriver=null;
+  scrollDriver=null;
   const fraction=maxScroll(sourceScroll)?sourceScroll.scrollTop/maxScroll(sourceScroll):0;
   state.markdown=!state.markdown;
   sourceRendered.hidden=state.markdown; sourceMarkdown.hidden=!state.markdown;
   sourceFormat.setAttribute('aria-pressed',String(state.markdown));
   sourceScroll.scrollTop=fraction*maxScroll(sourceScroll);
 });
-termChoice.addEventListener('change',()=>{pause();state.term=termChoice.value;state.remembered=false;renderTerm();});
-document.querySelector('#remember-term').addEventListener('click',()=>{pause();state.remembered=true;renderTerm();});
+termChoice.addEventListener('change',()=>{state.term=termChoice.value;state.remembered=false;renderTerm();});
+document.querySelector('#remember-term').addEventListener('click',()=>{state.remembered=true;renderTerm();});
 for (const scroller of [capture,sourceScroll,translationScroll]) {
-  const takeControl=()=>{pause();scrollDriver=scroller;if(scroller===capture)galleryTarget=null;};
+  const takeControl=()=>{scrollDriver=scroller;if(scroller===capture)galleryTarget=null;};
   scroller.addEventListener('wheel',takeControl,{passive:true});
   scroller.addEventListener('touchstart',takeControl,{passive:true});
   scroller.addEventListener('keydown',event=>{if (!event.defaultPrevented && ['ArrowDown','ArrowUp','ArrowLeft','ArrowRight','PageDown','PageUp','Home','End',' '].includes(event.key)) takeControl();});
   if (scroller!==capture) scroller.addEventListener('scroll',()=>{
-    if (scrollDriver!==scroller || state.playing) return;
+    if (scrollDriver!==scroller) return;
     const other=scroller===sourceScroll?translationScroll:sourceScroll;
     const fraction=maxScroll(scroller)?scroller.scrollTop/maxScroll(scroller):0;
     other.scrollTop=fraction*maxScroll(other);
   },{passive:true});
 }
 document.querySelectorAll('[data-open-demo]').forEach(button=>button.addEventListener('click',()=>{
-  chooseMode(button.dataset.openDemo); state.playing=!motion.matches; startStage(0);
+  chooseMode(button.dataset.openDemo);
   root.scrollIntoView({behavior:motion.matches?'instant':'smooth',block:'start'});
 }));
-document.querySelector('#watch-demo').addEventListener('click',()=>{state.playing=!motion.matches;startStage(0);});
+document.querySelector('#watch-demo').addEventListener('click',()=>startStage(0));
 const privacy=document.querySelector('#privacy-dialog');
-document.querySelector('#open-privacy').addEventListener('click',()=>{pause();privacy.showModal();});
+document.querySelector('#open-privacy').addEventListener('click',()=>privacy.showModal());
 document.querySelector('#close-privacy').addEventListener('click',()=>privacy.close());
 privacy.addEventListener('click',event=>{
   if (event.target!==privacy) return;
@@ -247,12 +206,7 @@ privacy.addEventListener('click',event=>{
   if(event.clientX<b.left||event.clientX>b.right||event.clientY<b.top||event.clientY>b.bottom) privacy.close();
 });
 privacy.addEventListener('close',()=>document.querySelector('#open-privacy').focus());
-document.addEventListener('visibilitychange',updatePlayback);
-if ('IntersectionObserver' in window) new IntersectionObserver(entries=>{
-  const visible=entries[0].isIntersecting;
-  if (visible!==state.visible) {state.visible=visible;updatePlayback();}
-},{threshold:.12}).observe(root);
-motion.addEventListener('change',()=>{if(motion.matches){pause();if(state.mode==='radar')renderCapture();}});
+motion.addEventListener('change',()=>{if(motion.matches&&state.mode==='radar')renderCapture();});
 const initialProduct = document.body.dataset.product || new URLSearchParams(location.search).get('tool');
 if (['radar','translate'].includes(initialProduct)) state.mode = initialProduct;
 render();
