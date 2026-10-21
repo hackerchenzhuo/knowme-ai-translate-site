@@ -32,7 +32,7 @@ Issues 是公开的；截图请隐去 Key、私人文档与个人信息。无需
 
 ## 看看实际效果
 
-论文雷达直接展示 Chrome 商店原图：RRSI 论文详情、评分构成、机构溯源与网页标注。AI 翻译使用包含多级标题、嵌套列表、超链接、表格和代码的 Markdown 笔记，展示结构保留与个人译法。
+论文雷达展示实际插件界面：When Agents Slow Down、WearableQA 与 Conversation Compiler 的论文详情和证据。AI 翻译使用三篇论文的对照阅读简报，包含多级标题、嵌套列表、超链接、表格和代码，展示结构保留与个人译法。
 
 <p align="center"><a href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/#experience"><img src="assets/product-tour.gif" alt="论文雷达原始界面与复杂 Markdown 翻译对照演示" width="100%"></a></p>
 

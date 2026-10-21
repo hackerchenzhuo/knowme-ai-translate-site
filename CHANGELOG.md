@@ -2,6 +2,9 @@
 
 ## 2026-10-22
 
+- Rotate the primary tour across three public papers and use a cross-paper Markdown reading brief throughout both product entry pages.
+- Refresh the atlas display sample and recorded walkthroughs.
+
 - Explore a broader precomputed graph with viewport culling and compact data; indexed scope and displayed nodes are separate.
 - Compare three sourced papers under preset research perspectives, including institution weights, keywords and evidence.
 - Explain cache reuse and bounded automatic query cleanup in the next-version preview.
