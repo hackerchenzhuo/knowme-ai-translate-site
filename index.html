@@ -21,9 +21,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <title>知我 · 从找论文，到读懂它</title>
   <link rel="icon" type="image/svg+xml" href="assets/knowme.svg">
-  <link rel="stylesheet" href="style.css?v=20261021-perf1">
-  <script src="app.js?v=20261021-r6" defer></script>
-  <script src="assets/atlas-motion.js?v=20261021-perf1" defer></script>
+  <link rel="stylesheet" href="style.css?v=20261021-personal1">
+  <script src="app.js?v=20261021-personal1" defer></script>
+  <script src="assets/atlas-motion.js?v=20261021-personal1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到正文</a>
@@ -228,11 +228,19 @@ The checklist and YAML are illustrative reading aids.
 
     <section class="atlas-section shell" id="research-atlas" aria-labelledby="atlas-title">
       <div class="section-heading"><div><p class="eyebrow">KNOWME / RESEARCH ATLAS</p><h2 id="atlas-title">随阅读延展的研究图谱。</h2></div><span class="atlas-preview">下一版预览</span></div>
-      <p class="atlas-intro">从论文到作者，再到合作网络。公开线索逐渐积累，图谱随你的阅读与关注持续更新。</p>
-      <div class="atlas-frame" data-atlas-state="idle" aria-busy="false"><div class="atlas-loading" role="status"><span class="atlas-loading-mark" aria-hidden="true"></span><span class="atlas-loading-label">正在展开研究图谱…</span></div><iframe data-atlas-src="assets/research-atlas.html?v=20261021-perf1" title="可探索的作者合作图谱 · 公开数据演示" loading="eager" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe></div>
-      <div class="atlas-notes"><p>开启本地演化，在 Scholar 作者主页积累公开线索。仅存本机，可随时暂停、清除。</p><a href="assets/research-atlas.html?v=20261021-perf1" target="_blank" rel="noopener noreferrer">展开探索 <span aria-hidden="true">↗</span></a></div>
-      <p class="atlas-source">下方为预置公开样本，数字仅表示当前视图；实际内容随本地资料与关注变化。</p>
-      <p class="atlas-source atlas-score-note" id="atlas-score-note">分值依据计算时点的数据与统计窗口，由算法自动生成，无人工逐篇打分。研究方向会影响相关性与排序；本页为固定案例快照。</p>
+      <p class="atlas-intro">你的研究方向与阅读积累，逐渐形成私人的作者权重，融入每篇论文的个人分。研究图谱，随你持续演进。</p>
+      <div class="atlas-frame" data-atlas-state="idle" aria-busy="false"><div class="atlas-loading" role="status"><span class="atlas-loading-mark" aria-hidden="true"></span><span class="atlas-loading-label">正在展开研究图谱…</span></div><iframe data-atlas-src="assets/research-atlas.html?v=20261021-personal1" title="可探索的作者合作图谱 · 公开数据演示" loading="eager" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe></div>
+      <div class="atlas-notes"><p>开启本地演化，在 Scholar 作者主页积累公开线索。仅存本机，可随时暂停、清除。</p><a href="assets/research-atlas.html?v=20261021-personal1" target="_blank" rel="noopener noreferrer">展开探索 <span aria-hidden="true">↗</span></a></div>
+      <p class="atlas-source">图中为预置公开样本，数字仅表示当前视图；实际内容随本地资料与关注变化。</p>
+      <p class="atlas-source atlas-score-note" id="atlas-score-note">分值由已存书目与方向偏好自动计算，无需逐篇打分。同一位作者，在不同人的私人研究体系中可以拥有不同权重；基础证据始终可查。</p>
+
+      <div class="personal-preview" id="personal-ranking-preview">
+        <div class="personal-preview-copy"><p class="eyebrow">YOUR RESEARCH. YOUR PERSPECTIVE.</p><h3>同一篇 RRSI，
+两种研究偏好。</h3><p>切换偏好，看看作者权重怎样进入个人分。</p><div class="personal-profile-switch" role="group" aria-label="切换研究偏好示例"><button type="button" data-personal-profile="agents" aria-pressed="true">Agent / RSI</button><button type="button" data-personal-profile="vision" aria-pressed="false">视觉与多模态</button></div><span class="personal-sample-label">公开书目样本</span></div>
+        <div class="personal-preview-paper"><div class="personal-preview-heading"><span>RRSI · 2609.24972</span><a href="https://arxiv.org/abs/2609.24972" target="_blank" rel="noopener noreferrer" aria-label="查看 RRSI 原论文">↗</a></div><table><caption class="sr-only">实际权重由已存书目自动计算</caption><thead><tr><th scope="col">作者在我的体系中</th><th scope="col">私人权重</th></tr></thead><tbody><tr data-personal-author="0"><th scope="row">Peng Xia</th><td><span data-personal-weight>×1.423</span><span class="personal-weight-track" aria-hidden="true"><i style="width:92.30000000000001%"></i></span></td></tr><tr data-personal-author="1"><th scope="row">Chengsong Huang</th><td><span data-personal-weight>×1.083</span><span class="personal-weight-track" aria-hidden="true"><i style="width:58.3%"></i></span></td></tr></tbody></table><p class="personal-weight-note">中性权重为 1；其余作者因证据不足保持中性。</p><div class="personal-equation" aria-label="个人评分示例" aria-live="polite"><div><small>基础原始分</small><b data-personal-base>38.8</b></div><span data-personal-operator aria-hidden="true">+</span><div><small>作者私人调整</small><b data-personal-adjustment>1.5</b></div><span aria-hidden="true">=</span><div class="personal-equation-total"><small>论文个人分</small><b data-personal-total>40.3</b></div></div></div>
+        <p class="personal-preview-note">为单独呈现作者权重的影响，本例固定基础分。公开书目快照：2026-10-21；你的结果随研究方向与本地资料变化。</p>
+        <script type="application/json" id="personal-preview-data">{"paper":{"id":"2609.24972","version":3,"title":"RRSI: Regularized Recursive Self-Improvement of Agent Harnesses","url":"https://arxiv.org/abs/2609.24972"},"asOf":"2026-10-21","cases":[{"id":"agents","name":"Agent / RSI","nameEn":"Agents / RSI","base":38.8,"adjustment":1.5,"total":40.3,"authors":[{"name":"Peng Xia","weight":1.423,"adjustment":1.5,"judged":13,"matched":12},{"name":"Chengsong Huang","weight":1.083,"adjustment":0,"judged":12,"matched":7}]},{"id":"vision","name":"视觉与多模态","nameEn":"Vision / multimodal","base":38.8,"adjustment":-1.3,"total":37.5,"authors":[{"name":"Peng Xia","weight":0.654,"adjustment":-1.2,"judged":13,"matched":2},{"name":"Chengsong Huang","weight":0.75,"adjustment":-0.1,"judged":12,"matched":3}]}]}</script>
+      </div>
       <div class="atlas-walkthrough" id="research-demo">
         <div class="atlas-walkthrough-copy"><p class="eyebrow">FROM THE GRAPH TO THE PAPER</p><h3>从一条关系，到一篇论文。</h3><p>找到作者，追溯合作，打开 RRSI。作者证据如何形成评分分量，每一步都能看见。</p><ol><li>在图中找到作者</li><li>沿论文记录进入 RRSI</li><li>查看逐作者贡献与来源</li><li>回到雷达工作台继续阅读</li></ol><div class="atlas-motion-actions"><button type="button" id="atlas-motion-toggle">暂停演示</button><button type="button" id="atlas-motion-open">放大观看 <span aria-hidden="true">↗</span></button><a href="assets/research-to-paper.gif" target="_blank" rel="noopener noreferrer">GIF <span aria-hidden="true">↗</span></a></div><small>实际界面录制，使用公开书目；播放节奏经过调整。</small></div>
         <button class="atlas-motion-preview" type="button" aria-label="放大观看图谱到论文的操作演示"><img id="atlas-motion-image" data-motion="assets/research-to-paper.webp" data-poster="assets/research-to-paper-poster.webp" width="1280" height="800" loading="lazy" decoding="async" alt="实际操作：从作者合作图谱进入 RRSI，查看作者贡献与论文依据。"></button>

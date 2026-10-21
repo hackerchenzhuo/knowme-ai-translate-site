@@ -201,3 +201,28 @@ motion.addEventListener('change',()=>{if(motion.matches)pause();});
 const initialProduct = document.body.dataset.product || new URLSearchParams(location.search).get('tool');
 if (['radar','translate'].includes(initialProduct)) state.mode = initialProduct;
 render();
+
+// The public preview switches precomputed outputs; the private ranking engine is not shipped here.
+(function mountPersonalPreview() {
+  const root = document.getElementById('personal-ranking-preview');
+  const source = document.getElementById('personal-preview-data');
+  if (!root || !source) return;
+  const samples = JSON.parse(source.textContent).cases;
+  function show(id) {
+    const sample = samples.find(item => item.id === id);
+    if (!sample) return;
+    root.querySelectorAll('[data-personal-profile]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.personalProfile === id)));
+    root.querySelector('[data-personal-base]').textContent = sample.base.toFixed(1);
+    root.querySelector('[data-personal-operator]').textContent = sample.adjustment < 0 ? '−' : '+';
+    root.querySelector('[data-personal-adjustment]').textContent = Math.abs(sample.adjustment).toFixed(1);
+    root.querySelector('[data-personal-total]').textContent = sample.total.toFixed(1);
+    root.querySelectorAll('[data-personal-author]').forEach((row, index) => {
+      const author = sample.authors[index];
+      row.querySelector('[data-personal-weight]').textContent = '×' + author.weight.toFixed(3);
+      row.querySelector('.personal-weight-track i').style.width = Math.max(0, Math.min(100, (author.weight - .5) * 100)) + '%';
+    });
+    root.dataset.personalCurrent = id;
+  }
+  root.querySelectorAll('[data-personal-profile]').forEach(button => button.addEventListener('click', () => show(button.dataset.personalProfile)));
+  show('agents');
+})();

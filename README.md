@@ -38,15 +38,15 @@ Issues 是公开的；截图请隐去 Key、私人文档与个人信息。无需
 
 <p align="center"><a href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/#experience">打开交互演示 ↗</a></p>
 
-## 下一版预览 · 研究图谱
+## 下一版预览 · 个人分与研究图谱
 
 从论文发现作者，沿合作关系拓展视野。[探索持续演化的研究图谱](https://hackerchenzhuo.github.io/knowme-ai-translate-site/#research-atlas)，让公开线索逐渐汇成自己的研究脉络。
 
-论文雷达 1.0.5 提供可选的本地演化：开启后，访问 Scholar 作者主页会在本地补充书目、作者与共作线索，近期关注影响图中优先呈现的内容。可暂停、清除，论文评分保持独立。图中计数对应当前视图，实际内容随本地资料与关注变化。商店可用版本以审核结果为准。
+论文雷达 1.0.6 预览：你的研究方向与已存书目一起，形成作者在私人研究体系中的权重，并进入每篇论文的个人分。用同一篇 RRSI [切换两种研究偏好](https://hackerchenzhuo.github.io/knowme-ai-translate-site/#personal-ranking-preview)，查看作者权重与个人分如何变化。开启可选的本地演化后，访问 Scholar 作者主页会补充公开书目与共作线索；可暂停、清除。图中计数对应当前视图，实际内容随本地资料变化。正式可用功能以 Chrome 商店发布版本为准。
 
 <p align="center"><a href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/#research-demo"><img src="assets/research-to-paper.webp" alt="真实操作演示：从作者合作网络进入 RRSI，查看作者贡献与论文依据" width="100%"></a></p>
 
-分值依据计算时点可用的证据与相应统计窗口，按预设规则自动计算，无人工逐篇打分。研究方向影响相关性与综合排序；图谱中的作者基础分项使用统一规则，本页演示为一次固定计算快照。
+个人分由已存证据与研究偏好自动计算，无需逐篇打分；基础证据分单独保留。官网的偏好切换使用预计算的公开样本，只展示计算结果。插件内核与评分引擎保持私有。
 
 ## English
 
@@ -54,9 +54,9 @@ Issues 是公开的；截图请隐去 Key、私人文档与个人信息。无需
 
 Start at the [KnowMe website](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/), with both tools, demos and installation links in one place. For more detail, visit [Paper Radar](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/radar/) or [AI Translate](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/translate/). Have an idea or a rough edge to share? [Suggest a feature](https://github.com/hackerchenzhuo/knowme-ai-translate-site/issues/new?template=feature_request.yml), [report a problem](https://github.com/hackerchenzhuo/knowme-ai-translate-site/issues/new?template=bug_report.yml), or add your experience to an existing issue. Please remove keys and private information from public reports.
 
-Preview the upcoming [Research Atlas](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/#research-atlas), a map that evolves with what you read and follow. With local evolution enabled in version 1.0.5, visits to Scholar author pages add public bibliography and coauthorship evidence on your device. Recent interests shape the view; displayed counts describe a sample, not a fixed product-wide total. You can pause or clear local evolution, and paper scoring stays independent. Availability in the Chrome Web Store depends on review.
+Preview [personal scores and the Research Atlas](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/#research-atlas). Version 1.0.6 uses your research interests and stored bibliography to calculate private author weights, which contribute to each paper’s personal score. [Switch perspectives on the same RRSI paper](https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/#personal-ranking-preview). Optional local evolution adds public bibliography and coauthorship evidence from Scholar profiles you visit. You can pause or clear it; map counts describe the current view. Released features depend on the version available in the Chrome Web Store.
 
-Scores are calculated automatically from the available evidence and its reporting windows, using defined rules. Research interests affect relevance and overall ranking; author components use consistent rules for the same evidence. The public demo shows one fixed calculation snapshot.
+Personal scores are calculated automatically from stored evidence and research preferences, without paper-by-paper ratings. Base evidence scores remain separately available. The public preview switches precomputed outputs; extension engines remain private.
 
 ## 使用与隐私
 
