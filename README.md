@@ -1,8 +1,6 @@
-<p align="center"><strong>简体中文</strong> · <a href="./README.en.md">English</a></p>
+<p align="right"><sub>简体中文 | <a href="./README.en.md">English</a></sub></p>
 
-<h1 align="center"><img src="assets/knowme.svg" width="36" height="36" alt=""> 知我</h1>
-
-<p align="center"><strong>多维评分筛选论文</strong><br>与自己的研究定制化关联</p>
+<p align="center"><img src="assets/readme-hero-zh-v1.webp" width="100%" alt="知我 · 多维评分筛选论文 · 与自己的研究定制化关联"></p>
 
 <p align="center"><a href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/">官网 ↗</a> · <a href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/#guide">使用指南</a> · <a href="https://github.com/hackerchenzhuo/knowme-ai-translate-site/issues">反馈与建议</a></p>
 

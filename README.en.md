@@ -1,8 +1,6 @@
-<p align="center"><a href="./README.md">简体中文</a> · <strong>English</strong></p>
+<p align="right"><sub><a href="./README.md">简体中文</a> | English</sub></p>
 
-<h1 align="center"><img src="assets/knowme.svg" width="36" height="36" alt=""> KnowMe</h1>
-
-<p align="center"><strong>Multidimensional paper scoring.</strong><br>Personalized to your research.</p>
+<p align="center"><img src="assets/readme-hero-en-v1.webp" width="100%" alt="KnowMe · Multidimensional paper scoring. · Personalized to your research."></p>
 
 <p align="center"><a href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/">Website ↗</a> · <a href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/en/#guide">Guide</a> · <a href="https://github.com/hackerchenzhuo/knowme-ai-translate-site/issues">Feedback</a></p>
 
