@@ -1,5 +1,12 @@
 # Website updates
 
+## 2026-10-23
+
+- Provide crisp 2× interface captures, separate Chinese and English previews, and moving multi-paper walkthroughs.
+- Rename the display repository to `knowme-research-ai`; preserve the prior website and privacy routes.
+- Refine the research terminology and preview version 1.0.5: cache retention, recent author fit, optional Scholar reference, and compact Ling-based translation.
+- Extension engines and installation packages remain private. Install through the Chrome Web Store.
+
 ## 2026-10-22
 
 - Rotate the primary tour across three public papers and use a cross-paper Markdown reading brief throughout both product entry pages.
