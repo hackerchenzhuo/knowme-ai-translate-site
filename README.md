@@ -1,6 +1,6 @@
 <p align="center"><img src="assets/repository-cover.svg" alt="KnowMe · 轻量工具，深入阅读" width="100%"></p>
 
-<p align="center"><strong>以多维评分筛选论文，把翻译放在手边。</strong><br>为自己的研究而做，免费与社区分享。</p>
+<p align="center"><strong>多维评分筛选论文</strong><br>与自己的研究定制化关联</p>
 
 <p align="center">
   <a href="https://hackerchenzhuo.github.io/knowme-ai-translate-site/"><img alt="中文官网" src="https://img.shields.io/badge/官网-中文-17677a?style=flat-square"></a>
