@@ -23,7 +23,7 @@
 
 <sub>公开论文示例仅作功能演示，不代表作者或机构背书。</sub>
 
-## 一起打磨
+## 欢迎
 
 个人维护，免费分享。遇到问题或有新想法，欢迎在 [Issues](https://github.com/hackerchenzhuo/knowme-ai-translate-site/issues) 留言。
 
