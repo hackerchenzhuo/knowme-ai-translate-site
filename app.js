@@ -27,7 +27,7 @@ Object.assign(dictionary, {
   '论文雷达工作台：WearableQA 的论文、作者与机构标签。':'Paper Radar workbench: WearableQA, authors and affiliations.',
   '论文雷达工作台：Conversation Compiler 的论文卡片与代码入口。':'Paper Radar workbench: Conversation Compiler and its code link.',
   '研究图谱：公开书目中的作者与合作关系。':'Research map: authors and coauthorship from public bibliography.',
-  '原始界面 · 左右滑动浏览。论文与图谱均为公开资料演示。':'Original interface · Swipe to explore. Papers and map use public data.',
+  '原始界面 · 左右滑动浏览。论文与图谱均为公开资料演示。':'Localized interface preview · Swipe to explore. Papers and scores use public metadata.',
 });
 const captures = [
   {file:'radar-agents.webp', original:'radar-agents.png', title:'论文选读 · When Agents Slow Down', description:'从标题、作者与机构，快速找到值得继续读的论文。', alt:'论文雷达工作台：When Agents Slow Down 的完整论文卡片与选读列表。'},
@@ -35,6 +35,7 @@ const captures = [
   {file:'radar-conversation.webp', original:'radar-conversation.png', title:'论文选读 · Conversation Compiler', description:'从摘要到代码入口，沿着论文继续探索。', alt:'论文雷达工作台：Conversation Compiler 的论文卡片与代码入口。'},
   {file:'radar-research-map.webp', original:'radar-research-map.png', title:'研究图谱 · 公开书目', description:'从论文到作者网络，探索研究之间的联系。', alt:'研究图谱：公开书目中的作者与合作关系。'},
 ];
+if (english) for (const capture of captures) { capture.file=capture.file.replace('.webp','-en.webp'); capture.original=capture.original.replace('.png','-en.png'); }
 const labels = {radar:['Agent 推理','可穿戴问答','对话轨迹','研究图谱'], translate:['文档结构','表格与链接','代码与译法']};
 const root = document.querySelector('#experience');
 const tabs = [...document.querySelectorAll('.product-tab')];
