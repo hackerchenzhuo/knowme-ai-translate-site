@@ -112,3 +112,6 @@ html[lang="en"] .score-heading h2 br{display:initial}
 .tour-state{color:#6b7e88}
 @media(max-width:850px){.score-section{gap:35px;grid-template-columns:.85fr 1.2fr;padding-block:36px}.score-heading h2{font-size:29px}.score-copy>p{font-size:12px}.score-signals{gap:12px}.score-signals span{min-width:80px;font-size:10px}}
 @media(max-width:600px){.score-section{display:block;padding-block:30px}.score-heading h2{font-size:28px;margin-top:10px}.score-heading h2 br{display:none}.score-copy{margin-top:19px}.score-copy>p{font-size:13px}.score-signals{margin-top:17px;gap:12px}.score-signals span{min-width:80px}.score-result{font-size:10px;gap:10px}.score-copy .score-note{font-size:10px}.score-copy .text-link{font-size:10px}.experience[data-mode="translate"] .demo-controls{padding-block:11px}}
+
+.nav-github{display:inline-flex;align-items:center;gap:7px;min-height:32px;font-size:12px;font-weight:550;color:var(--muted);white-space:nowrap}.nav-github:hover,.nav-github:focus-visible{color:var(--ink)}.nav-github svg{flex:none}
+@media(max-width:600px){.nav-actions{gap:12px}.nav-github span{display:none}.nav-github svg{width:16px;height:16px}}
