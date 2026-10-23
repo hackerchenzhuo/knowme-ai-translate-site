@@ -14,29 +14,33 @@ const t = value => english ? (dictionary[value] ?? value) : value;
 
 // Public screenshots and a prewritten Markdown reading note. No extension engine runs here.
 Object.assign(dictionary, {
+  '论文选读 · RRSI':'Reading list · RRSI',
   '论文选读 · When Agents Slow Down':'Reading list · When Agents Slow Down',
   '论文选读 · WearableQA':'Reading list · WearableQA',
   '论文选读 · Conversation Compiler':'Reading list · Conversation Compiler',
   '研究图谱 · 公开书目':'Research map · Public bibliography',
   '从标题、作者与机构，快速找到值得继续读的论文。':'Find your next read through titles, authors and affiliations.',
+  '研究方向、作者线索与个人评分，同屏呈现。':'Research topics, author signals and personal scores, together.',
   '研究线索、机构来源与个人评分，同屏呈现。':'Research topics, affiliations and personal scores, together.',
   '从摘要到代码入口，沿着论文继续探索。':'Follow the paper from its abstract to the original code.',
   '从论文到作者网络，探索研究之间的联系。':'Follow the connections between papers and their authors.',
   '可穿戴问答':'Wearable QA','对话轨迹':'Agent traces','研究图谱':'Research map',
-  '论文雷达工作台：When Agents Slow Down 的完整论文卡片与选读列表。':'Paper Radar workbench: When Agents Slow Down in the reading list.',
+  '论文雷达工作台：RRSI 的独立论文卡片与个人评分。':'Paper Radar workbench: RRSI with its personal scores.',
+  '论文雷达工作台：When Agents Slow Down 的独立论文卡片。':'Paper Radar workbench: a dedicated view of When Agents Slow Down.',
   '论文雷达工作台：WearableQA 的论文、作者与机构标签。':'Paper Radar workbench: WearableQA, authors and affiliations.',
   '论文雷达工作台：Conversation Compiler 的论文卡片与代码入口。':'Paper Radar workbench: Conversation Compiler and its code link.',
   '研究图谱：公开书目中的作者与合作关系。':'Research map: authors and coauthorship from public bibliography.',
   '原始界面 · 左右滑动浏览。论文与图谱均为公开资料演示。':'Localized interface preview · Swipe to explore. Papers and scores use public metadata.',
 });
 const captures = [
-  {file:'radar-agents.webp', original:'radar-agents.png', title:'论文选读 · When Agents Slow Down', description:'从标题、作者与机构，快速找到值得继续读的论文。', alt:'论文雷达工作台：When Agents Slow Down 的完整论文卡片与选读列表。'},
+  {file:'radar-rrsi.webp', original:'radar-rrsi.png', title:'论文选读 · RRSI', description:'研究方向、作者线索与个人评分，同屏呈现。', alt:'论文雷达工作台：RRSI 的独立论文卡片与个人评分。'},
+  {file:'radar-agents.webp', original:'radar-agents.png', title:'论文选读 · When Agents Slow Down', description:'从标题、作者与机构，快速找到值得继续读的论文。', alt:'论文雷达工作台：When Agents Slow Down 的独立论文卡片。'},
   {file:'radar-wearableqa.webp', original:'radar-wearableqa.png', title:'论文选读 · WearableQA', description:'研究线索、机构来源与个人评分，同屏呈现。', alt:'论文雷达工作台：WearableQA 的论文、作者与机构标签。'},
   {file:'radar-conversation.webp', original:'radar-conversation.png', title:'论文选读 · Conversation Compiler', description:'从摘要到代码入口，沿着论文继续探索。', alt:'论文雷达工作台：Conversation Compiler 的论文卡片与代码入口。'},
   {file:'radar-research-map.webp', original:'radar-research-map.png', title:'研究图谱 · 公开书目', description:'从论文到作者网络，探索研究之间的联系。', alt:'研究图谱：公开书目中的作者与合作关系。'},
 ];
 if (english) for (const capture of captures) { capture.file=capture.file.replace('.webp','-en.webp'); capture.original=capture.original.replace('.png','-en.png'); }
-const labels = {radar:['Agent 推理','可穿戴问答','对话轨迹','研究图谱'], translate:['文档结构','表格与链接','代码与译法']};
+const labels = {radar:['RRSI','Agent 推理','可穿戴问答','对话轨迹','研究图谱'], translate:['文档结构','表格与链接','代码与译法']};
 const root = document.querySelector('#experience');
 const tabs = [...document.querySelectorAll('.product-tab')];
 const stageButtons = [...document.querySelectorAll('.stage-controls button')];
@@ -76,7 +80,7 @@ function renderCapture(align=true) {
     if(motion.matches)capture.scrollLeft=left;
     else capture.scrollTo({left,behavior:'smooth'});
   }
-  captureLink.href = assetPrefix+item.original;
+  captureLink.href = assetPrefix+item.original+'?v=20261024-gallery';
   document.querySelector('#capture-title').textContent = t(item.title);
   document.querySelector('#capture-description').textContent = t(item.description);
   document.querySelector('#capture-position').textContent=String(state.stage+1).padStart(2,'0')+' / '+String(captures.length).padStart(2,'0');

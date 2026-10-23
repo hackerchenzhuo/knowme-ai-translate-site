@@ -17,7 +17,7 @@
 
 AI 研究持续增长。研究相关性、作者与机构证据、时效和个人偏好分层计算，帮助确定阅读优先级。研究方向与公开证据变化，私人权重随之调整。[了解评分与图谱 ↗](https://hackerchenzhuo.github.io/knowme-research-ai/#ranking)
 
-<p align="center"><a href="https://hackerchenzhuo.github.io/knowme-research-ai/#experience"><img src="assets/product-tour.webp" alt="论文雷达多篇公开论文的高清滑动预览" width="100%"></a></p>
+<p align="center"><a href="https://hackerchenzhuo.github.io/knowme-research-ai/#experience"><img src="assets/product-tour.webp?v=20261024-gallery" alt="论文雷达多篇公开论文的高清滑动预览" width="100%"></a></p>
 
 <p align="center"><a href="https://hackerchenzhuo.github.io/knowme-research-ai/#experience">浏览实际界面 ↗</a></p>
 

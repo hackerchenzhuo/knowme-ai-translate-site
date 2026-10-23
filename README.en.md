@@ -17,7 +17,7 @@ Free to install. AI Translate uses your own model connection; provider fees may 
 
 Relevance, author and institutional evidence, recency and your interests are weighted in layers to shape your reading order. Personal weights adapt as your research interests and the evidence change. [Explore scoring and the research map ↗](https://hackerchenzhuo.github.io/knowme-research-ai/en/#ranking)
 
-<p align="center"><a href="https://hackerchenzhuo.github.io/knowme-research-ai/en/#experience"><img src="assets/product-tour-en.webp" alt="High-resolution Paper Radar interface preview across multiple public papers" width="100%"></a></p>
+<p align="center"><a href="https://hackerchenzhuo.github.io/knowme-research-ai/en/#experience"><img src="assets/product-tour-en.webp?v=20261024-gallery" alt="High-resolution Paper Radar interface preview across multiple public papers" width="100%"></a></p>
 
 <p align="center"><a href="https://hackerchenzhuo.github.io/knowme-research-ai/en/#experience">Explore the interface ↗</a></p>
 
